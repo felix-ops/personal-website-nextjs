@@ -1,12 +1,15 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
-import { Link, useLocation } from "wouter";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
+  const pathname = usePathname();
 
   const handleNavClick = (href: string) => {
     if (href.startsWith("#")) {
@@ -33,7 +36,6 @@ export default function Navigation() {
               </h1>
             </Link>
           </div>
-          
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
@@ -47,19 +49,13 @@ export default function Navigation() {
                     {item.label}
                   </button>
                 ) : (
-                  <Link key={item.href} href={item.href}>
-                    <button
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="text-slate-700 hover:text-blue-600 transition-colors duration-200 font-medium"
-                    >
-                      {item.label}
-                    </button>
+                  <Link key={item.href} href={item.href} className="text-slate-700 hover:text-blue-600 transition-colors duration-200 font-medium cursor-pointer" onClick={() => setMobileMenuOpen(false)}>
+                    {item.label}
                   </Link>
                 )
               ))}
             </div>
           </div>
-
           {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
@@ -72,7 +68,6 @@ export default function Navigation() {
             </Button>
           </div>
         </div>
-
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-slate-200">
@@ -87,13 +82,8 @@ export default function Navigation() {
                     {item.label}
                   </button>
                 ) : (
-                  <Link key={item.href} href={item.href}>
-                    <button
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block w-full text-left px-3 py-2 text-slate-700 hover:text-blue-600 transition-colors duration-200"
-                    >
-                      {item.label}
-                    </button>
+                  <Link key={item.href} href={item.href} className="block w-full text-left px-3 py-2 text-slate-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer" onClick={() => setMobileMenuOpen(false)}>
+                    {item.label}
                   </Link>
                 )
               ))}

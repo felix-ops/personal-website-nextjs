@@ -1,13 +1,13 @@
+"use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
+import { FaLinkedinIn, FaTwitter, FaDribbble, FaGithub } from "react-icons/fa";
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -18,9 +18,27 @@ export default function ContactSection() {
   });
   const { toast } = useToast();
 
+
+
   const contactMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      return await apiRequest("POST", "/api/contact", data);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "9185149c-c3af-411e-b77f-4368a933d06d", 
+          name: data.name,
+          email: data.email,
+          subject: data.projectType || "Portfolio Inquiry",
+          message: data.message,
+        }),
+      });
+  
+      const result = await response.json();
+      if (!response.ok || result.success !== true) {
+        throw new Error(result.message || "Failed to send message");
+      }
+      return result;
     },
     onSuccess: () => {
       toast({
@@ -37,6 +55,7 @@ export default function ContactSection() {
       });
     },
   });
+  
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -76,10 +95,10 @@ export default function ContactSection() {
   ];
 
   const socialLinks = [
-    { icon: "fab fa-linkedin-in", href: "#", color: "hover:bg-blue-600" },
-    { icon: "fab fa-twitter", href: "#", color: "hover:bg-blue-400" },
-    { icon: "fab fa-dribbble", href: "#", color: "hover:bg-pink-600" },
-    { icon: "fab fa-github", href: "#", color: "hover:bg-slate-800" }
+    { icon: FaLinkedinIn, href: "#", color: "hover:bg-blue-600" },
+    { icon: FaTwitter, href: "#", color: "hover:bg-blue-400" },
+    { icon: FaDribbble, href: "#", color: "hover:bg-pink-600" },
+    { icon: FaGithub, href: "#", color: "hover:bg-slate-800" }
   ];
 
   return (
@@ -122,7 +141,7 @@ export default function ContactSection() {
                       href={social.href}
                       className={`w-10 h-10 bg-slate-200 ${social.color} text-slate-600 hover:text-white rounded-lg flex items-center justify-center transition-colors duration-200`}
                     >
-                      <i className={social.icon}></i>
+                      <social.icon className="w-5 h-5" />
                     </a>
                   ))}
                 </div>
@@ -134,7 +153,7 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
-                    Name *
+                    Your name:
                   </Label>
                   <Input
                     id="name"
@@ -149,7 +168,7 @@ export default function ContactSection() {
 
                 <div>
                   <Label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
-                    Email *
+                    Email:
                   </Label>
                   <Input
                     id="email"
@@ -162,28 +181,10 @@ export default function ContactSection() {
                   />
                 </div>
 
-                <div>
-                  <Label htmlFor="project-type" className="block text-sm font-medium text-slate-700 mb-2">
-                    Project Type
-                  </Label>
-                  <Select value={formData.projectType} onValueChange={(value) => handleInputChange("projectType", value)}>
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select a project type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="3d-visualization">3D Visualization</SelectItem>
-                      <SelectItem value="simulation">Simulation Development</SelectItem>
-                      <SelectItem value="character-design">Character Design</SelectItem>
-                      <SelectItem value="product-visualization">Product Visualization</SelectItem>
-                      <SelectItem value="vr-experience">VR Experience</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
 
                 <div>
                   <Label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
-                    Message *
+                    Your message:
                   </Label>
                   <Textarea
                     id="message"

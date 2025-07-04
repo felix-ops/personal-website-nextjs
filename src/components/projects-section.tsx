@@ -1,8 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Heart } from "lucide-react";
-import { Link } from "wouter";
+import Link from "next/link";
 
 export default function ProjectsSection() {
   const [likedProjects, setLikedProjects] = useState<Set<number>>(new Set());

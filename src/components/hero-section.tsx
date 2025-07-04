@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/lib/utils";
 
