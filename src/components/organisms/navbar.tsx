@@ -1,19 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/atoms/button";
+import { useRouter, usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
 import Link from "next/link";
-// import { usePathname } from "next/navigation";
 
 export default function Navigation() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-	// const pathname = usePathname();
+	const router = useRouter();
+	const pathname = usePathname();
+
+	// Handle scrolling after navigation
+	useEffect(() => {
+		// Check if there's a hash in the URL (e.g., /#about)
+		const hash = window.location.hash;
+		if (hash) {
+			scrollToSection(hash); // Scroll to the section after page load
+		}
+	}, [pathname]); // Re-run when pathname changes
 
 	const handleNavClick = (href: string) => {
 		if (href.startsWith("#")) {
-			scrollToSection(href);
+			// If not on homepage, navigate to homepage with hash
+			if (pathname !== "/") {
+				router.push(`/${href}`); // Navigate to /#about, /#experience, etc.
+			} else {
+				// Already on homepage, just scroll
+				scrollToSection(href);
+			}
 		}
 		setMobileMenuOpen(false);
 	};

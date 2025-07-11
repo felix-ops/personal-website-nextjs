@@ -9,7 +9,7 @@ export type Story = {
     tags: string[];
     year: string;
   };
-  
+
   export const storyCategories = [
     "all",
     "3D Visualization",
@@ -27,7 +27,7 @@ export type Story = {
         description:
             "Photorealistic architectural visualization featuring advanced lighting, materials, and environmental details for a commercial development project.",
         image:
-            "https://pixabay.com/get/g9511300b498bbd56140e1f3a913f51e12a35cc173b5260dd209328834b6cb645f8e3bbc9681b78c57ecf7feb4d00cdd1370159b38c466db7e6337e8cec202f4f_1280.jpg",
+            "https://cdn.pixabay.com/photo/2023/02/15/10/19/backlinks-7791387_1280.jpg",
         link: "https://en.wikipedia.org/wiki/Main_Page",
         category: "3D Visualization",
         categoryColor: "bg-blue-600",
@@ -66,7 +66,7 @@ export type Story = {
         description:
             "High-end product visualization for consumer electronics, featuring studio lighting setups and material accuracy for marketing campaigns.",
         image:
-            "https://pixabay.com/get/gf94c2e5e670ca81d74e460b0032bfdf880d100a0dd2a81ee9ab0d80dd0668d2c546d062eb3201c121ba9597d81ef8fecf4d4a823472405e2b44d9da18448304f_1280.jpg",
+            "https://cdn.pixabay.com/photo/2023/02/15/10/22/backlinks-7791414_1280.jpg",
         link: "https://en.wikipedia.org/wiki/Main_Page",
         category: "Product Design",
         categoryColor: "bg-orange-600",
@@ -79,7 +79,7 @@ export type Story = {
         description:
             "Virtual reality training environment for industrial applications, featuring interactive elements and realistic physics simulations.",
         image:
-            "https://pixabay.com/get/ge92c6f7c8412597f47d33b29bd3e0ef0e0f6e93fd71283cdc794a25892dd860eededa316ca2d4423250327444734ec13cfda65bcf6650707b862cd41d8b2568f_1280.jpg",
+            "https://cdn.pixabay.com/photo/2017/08/08/22/11/century-link-field-2612912_1280.jpg",
         link: "https://en.wikipedia.org/wiki/Main_Page",
         category: "VR Experience",
         categoryColor: "bg-indigo-600",

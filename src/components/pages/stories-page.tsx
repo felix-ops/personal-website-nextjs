@@ -1,6 +1,6 @@
 "use client";
 
-import Navigation from "@/components/organisms/navigation";
+import Navigation from "@/components/organisms/navbar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/atoms/select";
 import { Input } from "@/components/atoms/input";
 import { useState } from "react";

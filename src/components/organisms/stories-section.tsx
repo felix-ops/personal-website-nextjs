@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/atoms/button";
 import Link from "next/link";
 import { stories } from "@/data/stories-data";
@@ -27,7 +25,7 @@ export default function StoriesSection() {
 
 					<div className="text-center mt-12">
 						<Link href="/stories">
-							<Button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
+							<Button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 cursor-pointer">
 								View All Works
 							</Button>
 						</Link>
