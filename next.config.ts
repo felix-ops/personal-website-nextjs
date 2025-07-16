@@ -13,12 +13,22 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "cdn.pixabay.com",
-        pathname: "/**", // Allow all paths under cdn.pixabay.com
+        pathname: "/**", 
       },
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-        pathname: "/**", // Allow all paths under images.unsplash.com
+        pathname: "/**", 
+      },
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com",
+        pathname: "/**", 
+      },
+      {
+        protocol: "https",
+        hostname: "kastner.io",
+        pathname: "/**",
       },
     ],
   },

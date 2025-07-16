@@ -6,7 +6,7 @@ export default function AboutSection() {
 	return (
 		<section id="about" className="py-20 bg-white">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="max-w-6xl mx-auto">
+				<div className="max-w-8xl mx-auto">
 					<div className="text-center mb-16">
 						<h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">About Me</h2>
 						<p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -32,11 +32,11 @@ export default function AboutSection() {
 							<div className="space-y-6">
 								<div>
 									<h3 className="text-2xl font-semibold text-slate-900 mb-4">My Journey</h3>
-									<p className="text-slate-600 leading-relaxed mb-4">
+									<p className="text-slate-600 leading-relaxed mb-4 max-w-xl">
 										With over 5 years of experience in 3D modeling, animation, and simulation development, I specialize
 										in creating visually stunning and technically accurate representations of complex systems.
 									</p>
-									<p className="text-slate-600 leading-relaxed">
+									<p className="text-slate-600 leading-relaxed max-w-xl">
 										My work spans from architectural visualizations and product prototypes to physics simulations and
 										interactive experiences that help clients visualize and understand their projects before
 										implementation.
