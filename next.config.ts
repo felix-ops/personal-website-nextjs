@@ -3,8 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
 	/* config options here */
 	devIndicators: false,
-	// Disable native minifier to avoid lightningcss or SWC native issues
-	swcMinify: false,
+	compiler: {
+		// This replaces `swcMinify: false` in Next.js 15+
+		removeConsole: false,
+	},
+
 	images: {
 		remotePatterns: [
 			{
