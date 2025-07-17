@@ -33,8 +33,10 @@ export default function AboutSection() {
 								<div>
 									<h3 className="text-2xl font-semibold text-slate-900 mb-4">My Journey</h3>
 									<p className="text-slate-600 leading-relaxed mb-4 max-w-xl">
-										With over 5 years of experience in 3D modeling, animation, and simulation development, I specialize
-										in creating visually stunning and technically accurate representations of complex systems.
+										My world is built at the intersection of science and art. I started my journey in Physics, driven to
+										understand the &quot;rules&quot; of reality. Today, I use that same curiosity to create new
+										realities. As a Creative Technologist, I use code and 3D art as my tools to build immersive worlds
+										that people can explore and interact with.
 									</p>
 									<p className="text-slate-600 leading-relaxed max-w-xl">
 										My work spans from architectural visualizations and product prototypes to physics simulations and

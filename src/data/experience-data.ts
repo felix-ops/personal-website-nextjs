@@ -72,7 +72,7 @@ export const experiences = [
 			"At the <b>Huntsman Cancer Institute (HCI)</b>, I researched the molecular mechanisms and therapeutic response and resistance of small cell lung cancer (SCLC). SCLC is a leading cause of cancer in the United States with few treatments available. Initially, SCLC is treated with platinum-based therapies; however, the response is short-lived. Relapse usually occurs, resulting in even more aggressive metastatic tumors. We believe that by uncovering the mechanisms of SCLC, we can develop personalized therapeutics based on the mutations and mechanisms unique to each tumor population.",
 		backgroundImage:
 			"https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080",
-		logo: "https://via.placeholder.com/80",
+		logo: "logos/ski-logo.svg",
 		tags: [
 			"Cancer",
 			"Lung-cancer",
@@ -104,7 +104,7 @@ export const experiences = [
 			"At the <b>Huntsman Cancer Institute (HCI)</b>, I researched the molecular mechanisms and therapeutic response and resistance of small cell lung cancer (SCLC). SCLC is a leading cause of cancer in the United States with few treatments available. Initially, SCLC is treated with platinum-based therapies; however, the response is short-lived. Relapse usually occurs, resulting in even more aggressive metastatic tumors. We believe that by uncovering the mechanisms of SCLC, we can develop personalized therapeutics based on the mutations and mechanisms unique to each tumor population.",
 		backgroundImage:
 			"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600",
-		logo: "https://via.placeholder.com/80",
+		logo: "logos/ski-logo.svg",
 		tags: [
 			"Cancer",
 			"Lung-cancer",

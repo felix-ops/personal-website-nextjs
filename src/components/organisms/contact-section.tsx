@@ -93,8 +93,8 @@ export default function ContactSection() {
 	];
 
 	const socialLinks = [
-		{ icon: FaLinkedinIn, href: "#", color: "hover:bg-blue-600" },
-		{ icon: FaGithub, href: "#", color: "hover:bg-slate-800" },
+		{ icon: FaLinkedinIn, href: "https://www.linkedin.com/in/bhuvaneshwaran-m-563a94271/", color: "hover:bg-blue-600" },
+		{ icon: FaGithub, href: "https://github.com/felix-ops", color: "hover:bg-slate-800" },
 	];
 
 	return (
@@ -131,12 +131,14 @@ export default function ContactSection() {
 							</div>
 
 							<div>
-								<h4 className="text-lg font-semibold text-slate-900 mb-4">Follow My Work</h4>
+								<h4 className="text-lg font-semibold text-slate-900 mb-4">Follow Me On</h4>
 								<div className="flex space-x-4">
 									{socialLinks.map((social, index) => (
 										<a
 											key={index}
 											href={social.href}
+											target="_blank"
+											rel="noopener noreferrer"
 											className={`w-10 h-10 bg-slate-200 ${social.color} text-slate-600 hover:text-white rounded-lg flex items-center justify-center transition-colors duration-200`}
 										>
 											<social.icon className="w-5 h-5" />
