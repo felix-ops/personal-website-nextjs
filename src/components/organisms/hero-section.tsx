@@ -13,7 +13,7 @@ export default function HeroSection() {
 					<div className="flex flex-col sm:flex-row gap-4 justify-center">
 						<ScrollButton
 							target="#stories"
-							className="bg-blue-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 cursor-pointer"
+							className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary-hover transition-colors duration-200 cursor-pointer"
 						>
 							View My Work
 						</ScrollButton>

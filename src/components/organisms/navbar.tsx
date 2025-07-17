@@ -47,7 +47,7 @@ export default function Navigation() {
 				<div className="flex justify-between items-center h-16">
 					<div className="flex-shrink-0">
 						<Link href="/">
-							<h1 className="text-xl font-bold text-slate-900 cursor-pointer hover:text-blue-600 transition-colors duration-200">
+							<h1 className="text-2xl font-bold text-slate-900 cursor-pointer hover:text-blue-600 transition-colors duration-200">
 								Bhuvaneshwaran M
 							</h1>
 						</Link>

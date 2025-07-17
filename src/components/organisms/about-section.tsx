@@ -50,7 +50,7 @@ export default function AboutSection() {
 									<div className="grid grid-cols-2 gap-3">
 										{skills.map((skill, index) => (
 											<div key={index} className="flex items-center space-x-2">
-												<div className="w-2 h-2 bg-blue-600 rounded-full"></div>
+												<div className="w-2 h-2 bg-[#4d4d4d] rounded-full"></div>
 												<span className="text-slate-700">{skill}</span>
 											</div>
 										))}

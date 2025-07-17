@@ -50,7 +50,7 @@ export function StoryCard({ story }: StoryCardProps) {
 					))}
 				</div>
 				<div className="flex items-center justify-between">
-					<Button variant="ghost" className="text-blue-600 hover:text-blue-700 font-medium text-sm p-0 h-auto">
+					<Button variant="ghost" className="text-primary hover:text-blue-700 font-medium text-sm p-0 h-auto">
 						View Details <ArrowRight className="ml-1 h-3 w-3" />
 					</Button>
 				</div>
