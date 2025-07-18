@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Search, Filter } from "lucide-react";
 import { stories, storyCategories } from "@/data/stories-data";
 import { StoryCard } from "@/components/molecules/story-card";
-import { info } from "@/data/information";
+import Footer from "@/components/organisms/footer";
 
 export default function StoriesPage() {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -90,17 +90,8 @@ export default function StoriesPage() {
 					</div>
 				</div>
 			</section>
-
 			{/* Footer */}
-			<footer className="bg-slate-900 text-white py-8">
-				<div className="container mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="max-w-6xl mx-auto text-center">
-						<p className="text-slate-400">
-							© {info.currentYear} Bhuvaneshwaran M. All rights reserved. | Crafted with passion.
-						</p>
-					</div>
-				</div>
-			</footer>
+			<Footer />
 		</div>
 	);
 }

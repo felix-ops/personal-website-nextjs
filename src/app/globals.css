@@ -45,7 +45,7 @@
 
 :root {
 	--radius: 0.625rem;
-	--background: #eeeeee;
+	--background: #ffffff;
 	--foreground: #272727;
 	--primary: #232323;
 	--primary-foreground: #ffffff;
@@ -60,8 +60,26 @@
 	--border: #ebebeb;
 	--input: #ebebeb;
 	--ring: #b5b5b5;
+	--card: #ffffff;
+	--card-foreground: #272727;
+	--popover: #ffffff;
+	--popover-foreground: #272727;
+	--chart-1: #f6a700;
+	--chart-2: #3cb4e5;
+	--chart-3: #4e6be6;
+	--chart-4: #ffe66d;
+	--chart-5: #ffe04d;
+	--sidebar: #fcfcfc;
+	--sidebar-foreground: #272727;
+	--sidebar-primary: #353535;
+	--sidebar-primary-foreground: #fcfcfc;
+	--sidebar-accent: #f8f8f8;
+	--sidebar-accent-foreground: #353535;
+	--sidebar-border: #ebebeb;
+	--sidebar-ring: #b5b5b5;
 }
 
-body, html {
-  font-family: 'Nunito', sans-serif;
+body,
+html {
+	font-family: "Nunito", sans-serif;
 }

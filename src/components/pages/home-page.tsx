@@ -4,6 +4,7 @@ import ExperienceSection from "@/components/organisms/experience-section";
 import HeroSection from "@/components/organisms/hero-section";
 import Navigation from "@/components/organisms/navbar";
 import StoriesSection from "@/components/organisms/stories-section";
+import Footer from "../organisms/footer";
 
 export default function HomePage() {
 	return (
@@ -14,6 +15,7 @@ export default function HomePage() {
 			<ExperienceSection />
 			<StoriesSection />
 			<ContactSection />
+			<Footer />
 		</main>
 	);
 }

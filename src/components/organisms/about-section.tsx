@@ -24,6 +24,7 @@ export default function AboutSection() {
 									fill
 									className="rounded-2xl shadow-lg object-cover"
 									sizes="(max-width: 768px) 100vw, 33vw"
+									priority={true}
 								/>
 							</div>
 						</div>

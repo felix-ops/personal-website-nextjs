@@ -6,8 +6,8 @@ export const experiences = [
 		location: "Chennai, India",
 		description:
 			"As a Ground Station Engineer at Space Kidz India, I am responsible for developing a microcontroller and IoT-based satellite tracking and signal-capturing system that can be integrated with any YAGI or Dish antenna. The implemented system enables the antennas to autonomously track any LEO objects using its TLE data, while also capturing UHF satellite transmissions and relaying them to a host server while ensuring seamless satellite communication.",
-		backgroundImage: "images/ski-group-photo.jpg",
-		logo: "logos/ski-logo.svg",
+		backgroundImage: "/images/ski-group-photo.jpg",
+		logo: "/logos/ski-logo.svg",
 		tags: [
 			"Ground-Station",
 			"Embedded-Systems",
@@ -38,8 +38,8 @@ export const experiences = [
 		location: "Chennai, India",
 		description:
 			"As a Ground Station Engineer at Space Kidz India, I am responsible for developing a microcontroller and IoT-based satellite tracking and signal-capturing system that can be integrated with any YAGI or Dish antenna. The implemented system enables the antennas to autonomously track any LEO objects using its TLE data, while also capturing UHF satellite transmissions and relaying them to a host server while ensuring seamless satellite communication.",
-		backgroundImage: "images/3d-vis-azaadi-sat-2.jpg",
-		logo: "logos/ski-logo.svg",
+		backgroundImage: "/images/3d-vis-azaadi-sat-2.jpg",
+		logo: "/logos/ski-logo.svg",
 		tags: [
 			"Ground-Station",
 			"Embedded-Systems",
@@ -72,7 +72,7 @@ export const experiences = [
 			"At the <b>Huntsman Cancer Institute (HCI)</b>, I researched the molecular mechanisms and therapeutic response and resistance of small cell lung cancer (SCLC). SCLC is a leading cause of cancer in the United States with few treatments available. Initially, SCLC is treated with platinum-based therapies; however, the response is short-lived. Relapse usually occurs, resulting in even more aggressive metastatic tumors. We believe that by uncovering the mechanisms of SCLC, we can develop personalized therapeutics based on the mutations and mechanisms unique to each tumor population.",
 		backgroundImage:
 			"https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080",
-		logo: "logos/ski-logo.svg",
+		logo: "/logos/ski-logo.svg",
 		tags: [
 			"Cancer",
 			"Lung-cancer",
@@ -104,7 +104,7 @@ export const experiences = [
 			"At the <b>Huntsman Cancer Institute (HCI)</b>, I researched the molecular mechanisms and therapeutic response and resistance of small cell lung cancer (SCLC). SCLC is a leading cause of cancer in the United States with few treatments available. Initially, SCLC is treated with platinum-based therapies; however, the response is short-lived. Relapse usually occurs, resulting in even more aggressive metastatic tumors. We believe that by uncovering the mechanisms of SCLC, we can develop personalized therapeutics based on the mutations and mechanisms unique to each tumor population.",
 		backgroundImage:
 			"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600",
-		logo: "logos/ski-logo.svg",
+		logo: "/logos/ski-logo.svg",
 		tags: [
 			"Cancer",
 			"Lung-cancer",

@@ -10,11 +10,12 @@ import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/f
 import { experiences } from "@/data/experience-data";
 import { FaXTwitter } from "react-icons/fa6";
 import Timeline from "@/components/molecules/timeline";
+import React from "react";
 
 // Define a specific type for the animation direction for type safety
 type Direction = "next" | "previous";
 
-export default function ExperienceSection() {
+const ExperienceSection = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [direction, setDirection] = useState<Direction>("next");
 
@@ -104,9 +105,17 @@ export default function ExperienceSection() {
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 					transition={{ duration: 0.5, ease: "easeInOut" }}
-					className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat md:bg-fixed"
-					style={{ backgroundImage: `url(${currentExperience.backgroundImage})` }}
-				/>
+					className="pointer-events-none select-none w-full h-full absolute inset-0 -z-10 md:fixed"
+				>
+					<Image
+						src={currentExperience.backgroundImage}
+						alt=""
+						fill
+						sizes="100vw"
+						className="object-cover object-center"
+						priority
+					/>
+				</motion.div>
 			</AnimatePresence>
 			<div className="absolute inset-0 bg-gradient-to-t from-[#000000ff] via-[#000813dd] to-[#00060faa] pointer-events-none"></div>
 
@@ -299,4 +308,6 @@ export default function ExperienceSection() {
 			</div>
 		</section>
 	);
-}
+};
+
+export default React.memo(ExperienceSection);
