@@ -35,8 +35,8 @@ export default function Navigation() {
 	};
 
 	const navItems = [
-		{ href: "#about", label: "About", isSection: true },
 		{ href: "/stories", label: "Projects", isSection: false },
+		{ href: "/blogs", label: "Blogs", isSection: false },
 		{ href: "#contact", label: "Contact", isSection: true },
 	];
 

@@ -3,22 +3,28 @@
 import Navigation from "@/components/organisms/navbar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/atoms/select";
 import { Input } from "@/components/atoms/input";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Search, Filter } from "lucide-react";
-import { stories, storyCategories } from "@/data/stories-data";
+import { stories } from "@/data/stories-data";
 import { StoryCard } from "@/components/molecules/story-card";
 import Footer from "@/components/organisms/footer";
 
 export default function StoriesPage() {
 	const [searchTerm, setSearchTerm] = useState("");
-	const [selectedCategory, setSelectedCategory] = useState("all");
+	const [selectedTag, setSelectedTag] = useState("all");
+
+	const allTags = useMemo(() => {
+		const tagSet = new Set<string>();
+		stories.forEach((story) => story.tags.forEach((tag) => tagSet.add(tag)));
+		return ["all", ...Array.from(tagSet)];
+	}, []);
 
 	const filteredProjects = stories.filter((story) => {
 		const matchesSearch =
 			story.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
 			story.description.toLowerCase().includes(searchTerm.toLowerCase());
-		const matchesCategory = selectedCategory === "all" || story.category === selectedCategory;
-		return matchesSearch && matchesCategory;
+		const matchesTag = selectedTag === "all" || story.tags.includes(selectedTag);
+		return matchesSearch && matchesTag;
 	});
 
 	return (
@@ -47,14 +53,14 @@ export default function StoriesPage() {
 							</div>
 							<div className="flex items-center gap-2">
 								<Filter className="text-slate-400 h-4 w-4" />
-								<Select value={selectedCategory} onValueChange={setSelectedCategory}>
+								<Select value={selectedTag} onValueChange={setSelectedTag}>
 									<SelectTrigger className="w-48">
 										<SelectValue />
 									</SelectTrigger>
 									<SelectContent>
-										{storyCategories.map((category) => (
-											<SelectItem key={category} value={category}>
-												{category === "all" ? "All Categories" : category}
+										{allTags.map((tag) => (
+											<SelectItem key={tag} value={tag}>
+												{tag === "all" ? "All Tags" : tag}
 											</SelectItem>
 										))}
 									</SelectContent>

@@ -5,7 +5,10 @@ import { Toaster } from "@/components/atoms/toaster";
 
 export const metadata: Metadata = {
 	title: "Bhuvanesh",
-	description: "Portfolio",
+	description: "Personal Website",
+	icons: {
+		icon: "/logos/favicon.ico",
+	},
 };
 
 export default function RootLayout({

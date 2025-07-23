@@ -28,12 +28,12 @@ export function StoryCard({ story }: StoryCardProps) {
 				<div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
 				<div className="absolute top-4 right-4">
 					<Badge className={`${story.categoryColor} text-white px-3 py-1 rounded-full text-sm font-medium`}>
-						{story.category}
+						{story.tags[0]}
 					</Badge>
 				</div>
 				<div className="absolute top-4 left-4">
 					<Badge variant="secondary" className="bg-white/90 text-slate-700 px-2 py-1 rounded text-xs">
-						{story.year}
+						{story.date}
 					</Badge>
 				</div>
 			</div>
@@ -44,7 +44,11 @@ export function StoryCard({ story }: StoryCardProps) {
 				<p className="text-slate-600 text-sm mb-4 leading-relaxed">{story.description}</p>
 				<div className="flex flex-wrap gap-2 mb-4">
 					{story.tags.map((tag, tagIndex) => (
-						<Badge key={tagIndex} variant="secondary" className="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs">
+						<Badge
+							key={`${story.id}-${tag}-${tagIndex}`}
+							variant="secondary"
+							className="bg-slate-100 text-slate-700 px-2 py-1 rounded text-xs"
+						>
 							{tag}
 						</Badge>
 					))}
