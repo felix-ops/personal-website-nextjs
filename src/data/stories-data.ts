@@ -1,5 +1,15 @@
 export const stories: Story[] = [
 	{
+		id: "test-blog-2",
+		title: "Test Blog 2",
+		description: "Space Kids India Project Development",
+		image: "/images/ski-group-photo.jpg",
+		link: "/blogs/test-blog-2",
+		categoryColor: "bg-blue-600",
+		tags: ["Blog"],
+		date: "2025",
+	},
+	{
 		id: "test-blog-1",
 		title: "Test Blog",
 		description: "Space Kids India Project Development",

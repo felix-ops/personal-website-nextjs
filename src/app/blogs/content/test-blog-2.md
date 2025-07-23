@@ -236,7 +236,7 @@ block by at least 4 spaces or 1 tab.
 
 This is a normal paragraph:
 
-    This is a code block.
+    This is a code block
 
 Here is an example of AppleScript:
 
@@ -306,3 +306,7 @@ Unlike a pre-formatted code block, a code span indicates code within a
 normal paragraph. For example:
 
 Use the `printf()` function.
+
+```js
+console.log();
+```
