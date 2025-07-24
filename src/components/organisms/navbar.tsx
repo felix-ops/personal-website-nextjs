@@ -14,20 +14,17 @@ export default function Navigation() {
 
 	// Handle scrolling after navigation
 	useEffect(() => {
-		// Check if there's a hash in the URL (e.g., /#about)
 		const hash = window.location.hash;
 		if (hash) {
-			scrollToSection(hash); // Scroll to the section after page load
+			scrollToSection(hash);
 		}
-	}, [pathname]); // Re-run when pathname changes
+	}, [pathname]);
 
 	const handleNavClick = (href: string) => {
 		if (href.startsWith("#")) {
 			// If not on homepage, navigate to homepage with hash
 			if (pathname !== "/") {
-				router.push(`/${href}`); // Navigate to /#about, /#experience, etc.
-			} else {
-				// Already on homepage, just scroll
+				router.push(`/${href}`);
 				scrollToSection(href);
 			}
 		}

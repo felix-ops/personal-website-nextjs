@@ -8,7 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { info } from "@/data/information";
+import { personalInfo } from "@/data/information";
 
 export default function ContactSection() {
 	const [formData, setFormData] = useState({
@@ -75,19 +75,19 @@ export default function ContactSection() {
 		{
 			icon: <Mail className="text-blue-600" />,
 			title: "Email",
-			value: info.email,
+			value: personalInfo.email,
 			bgColor: "bg-blue-100",
 		},
 		{
 			icon: <Phone className="text-green-600" />,
 			title: "Phone",
-			value: info.phoneNumber,
+			value: personalInfo.phoneNumber,
 			bgColor: "bg-green-100",
 		},
 		{
 			icon: <MapPin className="text-purple-600" />,
 			title: "Location",
-			value: info.location,
+			value: personalInfo.location,
 			bgColor: "bg-purple-100",
 		},
 	];

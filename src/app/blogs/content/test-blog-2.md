@@ -1,5 +1,3 @@
-# Markdown: Syntax
-
 - [Overview](#overview)
   - [Philosophy](#philosophy)
   - [Inline HTML](#html)
@@ -306,6 +304,8 @@ Unlike a pre-formatted code block, a code span indicates code within a
 normal paragraph. For example:
 
 Use the `printf()` function.
+
+---
 
 ```js
 console.log();

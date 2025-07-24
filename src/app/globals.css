@@ -94,6 +94,12 @@ html {
 	font-family: "Nunito", sans-serif !important;
 }
 
+/* Remove bottom line from h1 */
+.markdown-body h1 {
+	border-bottom: none !important;
+	margin-bottom: 0.5rem !important;
+}
+
 .markdown-body h1,
 .markdown-body h2,
 .markdown-body h3,
@@ -101,9 +107,49 @@ html {
 .markdown-body h5,
 .markdown-body h6 {
 	font-family: "Inter", sans-serif !important;
+	color: #333333 !important;
 }
 
+/* Remove backticks for inline blocks */
 .markdown-body code::before,
 .markdown-body code::after {
 	content: none !important;
+}
+.markdown-body {
+	font-size: 1rem !important; /* md size (16px) */
+	line-height: 2 !important;
+}
+
+.markdown-body ul {
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+.markdown-body ul li::marker {
+	color: var(--markdown-bullet-color, #585858); /* customizable via CSS var, fallback to a blue */
+}
+
+.markdown-body ol {
+	list-style-type: decimal;
+	list-style-position: inside;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	list-style-position: outside !important;
+	padding-left: 1.5em !important;
+	margin-left: 0 !important;
+}
+
+.markdown-body li {
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+}
+
+.markdown-body hr {
+	border-width: 2px 0 0 0 !important;
+	height: 2px !important;
+	border-color: #b9bbbe !important; /* Tailwind slate-200 */
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }

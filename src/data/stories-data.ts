@@ -1,13 +1,14 @@
 export const stories: Story[] = [
 	{
 		id: "test-blog-2",
-		title: "Test Blog 2",
-		description: "Space Kids India Project Development",
+		title: "Monkey Science",
+		description:
+			"Building 3d simulation of a monkey in Unity, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 		image: "/images/ski-group-photo.jpg",
 		link: "/blogs/test-blog-2",
 		categoryColor: "bg-blue-600",
-		tags: ["Blog"],
-		date: "2025",
+		tags: ["Blog", "Project"],
+		date: "22-Apr-2025",
 	},
 	{
 		id: "test-blog-1",

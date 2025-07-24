@@ -28,7 +28,6 @@ const ExperienceSection = () => {
 	const labels = experiences.map((exp) => exp.period.split(" - ")[0]);
 
 	// --- Logic to handle changing the experience card ---
-	// Add type 'number' to the newIndex parameter
 	const changeCard = (newIndex: number) => {
 		if (newIndex > currentIndex) {
 			setDirection("next");
