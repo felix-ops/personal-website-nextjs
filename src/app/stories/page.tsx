@@ -1,9 +1,9 @@
 import StoriesPage from "@/components/pages/stories-page";
 
-export default function Home() {
+export default function AllStories() {
 	return (
 		<main>
-			<StoriesPage />
+			<StoriesPage tag="all" />
 		</main>
 	);
 }

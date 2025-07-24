@@ -1,3 +1,5 @@
+import { tag } from "./tag";
+
 export const stories: Story[] = [
 	{
 		id: "test-blog-2",
@@ -7,7 +9,7 @@ export const stories: Story[] = [
 		image: "/images/ski-group-photo.jpg",
 		link: "/blogs/test-blog-2",
 		categoryColor: "bg-blue-600",
-		tags: ["Blog", "Project"],
+		tags: ["Blogs", "Projects"],
 		date: "22-Apr-2025",
 	},
 	{
@@ -17,7 +19,7 @@ export const stories: Story[] = [
 		image: "/images/ski-group-photo.jpg",
 		link: "/blogs/test-blog-1",
 		categoryColor: "bg-blue-600",
-		tags: ["Blog"],
+		tags: ["Blogs"],
 		date: "2025",
 	},
 	{
@@ -28,7 +30,7 @@ export const stories: Story[] = [
 		image: "https://cdn.pixabay.com/photo/2023/02/15/10/19/backlinks-7791387_1280.jpg",
 		link: "https://en.wikipedia.org/wiki/Main_Page",
 		categoryColor: "bg-blue-600",
-		tags: ["Blender", "V-Ray", "Photoshop"],
+		tags: ["Projects"],
 		date: "2025",
 	},
 	{
@@ -40,7 +42,7 @@ export const stories: Story[] = [
 			"https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
 		link: "https://en.wikipedia.org/wiki/Main_Page",
 		categoryColor: "bg-green-600",
-		tags: ["Unity", "C#", "HLSL"],
+		tags: ["Projects"],
 		date: "2025",
 	},
 	{
@@ -52,7 +54,7 @@ export const stories: Story[] = [
 			"https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
 		link: "https://en.wikipedia.org/wiki/Main_Page",
 		categoryColor: "bg-purple-600",
-		tags: ["ZBrush", "Maya", "Substance"],
+		tags: ["Other"],
 		date: "2025",
 	},
 	{
@@ -63,7 +65,7 @@ export const stories: Story[] = [
 		image: "https://cdn.pixabay.com/photo/2023/02/15/10/22/backlinks-7791414_1280.jpg",
 		link: "https://en.wikipedia.org/wiki/Main_Page",
 		categoryColor: "bg-orange-600",
-		tags: ["KeyShot", "Rhino", "After Effects"],
+		tags: ["Other", "Projects"],
 		date: "2025",
 	},
 	{
@@ -74,7 +76,7 @@ export const stories: Story[] = [
 		image: "https://cdn.pixabay.com/photo/2017/08/08/22/11/century-link-field-2612912_1280.jpg",
 		link: "https://en.wikipedia.org/wiki/Main_Page",
 		categoryColor: "bg-indigo-600",
-		tags: ["Unreal Engine", "OpenXR", "Blueprint"],
+		tags: ["Projects"],
 		date: "2025",
 	},
 	{
@@ -86,7 +88,7 @@ export const stories: Story[] = [
 			"https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
 		link: "/stories",
 		categoryColor: "bg-red-600",
-		tags: ["SolidWorks", "Blender", "Premiere Pro"],
+		tags: ["Other"],
 		date: "2025",
 	},
 ];
@@ -97,6 +99,6 @@ export type Story = {
 	image: string;
 	link: string;
 	categoryColor: string;
-	tags: string[];
+	tags: tag[];
 	date: string;
 };

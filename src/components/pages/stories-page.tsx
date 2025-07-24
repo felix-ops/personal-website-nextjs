@@ -9,9 +9,9 @@ import { stories } from "@/data/stories-data";
 import { StoryCard } from "@/components/molecules/story-card";
 import Footer from "@/components/organisms/footer";
 
-export default function StoriesPage() {
+export default function StoriesPage({ tag = "all" }: { tag?: string }) {
 	const [searchTerm, setSearchTerm] = useState("");
-	const [selectedTag, setSelectedTag] = useState("all");
+	const [selectedTag, setSelectedTag] = useState(tag.toLowerCase());
 
 	const allTags = useMemo(() => {
 		const tagSet = new Set<string>();
@@ -23,9 +23,13 @@ export default function StoriesPage() {
 		const matchesSearch =
 			story.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
 			story.description.toLowerCase().includes(searchTerm.toLowerCase());
-		const matchesTag = selectedTag === "all" || story.tags.includes(selectedTag);
+		const matchesTag = selectedTag === "all" || story.tags.map((t) => t.toLowerCase()).includes(selectedTag);
 		return matchesSearch && matchesTag;
 	});
+
+	// Find the original case tag for display
+	const displayTag =
+		selectedTag === "all" ? "All Stories" : allTags.find((t) => t.toLowerCase() === selectedTag) || selectedTag;
 
 	return (
 		<div className="min-h-screen bg-white">
@@ -35,7 +39,7 @@ export default function StoriesPage() {
 			<section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 to-white">
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="max-w-4xl mx-auto text-center">
-						<h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">All Projects</h1>
+						<h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">{displayTag}</h1>
 						<p className="text-xl text-slate-600 mb-8">
 							Explore my complete portfolio of 3D visualizations, simulations, and creative projects.
 						</p>
@@ -53,7 +57,7 @@ export default function StoriesPage() {
 							</div>
 							<div className="flex items-center gap-2">
 								<Filter className="text-slate-400 h-4 w-4" />
-								<Select value={selectedTag} onValueChange={setSelectedTag}>
+								<Select value={selectedTag} onValueChange={(value) => setSelectedTag(value as typeof selectedTag)}>
 									<SelectTrigger className="w-48">
 										<SelectValue />
 									</SelectTrigger>
