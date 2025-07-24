@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 import MarkdownRenderer from "@/components/organisms/markdown-renderer";
 import "highlight.js/styles/github.css";
 import "github-markdown-css/github-markdown-light.css";
-import { stories } from "@/data/stories-data";
+import { posts } from "@/data/posts-data";
 import { format } from "date-fns";
 
 const postsDirectory = path.join(process.cwd(), "src/app/blogs/content");
@@ -24,13 +24,13 @@ export default async function BlogPage({ params }: { params: { slug: string } })
 		notFound(); // Show 404 if blog doesn't exist
 	}
 
-	const story = stories.find((s) => s.id === id)!;
+	const post = posts.find((s) => s.id === id)!;
 
 	// Try to parse the date for formatting, fallback to raw if not possible
-	let formattedDate = story.date;
+	let formattedDate = post.date;
 	try {
 		// Accepts YYYY or YYYY-MM-DD
-		const dateObj = story.date.length === 4 ? new Date(story.date) : new Date(story.date);
+		const dateObj = post.date.length === 4 ? new Date(post.date) : new Date(post.date);
 		if (!isNaN(dateObj.getTime())) {
 			formattedDate = format(dateObj, "EEE, MMM d, yyyy");
 		}
@@ -42,18 +42,18 @@ export default async function BlogPage({ params }: { params: { slug: string } })
 			<div className="flex-1 flex items-center justify-center py-20">
 				<article className="markdown-body bg-white/90 rounded-2xl shadow-md p-16 pt-7 w-full max-w-4xl border border-slate-200">
 					<div className="mb-4 text-left">
-						<h1 className="text-5xl font-extrabold text-slate-900 leading-tight">{story.title}</h1>
-						<p className="text-base text-slate-700 mb-6 whitespace-pre-line">{story.description}</p>
+						<h1 className="text-5xl font-extrabold text-slate-900 leading-tight">{post.title}</h1>
+						<p className="text-base text-slate-700 mb-6 whitespace-pre-line">{post.description}</p>
 						<div className="flex flex-wrap items-center gap-0 text-slate-500 text-sm">
 							<span>{formattedDate}</span>
-							{story.tags.length > 0 && <span className="mx-1">·</span>}
-							{story.tags.map((tag, i) => (
+							{post.tags.length > 0 && <span className="mx-1">·</span>}
+							{post.tags.map((tag, i) => (
 								<span
 									key={tag}
 									className="font-semibold text-slate-700 hover:text-slate-400 transition-colors duration-400 cursor-pointer rounded  py-1"
 								>
 									{tag}
-									{i < story.tags.length - 1 && <span className="mx-1">·</span>}
+									{i < post.tags.length - 1 && <span className="mx-1">·</span>}
 								</span>
 							))}
 						</div>

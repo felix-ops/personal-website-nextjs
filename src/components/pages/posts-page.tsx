@@ -5,31 +5,31 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/atoms/input";
 import { useState, useMemo } from "react";
 import { Search, Filter } from "lucide-react";
-import { stories } from "@/data/stories-data";
-import { StoryCard } from "@/components/molecules/story-card";
+import { posts } from "@/data/posts-data";
+import { PostCard } from "@/components/molecules/post-card";
 import Footer from "@/components/organisms/footer";
 
-export default function StoriesPage({ tag = "all" }: { tag?: string }) {
+export default function PostsPage({ tag = "all" }: { tag?: string }) {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedTag, setSelectedTag] = useState(tag.toLowerCase());
 
 	const allTags = useMemo(() => {
 		const tagSet = new Set<string>();
-		stories.forEach((story) => story.tags.forEach((tag) => tagSet.add(tag)));
+		posts.forEach((post) => post.tags.forEach((tag) => tagSet.add(tag)));
 		return ["all", ...Array.from(tagSet)];
 	}, []);
 
-	const filteredProjects = stories.filter((story) => {
+	const filteredProjects = posts.filter((post) => {
 		const matchesSearch =
-			story.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			story.description.toLowerCase().includes(searchTerm.toLowerCase());
-		const matchesTag = selectedTag === "all" || story.tags.map((t) => t.toLowerCase()).includes(selectedTag);
+			post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+			post.description.toLowerCase().includes(searchTerm.toLowerCase());
+		const matchesTag = selectedTag === "all" || post.tags.map((t) => t.toLowerCase()).includes(selectedTag);
 		return matchesSearch && matchesTag;
 	});
 
 	// Find the original case tag for display
 	const displayTag =
-		selectedTag === "all" ? "All Stories" : allTags.find((t) => t.toLowerCase() === selectedTag) || selectedTag;
+		selectedTag === "all" ? "All Posts" : allTags.find((t) => t.toLowerCase() === selectedTag) || selectedTag;
 
 	return (
 		<div className="min-h-screen bg-white">
@@ -87,12 +87,12 @@ export default function StoriesPage({ tag = "all" }: { tag?: string }) {
 							<>
 								<div className="mb-8">
 									<p className="text-slate-600">
-										Showing {filteredProjects.length} of {stories.length} projects
+										Showing {filteredProjects.length} of {posts.length} projects
 									</p>
 								</div>
 								<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 									{filteredProjects.map((project) => (
-										<StoryCard key={project.id} story={project} />
+										<PostCard key={project.id} post={project} />
 									))}
 								</div>
 							</>

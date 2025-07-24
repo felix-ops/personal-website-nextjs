@@ -1,6 +1,6 @@
 import { tag } from "./tag";
 
-export const stories: Story[] = [
+export const posts: Post[] = [
 	{
 		id: "test-blog-2",
 		title: "Monkey Science",
@@ -86,13 +86,13 @@ export const stories: Story[] = [
 			"Technical animation demonstrating complex mechanical systems and assembly processes for manufacturing documentation.",
 		image:
 			"https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-		link: "/stories",
+		link: "/posts",
 		categoryColor: "bg-red-600",
 		tags: ["Other"],
 		date: "2025",
 	},
 ];
-export type Story = {
+export type Post = {
 	id: string;
 	title: string;
 	description: string;
