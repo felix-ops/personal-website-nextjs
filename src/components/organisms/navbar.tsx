@@ -6,6 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { scrollToSection } from "@/lib/utils";
 import Link from "next/link";
+import { personalInfo } from "@/data/information";
 
 export default function Navigation() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,25 +39,23 @@ export default function Navigation() {
 	];
 
 	return (
-		<nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-b border-slate-200 z-50">
+		<nav className="fixed top-0 left-0 right-0 bg-white/85 backdrop-blur-sm border-b border-slate-200 z-50 shadow-md">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-16">
 					<div className="flex-shrink-0">
 						<Link href="/">
-							<h1 className="text-2xl font-bold text-slate-900 cursor-pointer hover:text-blue-600 transition-colors duration-200">
-								Bhuvaneshwaran M
-							</h1>
+							<h1 className="font-[700] text-2xl text-primary cursor-pointer">{personalInfo.name}</h1>
 						</Link>
 					</div>
 					{/* Desktop Navigation */}
 					<div className="hidden md:block">
-						<div className="ml-10 flex items-baseline space-x-8">
+						<div className="ml-10 flex items-baseline space-x-2">
 							{navItems.map((item) =>
 								item.isSection ? (
 									<button
 										key={item.href}
 										onClick={() => handleNavClick(item.href)}
-										className="text-slate-700 hover:text-blue-600 transition-colors duration-200 font-medium cursor-pointer"
+										className="font-[700] text-xl text-primary transition-colors duration-200 cursor-pointer rounded-lg hover:bg-primary hover:text-white px-3 py-2 hover:shadow-md"
 									>
 										{item.label}
 									</button>
@@ -64,7 +63,7 @@ export default function Navigation() {
 									<Link
 										key={item.href}
 										href={item.href}
-										className="text-slate-700 hover:text-blue-600 transition-colors duration-200 font-medium cursor-pointer"
+										className="font-[700] text-xl text-primary transition-colors duration-200 cursor-pointer rounded-lg hover:bg-primary hover:text-white px-3 py-2 hover:shadow-md"
 										onClick={() => setMobileMenuOpen(false)}
 									>
 										{item.label}
@@ -94,7 +93,7 @@ export default function Navigation() {
 									<button
 										key={item.href}
 										onClick={() => handleNavClick(item.href)}
-										className="block w-full text-left px-3 py-2 text-slate-700 hover:text-blue-600 transition-colors duration-200"
+										className="block w-full text-left px-3 py-2 text-slate-700 hover:text-blue-600 transition-colors duration-200 font-semibold cursor-pointer"
 									>
 										{item.label}
 									</button>

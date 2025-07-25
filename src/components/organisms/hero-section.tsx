@@ -5,7 +5,7 @@ export default function HeroSection() {
 		<section className="pt-55 pb-45 bg-gradient-to-br from-slate-50 to-white">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="max-w-4xl mx-auto text-center animate-fade-in">
-					<h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">3D Artist & Simulation Developer</h1>
+					<h1 className="text-4xl md:text-6xl font-bold text-primary mb-6">3D Artist & Simulation Developer</h1>
 					<p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
 						Creating immersive 3D experiences and complex simulations that bridge the gap between imagination and
 						reality.

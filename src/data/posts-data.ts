@@ -3,7 +3,7 @@ import { tag } from "./tag";
 export const posts: Post[] = [
 	{
 		id: "test-blog-2",
-		title: "Monkey Science",
+		title: "3D Magnetic Field Simulation",
 		description:
 			"Building 3d simulation of a monkey in Unity, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 		image: "/images/ski-group-photo.jpg",
@@ -92,6 +92,7 @@ export const posts: Post[] = [
 		date: "2025",
 	},
 ];
+
 export type Post = {
 	id: string;
 	title: string;

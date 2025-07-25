@@ -9,11 +9,12 @@ import "highlight.js/styles/github.css";
 import "github-markdown-css/github-markdown-light.css";
 import { posts } from "@/data/posts-data";
 import { format } from "date-fns";
+import Link from "next/link";
 
 const postsDirectory = path.join(process.cwd(), "src/app/blogs/content");
 
-export default async function BlogPage({ params }: { params: { slug: string } }) {
-	const { slug } = params;
+export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
+	const { slug } = await params;
 	const id = slug;
 	const filePath = path.join(postsDirectory, `${id}.md`);
 
@@ -39,8 +40,8 @@ export default async function BlogPage({ params }: { params: { slug: string } })
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-slate-50 to-white flex flex-col">
 			<Navigation />
-			<div className="flex-1 flex items-center justify-center py-20">
-				<article className="markdown-body bg-white/90 rounded-2xl shadow-md p-16 pt-7 w-full max-w-4xl border border-slate-200">
+			<div className="flex-1 flex items-center justify-center py-10 md:py-20">
+				<article className="markdown-body bg-white/90 rounded-2xl w-full max-w-4xl border border-white/0 md:border-slate-200 md:shadow-md p-6 md:p-16 md:pt-7">
 					<div className="mb-4 text-left">
 						<h1 className="text-5xl font-extrabold text-slate-900 leading-tight">{post.title}</h1>
 						<p className="text-base text-slate-700 mb-6 whitespace-pre-line">{post.description}</p>
@@ -48,13 +49,14 @@ export default async function BlogPage({ params }: { params: { slug: string } })
 							<span>{formattedDate}</span>
 							{post.tags.length > 0 && <span className="mx-1">·</span>}
 							{post.tags.map((tag, i) => (
-								<span
+								<Link
 									key={tag}
-									className="font-semibold text-slate-700 hover:text-slate-400 transition-colors duration-400 cursor-pointer rounded  py-1"
+									href={`/posts/${tag.toLowerCase()}`}
+									className="font-semibold !text-slate-700 hover:!text-slate-400 transition-colors duration-400 cursor-pointer rounded py-1 !no-underline"
 								>
 									{tag}
 									{i < post.tags.length - 1 && <span className="mx-1">·</span>}
-								</span>
+								</Link>
 							))}
 						</div>
 					</div>

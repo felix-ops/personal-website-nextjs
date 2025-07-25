@@ -102,7 +102,7 @@ export default function ContactSection() {
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="max-w-6xl mx-auto">
 					<div className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Get In Touch</h2>
+						<h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Get In Touch</h2>
 						<p className="text-lg text-slate-600 max-w-2xl mx-auto">
 							Ready to bring your ideas to life? Let&apos;s discuss your next 3D project or simulation.
 						</p>
@@ -112,7 +112,7 @@ export default function ContactSection() {
 						{/* Contact Information */}
 						<div className="space-y-8">
 							<div>
-								<h3 className="text-2xl font-semibold text-slate-900 mb-6">Let&apos;s Connect</h3>
+								<h3 className="text-2xl font-semibold text-primary mb-6">Let&apos;s Connect</h3>
 								<div className="space-y-4">
 									{contactInfo.map((info, index) => (
 										<div key={index} className="flex items-center space-x-4">
@@ -131,7 +131,7 @@ export default function ContactSection() {
 							</div>
 
 							<div>
-								<h4 className="text-lg font-semibold text-slate-900 mb-4">Follow Me On</h4>
+								<h4 className="text-lg font-semibold text-primary mb-4">Follow Me On</h4>
 								<div className="flex space-x-4">
 									{socialLinks.map((social, index) => (
 										<a
@@ -198,7 +198,7 @@ export default function ContactSection() {
 								<Button
 									type="submit"
 									disabled={contactMutation.isPending}
-									className="w-full bg-primary text-primary-foreground py-3 px-6 rounded-lg font-medium hover:bg-primary-hover focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors duration-200"
+									className="cursor-pointer w-full bg-primary text-primary-foreground py-3 px-6 rounded-lg font-medium hover:bg-primary-hover focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors duration-200"
 								>
 									{contactMutation.isPending ? (
 										<>

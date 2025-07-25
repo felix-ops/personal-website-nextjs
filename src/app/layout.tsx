@@ -4,14 +4,15 @@ import QueryProvider from "@/components/query-provider";
 import { Toaster } from "@/components/atoms/toaster";
 
 export const metadata: Metadata = {
+	metadataBase: new URL("http://localhost:3000"),
 	title: "Bhuvanesh",
 	description: "Portfolio and blog of Bhuvaneshwaran M, 3D visualization and simulation expert.",
 	keywords: ["3D", "Visualization", "Simulation", "Portfolio", "Blog", "Bhuvaneshwaran"],
-	authors: [{ name: "Bhuvaneshwaran M", url: "https://yourdomain.com" }],
+	authors: [{ name: "Bhuvaneshwaran M", url: "https://github.com/felix-ops/" }],
 	openGraph: {
 		title: "Bhuvanesh | Portfolio",
 		description: "Portfolio and blog of Bhuvaneshwaran M, 3D visualization and simulation expert.",
-		url: "https://yourdomain.com",
+		url: "http://localhost:3000",
 		siteName: "Bhuvanesh Portfolio",
 		images: [
 			{

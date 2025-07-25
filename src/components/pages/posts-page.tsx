@@ -39,7 +39,7 @@ export default function PostsPage({ tag = "all" }: { tag?: string }) {
 			<section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 to-white">
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="max-w-4xl mx-auto text-center">
-						<h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">{displayTag}</h1>
+						<h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">{displayTag}</h1>
 						<p className="text-xl text-slate-600 mb-8">
 							Explore my complete portfolio of 3D visualizations, simulations, and creative projects.
 						</p>
