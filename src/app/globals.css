@@ -101,7 +101,7 @@ html {
 }
 
 ::selection {
-	background: #000000; /* Your custom background color */
+	background: #ff0000; /* Your custom background color */
 	color: #ffffff; /* Your custom text color */
 	border-radius: 0.4rem;
 }
@@ -127,12 +127,6 @@ html {
 	font-family: var(--montserrat) !important;
 	color: var(--primary) !important;
 	font-weight: 700 !important;
-}
-
-/* Remove backticks for inline blocks */
-.markdown-body code::before,
-.markdown-body code::after {
-	content: none !important;
 }
 .markdown-body {
 	font-size: 1rem !important; /* md size (16px) */
