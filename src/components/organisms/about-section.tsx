@@ -17,12 +17,12 @@ export default function AboutSection() {
 
 					<div className="grid lg:grid-cols-2 gap-12 items-center">
 						<div className="animate-slide-up">
-							<div className="relative w-full max-w-md h-80 mx-auto">
+							<div className="relative max-w-md h-100 w-100 mx-auto">
 								<Image
-									src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800"
+									src="/images/monki-face.png"
 									alt="Professional headshot"
 									fill
-									className="rounded-2xl shadow-lg object-cover"
+									className="rounded-2xl " //shadow-lg object-cover"
 									sizes="(max-width: 768px) 100vw, 33vw"
 									priority={true}
 								/>
