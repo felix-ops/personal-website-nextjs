@@ -32,22 +32,22 @@ export default function PostsPage({ tag = "all" }: { tag?: string }) {
 		selectedTag === "all" ? "All Posts" : allTags.find((t) => t.toLowerCase() === selectedTag) || selectedTag;
 
 	return (
-		<div className="min-h-screen bg-white">
+		<div className="min-h-screen">
 			<Navigation />
 
 			{/* Header */}
-			<section className="pt-24 pb-16 bg-gradient-to-br from-slate-50 to-white">
+			<section className="pt-24 pb-16 bg-color1">
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="max-w-4xl mx-auto text-center">
-						<h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">{displayTag}</h1>
-						<p className="text-xl text-slate-600 mb-8">
+						<h1 className="text-4xl md:text-5xl font-bold text-color2 mb-6">{displayTag}</h1>
+						<p className="text-xl text-color4 mb-8">
 							Explore my complete portfolio of 3D visualizations, simulations, and creative projects.
 						</p>
 
 						{/* Search and Filter */}
 						<div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
 							<div className="relative flex-1 w-full">
-								<Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 h-4 w-4" />
+								<Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-color4 h-4 w-4" />
 								<Input
 									placeholder="Search projects..."
 									value={searchTerm}
@@ -56,7 +56,7 @@ export default function PostsPage({ tag = "all" }: { tag?: string }) {
 								/>
 							</div>
 							<div className="flex items-center gap-2">
-								<Filter className="text-slate-400 h-4 w-4" />
+								<Filter className="text-color4 h-4 w-4" />
 								<Select value={selectedTag} onValueChange={(value) => setSelectedTag(value as typeof selectedTag)}>
 									<SelectTrigger className="w-48">
 										<SelectValue />
@@ -81,12 +81,12 @@ export default function PostsPage({ tag = "all" }: { tag?: string }) {
 					<div className="max-w-7xl mx-auto">
 						{filteredProjects.length === 0 ? (
 							<div className="text-center py-16">
-								<p className="text-slate-500 text-lg">No projects found matching your criteria.</p>
+								<p className="text-color4 text-lg">No projects found matching your criteria.</p>
 							</div>
 						) : (
 							<>
 								<div className="mb-8">
-									<p className="text-slate-600">
+									<p className="text-color4">
 										Showing {filteredProjects.length} of {posts.length} projects
 									</p>
 								</div>

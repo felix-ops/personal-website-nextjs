@@ -39,12 +39,12 @@ export default function Navigation() {
 	];
 
 	return (
-		<nav className="fixed top-0 left-0 right-0 bg-white/85 backdrop-blur-sm border-b border-slate-200 z-50 shadow-md">
+		<nav className="fixed top-0 left-0 lg:left-30 right-0 lg:right-30 bg-color1 md:bg-color1/85 backdrop-blur-sm border-slate-200 z-50 rounded-b-2xl md:rounded-4xl shadow-md md:shadow-lg">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex justify-between items-center h-16">
+				<div className="flex justify-between items-center h-16 ">
 					<div className="flex-shrink-0">
 						<Link href="/">
-							<h1 className="font-[700] text-2xl text-primary cursor-pointer">{personalInfo.name}</h1>
+							<h1 className="font-[700] text-2xl text-color4 cursor-pointer px-2">{personalInfo.name}</h1>
 						</Link>
 					</div>
 					{/* Desktop Navigation */}
@@ -55,7 +55,7 @@ export default function Navigation() {
 									<button
 										key={item.href}
 										onClick={() => handleNavClick(item.href)}
-										className="font-[700] text-xl text-primary transition-colors duration-200 cursor-pointer rounded-lg hover:bg-primary hover:text-white px-3 py-2 hover:shadow-md"
+										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-4xl hover:bg-color2 hover:text-white px-4 py-2 hover:shadow-md"
 									>
 										{item.label}
 									</button>
@@ -63,7 +63,7 @@ export default function Navigation() {
 									<Link
 										key={item.href}
 										href={item.href}
-										className="font-[700] text-xl text-primary transition-colors duration-200 cursor-pointer rounded-lg hover:bg-primary hover:text-white px-3 py-2 hover:shadow-md"
+										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-4xl hover:bg-color2 hover:text-white px-4 py-2 hover:shadow-md"
 										onClick={() => setMobileMenuOpen(false)}
 									>
 										{item.label}
@@ -78,7 +78,7 @@ export default function Navigation() {
 							variant="ghost"
 							size="sm"
 							onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-							className="text-slate-700 hover:text-blue-600"
+							className="text-slate-700 "
 						>
 							{mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
 						</Button>

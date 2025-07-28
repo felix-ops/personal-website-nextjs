@@ -98,12 +98,12 @@ export default function ContactSection() {
 	];
 
 	return (
-		<section id="contact" className="py-20 bg-slate-50">
+		<section id="contact" className="py-20 bg-color1">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="max-w-6xl mx-auto">
 					<div className="text-center mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Get In Touch</h2>
-						<p className="text-lg text-slate-600 max-w-2xl mx-auto">
+						<h2 className="text-3xl md:text-4xl font-bold text-color2 mb-4">Get In Touch</h2>
+						<p className="text-lg text-color4 max-w-2xl mx-auto">
 							Ready to bring your ideas to life? Let&apos;s discuss your next 3D project or simulation.
 						</p>
 					</div>
@@ -112,7 +112,7 @@ export default function ContactSection() {
 						{/* Contact Information */}
 						<div className="space-y-8">
 							<div>
-								<h3 className="text-2xl font-semibold text-primary mb-6">Let&apos;s Connect</h3>
+								<h3 className="text-2xl font-semibold text-color2 mb-6">Let&apos;s Connect</h3>
 								<div className="space-y-4">
 									{contactInfo.map((info, index) => (
 										<div key={index} className="flex items-center space-x-4">
@@ -122,8 +122,8 @@ export default function ContactSection() {
 												{info.icon}
 											</div>
 											<div>
-												<p className="font-medium text-slate-900">{info.title}</p>
-												<p className="text-slate-600">{info.value}</p>
+												<p className="font-medium text-color3">{info.title}</p>
+												<p className="text-color4">{info.value}</p>
 											</div>
 										</div>
 									))}
@@ -131,7 +131,7 @@ export default function ContactSection() {
 							</div>
 
 							<div>
-								<h4 className="text-lg font-semibold text-primary mb-4">Follow Me On</h4>
+								<h4 className="text-lg font-semibold text-color2 mb-4">Follow Me On</h4>
 								<div className="flex space-x-4">
 									{socialLinks.map((social, index) => (
 										<a
@@ -139,7 +139,7 @@ export default function ContactSection() {
 											href={social.href}
 											target="_blank"
 											rel="noopener noreferrer"
-											className={`w-10 h-10 bg-slate-200 ${social.color} text-slate-600 hover:text-white rounded-lg flex items-center justify-center transition-colors duration-200`}
+											className={`w-10 h-10 bg-color6 ${social.color} text-color3 hover:text-color1 rounded-lg flex items-center justify-center transition-colors duration-200`}
 										>
 											<social.icon className="w-5 h-5" />
 										</a>
@@ -149,10 +149,10 @@ export default function ContactSection() {
 						</div>
 
 						{/* Contact Form */}
-						<div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+						<div className="bg-color1 rounded-xl shadow-sm border border-slate-200 p-8">
 							<form onSubmit={handleSubmit} className="space-y-6">
 								<div>
-									<Label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
+									<Label htmlFor="name" className="block text-sm font-medium text-color3 mb-2">
 										Your name:
 									</Label>
 									<Input
@@ -167,7 +167,7 @@ export default function ContactSection() {
 								</div>
 
 								<div>
-									<Label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
+									<Label htmlFor="email" className="block text-sm font-medium text-color3 mb-2">
 										Email:
 									</Label>
 									<Input
@@ -182,7 +182,7 @@ export default function ContactSection() {
 								</div>
 
 								<div>
-									<Label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
+									<Label htmlFor="message" className="block text-sm font-medium text-color3 mb-2">
 										Your message:
 									</Label>
 									<Textarea
@@ -198,7 +198,7 @@ export default function ContactSection() {
 								<Button
 									type="submit"
 									disabled={contactMutation.isPending}
-									className="cursor-pointer w-full bg-primary text-primary-foreground py-3 px-6 rounded-lg font-medium hover:bg-primary-hover focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors duration-200"
+									className="cursor-pointer w-full bg-color2 text-primary-foreground py-3 px-6 rounded-lg font-medium hover:bg-primary-hover focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-colors duration-200"
 								>
 									{contactMutation.isPending ? (
 										<>

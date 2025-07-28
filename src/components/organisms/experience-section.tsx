@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/atoms/button";
-import { Badge } from "@/components/atoms/badge";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
@@ -104,7 +103,7 @@ const ExperienceSection = () => {
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 					transition={{ duration: 0.5, ease: "easeInOut" }}
-					className="pointer-events-none select-none w-full h-full absolute inset-0 -z-10 md:fixed"
+					className="pointer-events-none select-none w-full h-full absolute inset-0 -z-0" //md:fixed
 				>
 					<Image
 						src={currentExperience.backgroundImage}
@@ -268,12 +267,12 @@ const ExperienceSection = () => {
 									/>
 									<div className="flex flex-wrap gap-2 mb-6">
 										{currentExperience.tags.map((tag, index) => (
-											<Badge
+											<span
 												key={index}
-												className="bg-[#2b2e4b] text-white px-3 py-1 rounded-full hover:bg-[#2b2e4b] hover:text-white"
+												className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-[#2b2e4b] text-white"
 											>
 												#{tag}
-											</Badge>
+											</span>
 										))}
 									</div>
 									<div className="flex gap-6 mb-2 w-full justify-center md:justify-end">
