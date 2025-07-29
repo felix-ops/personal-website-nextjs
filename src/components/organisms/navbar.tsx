@@ -26,6 +26,8 @@ export default function Navigation() {
 			// If not on homepage, navigate to homepage with hash
 			if (pathname !== "/") {
 				router.push(`/${href}`);
+			} else {
+				// If already on homepage, just scroll to section
 				scrollToSection(href);
 			}
 		}
@@ -39,7 +41,7 @@ export default function Navigation() {
 	];
 
 	return (
-		<nav className="fixed top-0 left-0 lg:left-30 right-0 lg:right-30 bg-color1 md:bg-color1/85 backdrop-blur-sm border-slate-200 z-50 rounded-b-2xl md:rounded-4xl shadow-md md:shadow-lg">
+		<nav className="fixed top-0 left-0 lg:left-30 right-0 lg:right-30 bg-color1 md:bg-color1/85 backdrop-blur-sm border-slate-200 z-50 rounded-b-2xl md:rounded-full shadow-md md:shadow-lg">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-16 ">
 					<div className="flex-shrink-0">
@@ -55,7 +57,7 @@ export default function Navigation() {
 									<button
 										key={item.href}
 										onClick={() => handleNavClick(item.href)}
-										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-4xl hover:bg-color2 hover:text-white px-4 py-2 hover:shadow-md"
+										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-full hover:bg-color2 hover:text-white px-4 py-2 hover:shadow-md"
 									>
 										{item.label}
 									</button>
@@ -63,7 +65,7 @@ export default function Navigation() {
 									<Link
 										key={item.href}
 										href={item.href}
-										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-4xl hover:bg-color2 hover:text-white px-4 py-2 hover:shadow-md"
+										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-full hover:bg-color2 hover:text-white px-4 py-2 hover:shadow-md"
 										onClick={() => setMobileMenuOpen(false)}
 									>
 										{item.label}
@@ -86,14 +88,14 @@ export default function Navigation() {
 				</div>
 				{/* Mobile Navigation */}
 				{mobileMenuOpen && (
-					<div className="md:hidden bg-white border-t border-slate-200">
+					<div className="md:hidden bg-color1">
 						<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 							{navItems.map((item) =>
 								item.isSection ? (
 									<button
 										key={item.href}
 										onClick={() => handleNavClick(item.href)}
-										className="block w-full text-left px-3 py-2 text-slate-700 hover:text-blue-600 transition-colors duration-200 font-semibold cursor-pointer"
+										className="block w-full text-left px-3 py-2 text-color3 font-semibold cursor-pointer"
 									>
 										{item.label}
 									</button>
@@ -101,7 +103,7 @@ export default function Navigation() {
 									<Link
 										key={item.href}
 										href={item.href}
-										className="block w-full text-left px-3 py-2 text-slate-700 hover:text-blue-600 transition-colors duration-200 cursor-pointer"
+										className="block w-full text-left px-3 py-2 text-color3 font-semibold cursor-pointer"
 										onClick={() => setMobileMenuOpen(false)}
 									>
 										{item.label}

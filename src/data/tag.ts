@@ -1,1 +1,5 @@
-export type tag = "all" | "Other" | "Blogs" | "Projects" | "Research" | "Life" | "Simulation";
+const TAGS = ["Blogs", "Projects", "Research", "Life", "Simulation"] as const;
+
+export type tag = (typeof TAGS)[number];
+
+export const tagValues: tag[] = [...TAGS];

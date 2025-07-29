@@ -1,9 +1,12 @@
 import PostsPage from "@/components/pages/posts-page";
-import { tag } from "@/data/tag";
+import { tag, tagValues } from "@/data/tag";
 
-export default async function TagPostsPage({ params }: { params: Promise<{ tag: tag }> }) {
+export default async function TagPostsPage({ params }: { params: Promise<{ tag: string }> }) {
 	const { tag: tagParam } = await params;
-	const tagValue = typeof tagParam === "string" ? tagParam.toLowerCase() : tagParam;
+
+	// Convert the URL parameter to the correct case and validate it's a valid tag
+	const normalizedTag = tagParam.charAt(0).toUpperCase() + tagParam.slice(1).toLowerCase();
+	const tagValue = tagValues.includes(normalizedTag as tag) ? (normalizedTag as tag) : "All";
 
 	return (
 		<main>

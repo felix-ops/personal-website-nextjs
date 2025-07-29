@@ -7,7 +7,7 @@ import { Textarea } from "@/components/atoms/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaRedditAlien, FaArtstation } from "react-icons/fa";
 import { personalInfo } from "@/data/information";
 
 export default function ContactSection() {
@@ -71,30 +71,60 @@ export default function ContactSection() {
 		setFormData((prev) => ({ ...prev, [field]: value }));
 	};
 
+	// Temporary test function to see toasts
+	// const testToasts = () => {
+	// 	toast({
+	// 		title: "Success Toast",
+	// 		description: "This is what a success toast looks like!",
+	// 	});
+
+	// 	setTimeout(() => {
+	// 		toast({
+	// 			title: "Error Toast",
+	// 			description: "This is what an error toast looks like!",
+	// 			variant: "destructive",
+	// 		});
+	// 	}, 2000);
+	// };
+
 	const contactInfo = [
 		{
-			icon: <Mail className="text-blue-600" />,
+			icon: <Mail className="text-color3" />,
 			title: "Email",
 			value: personalInfo.email,
-			bgColor: "bg-blue-100",
+			bgColor: "bg-color1/0",
 		},
 		{
-			icon: <Phone className="text-green-600" />,
+			icon: <Phone className="text-color3" />,
 			title: "Phone",
 			value: personalInfo.phoneNumber,
-			bgColor: "bg-green-100",
+			bgColor: "bg-color1/0",
 		},
 		{
-			icon: <MapPin className="text-purple-600" />,
+			icon: <MapPin className="text-color3" />,
 			title: "Location",
 			value: personalInfo.location,
-			bgColor: "bg-purple-100",
+			bgColor: "bg-color1/0",
 		},
 	];
 
 	const socialLinks = [
-		{ icon: FaLinkedinIn, href: "https://www.linkedin.com/in/bhuvaneshwaran-m-563a94271/", color: "hover:bg-blue-600" },
-		{ icon: FaGithub, href: "https://github.com/felix-ops", color: "hover:bg-slate-800" },
+		{
+			icon: FaLinkedinIn,
+			href: "https://www.linkedin.com/in/bhuvaneshwaran-m-563a94271/",
+			color: "hover:text-color1 hover:bg-[#0a66c2]",
+		},
+		{ icon: FaGithub, href: "https://github.com/felix-ops", color: "hover:text-color1 hover:bg-slate-800" },
+		{
+			icon: FaRedditAlien,
+			href: "https://www.reddit.com/user/FELIX-Zs/",
+			color: "hover:text-color1 hover:bg-[#FF4500]",
+		},
+		{
+			icon: FaArtstation,
+			href: "https://www.artstation.com/bhuvaneshwaran_m",
+			color: "hover:bg-[#313131] hover:text-[#13AFF0]",
+		},
 	];
 
 	return (
@@ -106,6 +136,10 @@ export default function ContactSection() {
 						<p className="text-lg text-color4 max-w-2xl mx-auto">
 							Ready to bring your ideas to life? Let&apos;s discuss your next 3D project or simulation.
 						</p>
+						{/* Temporary test button - remove this after testing */}
+						{/* <button onClick={testToasts} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+							Test Toasts
+						</button> */}
 					</div>
 
 					<div className="grid lg:grid-cols-2 gap-12">
@@ -122,7 +156,7 @@ export default function ContactSection() {
 												{info.icon}
 											</div>
 											<div>
-												<p className="font-medium text-color3">{info.title}</p>
+												<p className="font-semibold text-color3">{info.title}</p>
 												<p className="text-color4">{info.value}</p>
 											</div>
 										</div>
@@ -132,16 +166,16 @@ export default function ContactSection() {
 
 							<div>
 								<h4 className="text-lg font-semibold text-color2 mb-4">Follow Me On</h4>
-								<div className="flex space-x-4">
+								<div className="flex space-x-5">
 									{socialLinks.map((social, index) => (
 										<a
 											key={index}
 											href={social.href}
 											target="_blank"
 											rel="noopener noreferrer"
-											className={`w-10 h-10 bg-color6 ${social.color} text-color3 hover:text-color1 rounded-lg flex items-center justify-center transition-colors duration-200`}
+											className={`w-12 h-12 text-color4 shadow-md hover:shadow-lg ${social.color} rounded-full flex items-center justify-center transition-all duration-200`}
 										>
-											<social.icon className="w-5 h-5" />
+											<social.icon className="w-7 h-7" />
 										</a>
 									))}
 								</div>
@@ -149,10 +183,10 @@ export default function ContactSection() {
 						</div>
 
 						{/* Contact Form */}
-						<div className="bg-color1 rounded-xl shadow-sm border border-slate-200 p-8">
+						<div className="bg-color6 rounded-xl shadow-md border-0 border-color6 p-6">
 							<form onSubmit={handleSubmit} className="space-y-6">
 								<div>
-									<Label htmlFor="name" className="block text-sm font-medium text-color3 mb-2">
+									<Label htmlFor="name" className="block text-sm font-semibold text-color3 mb-2">
 										Your name:
 									</Label>
 									<Input
@@ -162,12 +196,12 @@ export default function ContactSection() {
 										value={formData.name}
 										onChange={(e) => handleInputChange("name", e.target.value)}
 										placeholder="Your full name"
-										className="w-full"
+										className="w-full bg-color1"
 									/>
 								</div>
 
 								<div>
-									<Label htmlFor="email" className="block text-sm font-medium text-color3 mb-2">
+									<Label htmlFor="email" className="block text-sm font-semibold text-color3 mb-2">
 										Email:
 									</Label>
 									<Input
@@ -177,12 +211,12 @@ export default function ContactSection() {
 										value={formData.email}
 										onChange={(e) => handleInputChange("email", e.target.value)}
 										placeholder="your@email.com"
-										className="w-full"
+										className="w-full bg-color1"
 									/>
 								</div>
 
 								<div>
-									<Label htmlFor="message" className="block text-sm font-medium text-color3 mb-2">
+									<Label htmlFor="message" className="block text-sm font-semibold text-color3 mb-2">
 										Your message:
 									</Label>
 									<Textarea
@@ -191,7 +225,7 @@ export default function ContactSection() {
 										value={formData.message}
 										onChange={(e) => handleInputChange("message", e.target.value)}
 										placeholder="Tell me about your project..."
-										className="w-full h-32 resize-vertical"
+										className="w-full h-20 resize-vertical bg-color1"
 									/>
 								</div>
 

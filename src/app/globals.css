@@ -7,7 +7,7 @@
 
 @theme inline {
 	--color-background: var(--color1);
-	--color-foreground: var(--foreground);
+	--color-foreground: var(--color4);
 	--color-sidebar-ring: var(--sidebar-ring);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -21,7 +21,6 @@
 	--color-chart-3: var(--chart-3);
 	--color-chart-2: var(--chart-2);
 	--color-chart-1: var(--chart-1);
-	--color-ring: var(--ring);
 	--color-input: var(--input);
 	--color-border: var(--border);
 	--color-destructive: var(--destructive);
@@ -31,7 +30,7 @@
 	--color-muted: var(--muted);
 	--color-secondary-foreground: var(--secondary-foreground);
 	--color-secondary: var(--secondary);
-	--color-primary-foreground: var(--primary-foreground);
+	--color-primary-foreground: var(--color1);
 	--color-popover-foreground: var(--popover-foreground);
 	--color-popover: var(--popover);
 	--color-card-foreground: var(--card-foreground);
@@ -45,6 +44,7 @@
 	--roboto-mono: var(--roboto-mono);
 	--color-primary: var(--color3);
 	--color-primary-hover: var(--color5);
+	--color-ring: var(--color8);
 	--color-color1: var(--color1);
 	--color-color2: var(--color2);
 	--color-color3: var(--color3);
@@ -52,21 +52,20 @@
 	--color-color5: var(--color5);
 	--color-color6: var(--color6);
 	--color-color7: var(--color7);
+	--color-color8: var(--color8);
+	--color-color9: var(--color9);
 }
 
 :root {
-	--foreground: #0000ff;
-	--primary-foreground: #ffffff;
 	--secondary: #000000;
 	--secondary-foreground: #202020;
 	--muted: #f7f7f7;
 	--muted-foreground: #8e8e8e;
 	--accent: #f7f7f7;
 	--accent-foreground: #373737;
-	--destructive: #ff6100;
+	--destructive: #ff4000;
 	--border: #ebebeb;
 	--input: #ebebeb;
-	--ring: #b5b5b5;
 	--card: #ffffff;
 	--card-foreground: #272727;
 	--popover: #ffffff;
@@ -90,32 +89,39 @@
 	--roboto-mono: "Roboto Mono";
 	--gotham: "Gotham";
 	--primary-font: "Montserrat";
+	/* Testing Theme */
 	/* --color1: #ff0000;
 	--color2: #0000ff;
 	--color3: #00ff00;
-	--color4: #ffff00;
-	--color5: #2e2e2e;
+	--color4: #0f6d00;
+	--color5: #14005e;
 	--color6: #762626;
-	--color7: #ee4e4e */
+	--color7: #ee4e4e;
+	--color8: #3f2424;
+	--color9: #bdffb8; */
+
+	/* Light Theme */
 	--color1: #f5f5f5;
 	--color2: #000000;
 	--color3: #143a62;
 	--color4: #4f637f;
 	--color5: #2e2e2e;
-	--color6: #f3f4f6;
+	--color6: #ebebeb;
 	--color7: #ffffff;
+	--color8: #b5b5b5;
+	--color9: #94a3b8;
 }
 
 body,
 html {
 	font-family: "Montserrat";
 	background-color: var(--color1);
+	scroll-behavior: smooth;
 }
 
 ::selection {
-	background: #000000; /* Your custom background color */
-	color: #ffffff; /* Your custom text color */
-	border-radius: 0.4rem;
+	background: var(--color2); /* Your custom background color */
+	color: var(--color7); /* Your custom text color */
 }
 
 /* For Blog Theme */
@@ -181,4 +187,9 @@ html {
 	border-color: #b9bbbe !important; /* Tailwind slate-200 */
 	margin-top: 2rem;
 	margin-bottom: 2rem;
+}
+
+/* Additional offset for all anchor links */
+:target {
+	scroll-margin-top: 6rem;
 }

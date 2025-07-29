@@ -17,9 +17,9 @@ export default function AboutSection() {
 
 					<div className="grid lg:grid-cols-7 gap-8 items-center">
 						<div className="lg:col-span-3 animate-slide-up">
-							<div className="relative max-w-md h-80 w-80 mx-auto">
+							<div className="relative max-w-md h-100 w-100 mx-auto">
 								<Image
-									src="/images/monki-face.png"
+									src="/images/book-girl.png"
 									alt="Professional headshot"
 									fill
 									className="rounded-2xl " //shadow-lg object-cover"
@@ -29,7 +29,7 @@ export default function AboutSection() {
 							</div>
 						</div>
 
-						<div className="lg:col-span-4 max-w-2xl animate-slide-up bg:color1/0 md:bg-color6 px-12 py-8 rounded-4xl">
+						<div className="lg:col-span-4 max-w-2xl animate-slide-up bg:color1/0 md:bg-color6 px-4 md:px-12 py-8 rounded-4xl">
 							<div className="space-y-6">
 								<div>
 									<h3 className="text-2xl font-semibold text-color2 mb-4">My Journey</h3>

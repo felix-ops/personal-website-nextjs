@@ -20,7 +20,7 @@ export default function HeroSection() {
 						<ScrollButton
 							target="#contact"
 							variant="outline"
-							className="border border-slate-300 text-color2 px-8 py-3 rounded-lg font-medium hover:bg-slate-50 transition-colors duration-200 cursor-pointer"
+							className="border-2 border-color6 text-color2 px-8 py-3 rounded-lg font-medium hover:bg-color1 hover:text-color2 hover:scale-105 transition-all duration-200 cursor-pointer"
 						>
 							Get In Touch
 						</ScrollButton>
