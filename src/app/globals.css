@@ -117,6 +117,25 @@ html {
 	font-family: "Montserrat";
 	background-color: var(--color1);
 	scroll-behavior: smooth;
+	/* Fix mobile browser address bar hiding */
+	height: 100%;
+	overflow-x: hidden;
+}
+
+/* Prevent mobile browser address bar from hiding */
+html {
+	/* Use 100vh instead of 100% to account for the address bar */
+	min-height: 100vh;
+	/* Prevent iOS Safari from hiding address bar */
+	-webkit-overflow-scrolling: touch;
+}
+
+body {
+	/* Ensure body takes full viewport height */
+	min-height: 100vh;
+	/* Prevent content from being hidden behind the address bar */
+	padding-top: env(safe-area-inset-top);
+	padding-bottom: env(safe-area-inset-bottom);
 }
 
 ::selection {
