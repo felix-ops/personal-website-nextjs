@@ -1,5 +1,5 @@
 import PostsPage from "@/components/pages/posts-page";
-import { tag, tagValues } from "@/data/tag";
+import { tag, tagValues } from "@/data/post-types";
 
 export default async function TagPostsPage({ params }: { params: Promise<{ tag: string }> }) {
 	const { tag: tagParam } = await params;

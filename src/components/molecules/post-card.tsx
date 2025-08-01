@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Post } from "@/data/posts-data";
-import { format } from "date-fns";
+import { Post } from "@/data/post-types";
+import { InlineTag } from "@/components/atoms/inline-tag";
 
 interface PostCardProps {
 	post: Post;
@@ -31,22 +31,11 @@ export function PostCard({ post }: PostCardProps) {
 				<div className="flex items-center justify-between w-full mt-2">
 					<div className="flex gap-2 overflow-hidden flex-1 min-w-0">
 						{post.tags.slice(0, 3).map((tag, tagIndex) => (
-							<span
-								key={`${post.id}-${tag}-${tagIndex}`}
-								className="inline-block bg-color6 text-color3 px-2 py-1 rounded-[0.4rem] text-xs hover:bg-slate-200 transition-colors cursor-pointer font-semibold"
-							>
-								{tag}
-							</span>
+							<InlineTag key={`${post.id}-${tag}-${tagIndex}`} tag={tag} />
 						))}
 					</div>
 					<span className="text-xs text-color4 font-medium">
 						{(() => {
-							try {
-								const dateObj = post.date.length === 4 ? new Date(post.date) : new Date(post.date);
-								if (!isNaN(dateObj.getTime())) {
-									return format(dateObj, "EEE, MMM d, yyyy");
-								}
-							} catch {}
 							return post.date;
 						})()}
 					</span>

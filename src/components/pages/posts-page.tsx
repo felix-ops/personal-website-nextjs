@@ -6,20 +6,36 @@ import { Input } from "@/components/atoms/input";
 import { useState } from "react";
 import { Search, Filter } from "lucide-react";
 import { posts } from "@/data/posts-data";
-import { tag, tagValues } from "@/data/tag";
+import { tag, tagValues } from "@/data/post-types";
 import { PostCard } from "@/components/molecules/post-card";
 import Footer from "@/components/organisms/footer";
+import { useRouter } from "next/navigation";
 
 export default function PostsPage({ tag = "All" }: { tag?: tag | "All" }) {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [selectedTag, setSelectedTag] = useState(tag);
+	const router = useRouter();
 
 	const allTags = ["All", ...tagValues];
+
+	const handleTagChange = (value: string) => {
+		const newTag = value as tag | "All";
+		setSelectedTag(newTag);
+
+		// Navigate to the appropriate URL
+		if (newTag === "All") {
+			router.push("/posts/all");
+		} else {
+			router.push(`/posts/${newTag.toLowerCase()}`);
+		}
+	};
 
 	const filteredProjects = posts.filter((post) => {
 		const matchesSearch =
 			post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			post.description.toLowerCase().includes(searchTerm.toLowerCase());
+			post.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+			post.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase())) ||
+			post.date.toLowerCase().includes(searchTerm.toLowerCase());
 		const matchesTag = selectedTag === "All" || post.tags.includes(selectedTag as tag);
 		return matchesSearch && matchesTag;
 	});
@@ -55,13 +71,13 @@ export default function PostsPage({ tag = "All" }: { tag?: tag | "All" }) {
 										placeholder={`Search through ${getTagLabel(selectedTag)}...`}
 										value={searchTerm}
 										onChange={(e) => setSearchTerm(e.target.value)}
-										className="pl-10 w-84 h-10"
+										className="pl-10 w-90 h-10"
 									/>
 								</div>
 								<div className="flex items-center gap-2">
-									<Filter className="text-color4 h-4 w-4" />
-									<Select value={selectedTag} onValueChange={(value) => setSelectedTag(value as tag | "All")}>
-										<SelectTrigger className="w-35 h-10">
+									<Select value={selectedTag} onValueChange={handleTagChange}>
+										<SelectTrigger className="w-40 h-10">
+											<Filter className="text-color4 h-4 w-4" />
 											<SelectValue />
 										</SelectTrigger>
 										<SelectContent>
@@ -75,15 +91,6 @@ export default function PostsPage({ tag = "All" }: { tag?: tag | "All" }) {
 								</div>
 							</div>
 						</div>
-
-						{/* Description - Only show for "All Tags" */}
-						{/* {selectedTag === "All" && (
-							<div className="text-center lg:text-left">
-								<p className="text-lg text-color4 py-4">
-									Explore my complete portfolio of 3D visualizations, simulations, and creative projects.
-								</p>
-							</div>
-						)} */}
 					</div>
 				</div>
 			</section>

@@ -4,6 +4,9 @@ import { posts } from "@/data/posts-data";
 import { PostCard } from "@/components/molecules/post-card";
 
 export default function PostsSection() {
+	// Limit to show only the first 6 posts
+	const limitedPosts = posts.slice(0, 9);
+
 	return (
 		<section id="posts" className="py-20">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +20,7 @@ export default function PostsSection() {
 
 					{/* Posts Grid */}
 					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{posts.map((post) => (
+						{limitedPosts.map((post) => (
 							<PostCard key={post.id} post={post} />
 						))}
 					</div>

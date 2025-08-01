@@ -125,7 +125,6 @@ html {
 }
 
 /* For Blog Theme */
-/* Apply Nunito to all markdown text */
 .markdown-body {
 	font-family: var(--primary-font), sans-serif !important;
 }
@@ -147,7 +146,7 @@ html {
 	font-weight: 700 !important;
 }
 .markdown-body {
-	font-size: 1rem !important; /* md size (16px) */
+	font-size: 1rem !important;
 	line-height: 2 !important;
 }
 
@@ -161,7 +160,7 @@ html {
 }
 
 .markdown-body ul li::marker {
-	color: var(--color4, #585858); /* customizable via CSS var, fallback to a blue */
+	color: var(--color4, #585858);
 }
 
 .markdown-body ol {
@@ -184,12 +183,12 @@ html {
 .markdown-body hr {
 	border-width: 2px 0 0 0 !important;
 	height: 2px !important;
-	border-color: #b9bbbe !important; /* Tailwind slate-200 */
+	border-color: #b9bbbe !important;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
 }
 
-/* Additional offset for all anchor links */
+/* Additional offset for all anchor links due to navbar */
 :target {
 	scroll-margin-top: 6rem;
 }
