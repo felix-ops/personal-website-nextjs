@@ -1,12 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700;800;900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
+	--color-background: var(--color1);
+	--color-foreground: var(--color4);
 	--color-sidebar-ring: var(--sidebar-ring);
 	--color-sidebar-border: var(--sidebar-border);
 	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -20,7 +21,6 @@
 	--color-chart-3: var(--chart-3);
 	--color-chart-2: var(--chart-2);
 	--color-chart-1: var(--chart-1);
-	--color-ring: var(--ring);
 	--color-input: var(--input);
 	--color-border: var(--border);
 	--color-destructive: var(--destructive);
@@ -30,8 +30,7 @@
 	--color-muted: var(--muted);
 	--color-secondary-foreground: var(--secondary-foreground);
 	--color-secondary: var(--secondary);
-	--color-primary-foreground: var(--primary-foreground);
-	--color-primary: var(--primary);
+	--color-primary-foreground: var(--color1);
 	--color-popover-foreground: var(--popover-foreground);
 	--color-popover: var(--popover);
 	--color-card-foreground: var(--card-foreground);
@@ -40,26 +39,33 @@
 	--radius-md: calc(var(--radius) - 2px);
 	--radius-lg: var(--radius);
 	--radius-xl: calc(var(--radius) + 4px);
-	--color-primary-hover: var(--primary-hover);
+	--nunito: var(--nunito);
+	--montserrat: var(--montserrat);
+	--roboto-mono: var(--roboto-mono);
+	--color-primary: var(--color3);
+	--color-primary-hover: var(--color5);
+	--color-ring: var(--color8);
+	--color-color1: var(--color1);
+	--color-color2: var(--color2);
+	--color-color3: var(--color3);
+	--color-color4: var(--color4);
+	--color-color5: var(--color5);
+	--color-color6: var(--color6);
+	--color-color7: var(--color7);
+	--color-color8: var(--color8);
+	--color-color9: var(--color9);
 }
 
 :root {
-	--radius: 0.625rem;
-	--background: #ffffff;
-	--foreground: #272727;
-	--primary: #232323;
-	--primary-foreground: #ffffff;
-	--primary-hover: #404040;
-	--secondary: #f7f7f7;
-	--secondary-foreground: #373737;
+	--secondary: #000000;
+	--secondary-foreground: #202020;
 	--muted: #f7f7f7;
 	--muted-foreground: #8e8e8e;
 	--accent: #f7f7f7;
 	--accent-foreground: #373737;
-	--destructive: #ff6100;
+	--destructive: #ff4000;
 	--border: #ebebeb;
 	--input: #ebebeb;
-	--ring: #b5b5b5;
 	--card: #ffffff;
 	--card-foreground: #272727;
 	--popover: #ffffff;
@@ -77,9 +83,131 @@
 	--sidebar-accent-foreground: #353535;
 	--sidebar-border: #ebebeb;
 	--sidebar-ring: #b5b5b5;
+	--radius: 0.825rem;
+	--nunito: "Nunito";
+	--montserrat: "Montserrat";
+	--roboto-mono: "Roboto Mono";
+	--gotham: "Gotham";
+	--primary-font: "Montserrat";
+	/* Testing Theme */
+	/* --color1: #ff0000;
+	--color2: #0000ff;
+	--color3: #00ff00;
+	--color4: #0f6d00;
+	--color5: #14005e;
+	--color6: #762626;
+	--color7: #ee4e4e;
+	--color8: #3f2424;
+	--color9: #bdffb8; */
+
+	/* Light Theme */
+	--color1: #f5f5f5;
+	--color2: #000000;
+	--color3: #143a62;
+	--color4: #4f637f;
+	--color5: #2e2e2e;
+	--color6: #ebebeb;
+	--color7: #ffffff;
+	--color8: #b5b5b5;
+	--color9: #94a3b8;
 }
 
 body,
 html {
-	font-family: "Nunito", sans-serif;
+	font-family: "Montserrat";
+	background-color: var(--color1);
+	scroll-behavior: smooth;
+	/* Fix mobile browser address bar hiding */
+	height: 100%;
+	overflow-x: hidden;
+}
+
+/* Prevent mobile browser address bar from hiding */
+html {
+	/* Use 100vh instead of 100% to account for the address bar */
+	min-height: 100vh;
+	/* Prevent iOS Safari from hiding address bar */
+	-webkit-overflow-scrolling: touch;
+}
+
+body {
+	/* Ensure body takes full viewport height */
+	min-height: 100vh;
+	/* Prevent content from being hidden behind the address bar */
+	padding-top: env(safe-area-inset-top);
+	padding-bottom: env(safe-area-inset-bottom);
+}
+
+::selection {
+	background: var(--color2); /* Your custom background color */
+	color: var(--color7); /* Your custom text color */
+}
+
+/* For Blog Theme */
+.markdown-body {
+	font-family: var(--primary-font), sans-serif !important;
+}
+
+/* Remove bottom line from h1 */
+.markdown-body h1 {
+	border-bottom: none !important;
+	margin-bottom: 0.5rem !important;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	font-family: var(--primary-font) !important;
+	color: var(--color2) !important;
+	font-weight: 700 !important;
+}
+.markdown-body {
+	font-size: 1rem !important;
+	line-height: 2 !important;
+}
+
+.markdown-body a {
+	color: #1061ac !important;
+}
+
+.markdown-body ul {
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+.markdown-body ul li::marker {
+	color: var(--color4, #585858);
+}
+
+.markdown-body ol {
+	list-style-type: decimal;
+	list-style-position: inside;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+	list-style-position: outside !important;
+	padding-left: 1.5em !important;
+	margin-left: 0 !important;
+}
+
+.markdown-body li {
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+}
+
+.markdown-body hr {
+	border-width: 2px 0 0 0 !important;
+	height: 2px !important;
+	border-color: #b9bbbe !important;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+/* Additional offset for all anchor links due to navbar */
+:target {
+	scroll-margin-top: 6rem;
 }

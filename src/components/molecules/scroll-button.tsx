@@ -4,7 +4,7 @@ import { Button } from "@/components/atoms/button";
 import { scrollToSection } from "@/lib/utils";
 
 interface ScrollButtonProps extends Omit<React.ComponentProps<typeof Button>, "onClick" | "href" | "type"> {
-	target: string; // Section ID to scroll to (e.g., "#stories")
+	target: string; // Section ID to scroll to (e.g., "#posts")
 	children: React.ReactNode; // Button text or content
 }
 

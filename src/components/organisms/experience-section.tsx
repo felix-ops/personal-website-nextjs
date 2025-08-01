@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/atoms/button";
-import { Badge } from "@/components/atoms/badge";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { FaLinkedinIn, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
@@ -21,14 +20,59 @@ const ExperienceSection = () => {
 
 	// The height can be a number (pixels) or the string "auto"
 	const [height, setHeight] = useState<number | "auto">("auto");
+	const animatedContentRef = useRef<HTMLDivElement>(null);
 
-	// Specify that the ref will be connected to an HTMLDivElement
-	const contentRef = useRef<HTMLDivElement>(null);
+	// --- Refs for the clipping effect ---
+	const contentWrapperRef = useRef<HTMLDivElement>(null); // Ref for the content area to be tracked
+	const fixedBackgroundRef = useRef<HTMLDivElement>(null); // Ref for the fixed background that will be clipped
+	const animationFrameId = useRef<number | null>(null); // Ref to hold the requestAnimationFrame ID
 
 	const labels = experiences.map((exp) => exp.period.split(" - ")[0]);
 
+	// --- Clipping animation logic ---
+	useEffect(() => {
+		const fixedBackground = fixedBackgroundRef.current;
+		const contentWrapper = contentWrapperRef.current;
+		if (!fixedBackground || !contentWrapper) return;
+
+		const updateClipPath = () => {
+			const rect = contentWrapper.getBoundingClientRect();
+			// Set the clip-path to match the content wrapper's position and size
+			// inset() is defined as top, right, bottom, left
+			fixedBackground.style.clipPath = `inset(${rect.top}px calc(100vw - ${rect.right + 1000}px) calc(100vh - ${rect.bottom - 10}px) ${rect.left - 1000}px)`;
+
+			// Continue the loop
+			animationFrameId.current = requestAnimationFrame(updateClipPath);
+		};
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					// Start the animation loop when the section is visible
+					animationFrameId.current = requestAnimationFrame(updateClipPath);
+				} else {
+					// Stop the animation loop when the section is not visible
+					if (animationFrameId.current) {
+						cancelAnimationFrame(animationFrameId.current);
+					}
+					// When not visible, clip it to be a 0x0 box in the center, making it disappear
+					fixedBackground.style.clipPath = "inset(50% 50% 50% 50%)";
+				}
+			},
+			{ threshold: 0 }, // Trigger as soon as any part of the element is visible
+		);
+
+		observer.observe(contentWrapper);
+
+		return () => {
+			observer.disconnect();
+			if (animationFrameId.current) {
+				cancelAnimationFrame(animationFrameId.current);
+			}
+		};
+	}, []); // Empty dependency array ensures this runs only once
+
 	// --- Logic to handle changing the experience card ---
-	// Add type 'number' to the newIndex parameter
 	const changeCard = (newIndex: number) => {
 		if (newIndex > currentIndex) {
 			setDirection("next");
@@ -53,11 +97,7 @@ const ExperienceSection = () => {
 	// --- Effect to dynamically set the container height ---
 	useEffect(() => {
 		const measureHeight = () => {
-			// Check if the ref is attached to an element
-			if (contentRef.current) {
-				// Now TypeScript knows scrollHeight exists on an HTMLDivElement
-				setHeight(contentRef.current.scrollHeight);
-			}
+			if (animatedContentRef.current) setHeight(animatedContentRef.current.scrollHeight);
 		};
 
 		measureHeight();
@@ -96,217 +136,239 @@ const ExperienceSection = () => {
 	};
 
 	return (
-		<section id="experience" className="relative py-16 bg-cover bg-center bg-no-repeat md:bg-fixed overflow-hidden">
-			{/* Animated background image transition */}
-			<AnimatePresence initial={false}>
-				<motion.div
-					key={currentExperience.backgroundImage}
-					initial={{ opacity: 0 }}
-					animate={{ opacity: 1 }}
-					exit={{ opacity: 0 }}
-					transition={{ duration: 0.5, ease: "easeInOut" }}
-					className="pointer-events-none select-none w-full h-full absolute inset-0 -z-10 md:fixed"
-				>
-					<Image
-						src={currentExperience.backgroundImage}
-						alt=""
-						fill
-						sizes="100vw"
-						className="object-cover object-center"
-						priority
-					/>
-				</motion.div>
-			</AnimatePresence>
-			<div className="absolute inset-0 bg-gradient-to-t from-[#000000ff] via-[#000813dd] to-[#00060faa] pointer-events-none"></div>
+		<>
+			{/*
+                This is the FIXED BACKGROUND CONTAINER.
+                It is now only responsible for the background image.
+            */}
+			<div
+				ref={fixedBackgroundRef}
+				className="pointer-events-none fixed inset-0 z-0"
+				style={{ clipPath: "inset(50% 50% 50% 50%)" }}
+			>
+				<AnimatePresence initial={false}>
+					<motion.div
+						key={currentExperience.backgroundImage}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: 0.7, ease: "easeInOut" }}
+						className="h-full w-full"
+					>
+						<Image
+							src={currentExperience.backgroundImage}
+							alt=""
+							fill
+							sizes="100vw"
+							className="object-cover object-center"
+							priority
+						/>
+					</motion.div>
+				</AnimatePresence>
+			</div>
 
-			<div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="max-w-6xl mx-auto">
-					{/* Header */}
-					<div className="flex items-center justify-between mb-8">
-						<h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 text-left">Experience</h2>
-						{/* Navigation Controls - Desktop */}
-						<div className="hidden md:flex items-center justify-center gap-6 text-white text-lg">
-							<button
+			{/*
+				This section is the main scrollable component. It now contains
+				the gradient overlay, making the gradient relative to this section.
+			*/}
+			<section id="experience" className="relative z-10 bg-transparent overflow-hidden">
+				{/* Gradient Overlay now relative to this section */}
+				<div className="absolute inset-0 bg-gradient-to-t from-[#000000ff] via-[#000813dd] to-[#00060faa] -z-10"></div>
+
+				{/*
+					This is the CONTENT WRAPPER that is being tracked.
+					The Intersection Observer watches this div, and its dimensions are used
+					to calculate the clip-path for the fixed background.
+				*/}
+				<div ref={contentWrapperRef} className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+					<div className="max-w-6xl mx-auto">
+						{/* Header */}
+						<div className="flex items-center justify-between mb-8">
+							<h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 text-left">Experience</h2>
+							{/* Navigation Controls - Desktop */}
+							<div className="hidden md:flex items-center justify-center gap-6 text-white text-lg">
+								<button
+									onClick={goToPrevious}
+									disabled={currentIndex === 0}
+									className={`group flex items-center gap-2 transition${currentIndex === 0 ? " opacity-50" : ""}`}
+								>
+									<ChevronLeft
+										className={`w-6 h-6 transition${currentIndex === 0 ? "" : " cursor-pointer group-hover:drop-shadow-[0_0_10px_white] "}`}
+										strokeWidth={3}
+									/>
+									<span
+										className={`transition${currentIndex === 0 ? "" : " cursor-pointer group-hover:drop-shadow-[0_0_10px_white] "}`}
+									>
+										Previous
+									</span>
+								</button>
+
+								{/* Divider */}
+								<div className="text-white text-xl">│</div>
+
+								{/* Next */}
+								<button
+									onClick={goToNext}
+									disabled={currentIndex === experiences.length - 1}
+									className={`group flex items-center gap-2 transition${currentIndex === experiences.length - 1 ? " opacity-50" : ""}`}
+								>
+									<span
+										className={`transition${currentIndex === experiences.length - 1 ? "" : " cursor-pointer group-hover:drop-shadow-[0_0_10px_white] "}`}
+									>
+										Next
+									</span>
+									<ChevronRight
+										className={`w-6 h-6 transition${currentIndex === experiences.length - 1 ? "" : " cursor-pointer group-hover:drop-shadow-[0_0_10px_white] "}`}
+										strokeWidth={3}
+									/>
+								</button>
+							</div>
+						</div>
+						{/* Navigation Controls - Mobile */}
+						<div className="md:hidden flex justify-between items-center mb-8">
+							<Button
+								variant="ghost"
+								size="sm"
 								onClick={goToPrevious}
 								disabled={currentIndex === 0}
-								className={`group flex items-center gap-2 transition${currentIndex === 0 ? " opacity-50" : ""}`}
+								className={`w-22 justify-center text-white hover:bg-white/20 hover:text-white flex items-center gap-2 border-2 border-white rounded-lg${currentIndex === 0 ? " opacity-50" : ""}`}
 							>
-								<ChevronLeft
-									className={`w-6 h-6 transition${currentIndex === 0 ? "" : " cursor-pointer group-hover:drop-shadow-[0_0_10px_white] "}`}
-									strokeWidth={3}
-								/>
-								<span
-									className={`transition${currentIndex === 0 ? "" : " cursor-pointer group-hover:drop-shadow-[0_0_10px_white] "}`}
-								>
-									Previous
+								<ChevronLeft className="h-5 w-5" />
+								<span className="text-center w-full">
+									{currentIndex > 0 && experiences[currentIndex - 1].period.split(" - ")[0].split(" ")[1]}
 								</span>
-							</button>
-
-							{/* Divider */}
-							<div className="text-white text-xl">│</div>
-
-							{/* Next */}
-							<button
+							</Button>
+							<span className="text-white text-xl font-semibold">{currentExperience.period.split(" - ")[0]}</span>
+							<Button
+								variant="ghost"
+								size="sm"
 								onClick={goToNext}
 								disabled={currentIndex === experiences.length - 1}
-								className={`group flex items-center gap-2 transition${currentIndex === experiences.length - 1 ? " opacity-50" : ""}`}
+								className={`w-22 justify-center text-white hover:bg-white/20 hover:text-white flex items-center gap-2 border-2 border-white rounded-lg${currentIndex === experiences.length - 1 ? " opacity-50" : ""}`}
 							>
-								<span
-									className={`transition${currentIndex === experiences.length - 1 ? "" : " cursor-pointer group-hover:drop-shadow-[0_0_10px_white] "}`}
-								>
-									Next
+								<span className="text-center w-full">
+									{currentIndex < experiences.length - 1 &&
+										experiences[currentIndex + 1].period.split(" - ")[0].split(" ")[1]}
 								</span>
-								<ChevronRight
-									className={`w-6 h-6 transition${currentIndex === experiences.length - 1 ? "" : " cursor-pointer group-hover:drop-shadow-[0_0_10px_white] "}`}
-									strokeWidth={3}
-								/>
-							</button>
+								<ChevronRight className="h-5 w-5" />
+							</Button>
 						</div>
-					</div>
-					{/* Navigation Controls - Mobile */}
-					<div className="md:hidden flex justify-between items-center mb-8">
-						<Button
-							variant="ghost"
-							size="sm"
-							onClick={goToPrevious}
-							disabled={currentIndex === 0}
-							className={`w-22 justify-center text-white hover:bg-white/20 hover:text-white flex items-center gap-2 border-2 border-white rounded-lg${currentIndex === 0 ? " opacity-50" : ""}`}
-						>
-							<ChevronLeft className="h-5 w-5" />
-							<span className="text-center w-full">
-								{currentIndex > 0 && experiences[currentIndex - 1].period.split(" - ")[0].split(" ")[1]}
-							</span>
-						</Button>
-						<span className="text-white text-xl font-semibold">{currentExperience.period.split(" - ")[0]}</span>
-						<Button
-							variant="ghost"
-							size="sm"
-							onClick={goToNext}
-							disabled={currentIndex === experiences.length - 1}
-							className={`w-22 justify-center text-white hover:bg-white/20 hover:text-white flex items-center gap-2 border-2 border-white rounded-lg${currentIndex === experiences.length - 1 ? " opacity-50" : ""}`}
-						>
-							<span className="text-center w-full">
-								{currentIndex < experiences.length - 1 &&
-									experiences[currentIndex + 1].period.split(" - ")[0].split(" ")[1]}
-							</span>
-							<ChevronRight className="h-5 w-5" />
-						</Button>
-					</div>
 
-					{/* --- ANIMATED CONTAINER WITH DYNAMIC HEIGHT --- */}
-					<motion.div
-						className="relative overflow-hidden"
-						initial={{ height: "auto" }}
-						animate={{ height: height }}
-						transition={{ duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
-					>
-						<AnimatePresence initial={false} custom={direction}>
-							<motion.div
-								key={currentIndex}
-								ref={contentRef}
-								custom={direction}
-								variants={slideVariants}
-								initial="enter"
-								animate="center"
-								exit="exit"
-								transition={{
-									x: { type: "tween", ease: "easeInOut", duration: 0.4 },
-									opacity: { duration: 0.3 },
-								}}
-								className="absolute w-full"
-								drag="x"
-								dragConstraints={{ left: 0, right: 0 }}
-								dragElastic={0.2}
-								onDragEnd={(event, info) => {
-									const swipe = info.offset.x;
-									const velocity = info.velocity.x;
-									// Threshold for swipe distance and velocity
-									if (swipe < -80 && (Math.abs(velocity) > 200 || Math.abs(swipe) > 120)) {
-										goToNext();
-									} else if (swipe > 80 && (Math.abs(velocity) > 200 || Math.abs(swipe) > 120)) {
-										goToPrevious();
-									}
-								}}
-								style={{ willChange: "transform, opacity" }}
-							>
-								{/* Content */}
-								<div className="flex flex-col md:flex-row gap-8 items-center justify-center">
-									{/* Logo */}
-									<div className="flex-shrink-0 self-center md:self-start">
-										<a href={currentExperience.links.website || "#"} target="_blank" rel="noopener noreferrer">
-											<Image
-												src={currentExperience.logo}
-												alt={`${currentExperience.company} logo`}
-												width={80}
-												height={80}
-												className="w-50 h-30 object-contain"
-											/>
-										</a>
-									</div>
-
-									{/* Info */}
-									<div className="flex-1 text-center md:text-right">
-										<h3 className="text-2xl md:text-3xl font-bold text-white">
-											<a
-												href={currentExperience.links.website || "#"}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="transition-colors "
-											>
-												{currentExperience.company}
+						{/* --- ANIMATED CONTAINER WITH DYNAMIC HEIGHT --- */}
+						<motion.div
+							className="relative overflow-hidden"
+							initial={{ height: "auto" }}
+							animate={{ height: height }}
+							transition={{ duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }}
+						>
+							<AnimatePresence initial={false} custom={direction}>
+								<motion.div
+									key={currentIndex}
+									ref={animatedContentRef}
+									custom={direction}
+									variants={slideVariants}
+									initial="enter"
+									animate="center"
+									exit="exit"
+									transition={{
+										x: { type: "tween", ease: "easeInOut", duration: 0.4 },
+										opacity: { duration: 0.3 },
+									}}
+									className="absolute w-full"
+									drag="x"
+									dragConstraints={{ left: 0, right: 0 }}
+									dragElastic={0.2}
+									onDragEnd={(event, info) => {
+										const swipe = info.offset.x;
+										const velocity = info.velocity.x;
+										// Threshold for swipe distance and velocity
+										if (swipe < -80 && (Math.abs(velocity) > 200 || Math.abs(swipe) > 120)) {
+											goToNext();
+										} else if (swipe > 80 && (Math.abs(velocity) > 200 || Math.abs(swipe) > 120)) {
+											goToPrevious();
+										}
+									}}
+									style={{ willChange: "transform, opacity" }}
+								>
+									{/* Content */}
+									<div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+										{/* Logo */}
+										<div className="flex-shrink-0 self-center md:self-start">
+											<a href={currentExperience.links.website || "#"} target="_blank" rel="noopener noreferrer">
+												<Image
+													src={currentExperience.logo}
+													alt={`${currentExperience.company} logo`}
+													width={80}
+													height={80}
+													className="w-50 h-30 object-contain"
+												/>
 											</a>
-										</h3>
-										<p className="text-lg md:text-xl text-white/90 mb-2">{currentExperience.title}</p>
-										<p className="text-white/70 text-base md:text-base">{currentExperience.period}</p>
-										<p className="text-white/70 text-base md:text-base mb-5">{currentExperience.location}</p>
-									</div>
-								</div>
-								{/* Details */}
-								<div className="flex flex-col mb-12">
-									<div
-										className="text-white/90 text-base md:text-lg leading-relaxed max-w-6xl mb-10"
-										dangerouslySetInnerHTML={{ __html: currentExperience.description }}
-									/>
-									<div className="flex flex-wrap gap-2 mb-6">
-										{currentExperience.tags.map((tag, index) => (
-											<Badge
-												key={index}
-												className="bg-[#2b2e4b] text-white px-3 py-1 rounded-full hover:bg-[#2b2e4b] hover:text-white"
-											>
-												#{tag}
-											</Badge>
-										))}
-									</div>
-									<div className="flex gap-6 mb-2 w-full justify-center md:justify-end">
-										{socialLinks.map((link, idx) =>
-											link.href ? (
+										</div>
+
+										{/* Info */}
+										<div className="flex-1 text-center md:text-right">
+											<h3 className="text-2xl md:text-3xl font-bold text-white">
 												<a
-													key={idx}
-													href={link.href}
+													href={currentExperience.links.website || "#"}
 													target="_blank"
 													rel="noopener noreferrer"
-													className={`text-white transition-colors text-4xl ${link.color}`}
+													className="transition-colors "
 												>
-													{link.icon && <link.icon />}
+													{currentExperience.company}
 												</a>
-											) : null,
-										)}
+											</h3>
+											<p className="text-lg md:text-xl text-white/90 mb-2">{currentExperience.title}</p>
+											<p className="text-white/70 text-base md:text-base">{currentExperience.period}</p>
+											<p className="text-white/70 text-base md:text-base mb-5">{currentExperience.location}</p>
+										</div>
 									</div>
-								</div>
-							</motion.div>
-						</AnimatePresence>
-					</motion.div>
+									{/* Details */}
+									<div className="flex flex-col mb-12">
+										<div
+											className="text-white/90 text-base md:text-lg leading-relaxed max-w-6xl mb-10"
+											dangerouslySetInnerHTML={{ __html: currentExperience.description }}
+										/>
+										<div className="flex flex-wrap gap-2 mb-6">
+											{currentExperience.tags.map((tag, index) => (
+												<span
+													key={index}
+													className="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-[#2b2e4b] text-white"
+												>
+													#{tag}
+												</span>
+											))}
+										</div>
+										<div className="flex gap-6 mb-2 w-full justify-center md:justify-end">
+											{socialLinks.map((link, idx) =>
+												link.href ? (
+													<a
+														key={idx}
+														href={link.href}
+														target="_blank"
+														rel="noopener noreferrer"
+														className={`text-white transition-colors text-4xl ${link.color}`}
+													>
+														{link.icon && <link.icon />}
+													</a>
+												) : null,
+											)}
+										</div>
+									</div>
+								</motion.div>
+							</AnimatePresence>
+						</motion.div>
 
-					{/* Timeline Container */}
-					<Timeline
-						className="hidden md:block max-w-5xl mx-auto mb-10 px-4"
-						labels={labels}
-						currentIndex={currentIndex}
-						setCurrentIndex={changeCard}
-					/>
+						{/* Timeline Container */}
+						<Timeline
+							className="hidden md:block max-w-5xl mx-auto mb-10 px-4"
+							labels={labels}
+							currentIndex={currentIndex}
+							setCurrentIndex={changeCard}
+						/>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</>
 	);
 };
 
