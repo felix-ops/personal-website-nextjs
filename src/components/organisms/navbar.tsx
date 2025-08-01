@@ -41,7 +41,7 @@ export default function Navigation() {
 	];
 
 	return (
-		<nav className="fixed top-0 left-0 lg:left-30 right-0 lg:right-30 bg-color1 md:bg-color1/85 backdrop-blur-sm border-slate-200 z-50 rounded-b-2xl md:rounded-full shadow-md md:shadow-lg">
+		<nav className="fixed top-0 left-0 right-0 lg:left-30 lg:right-30 bg-color1 md:bg-color1/85 backdrop-blur-sm border-slate-200 z-50 rounded-b-2xl md:rounded-full shadow-md md:shadow-lg">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex justify-between items-center h-16 ">
 					<div className="flex-shrink-0">
