@@ -2,14 +2,14 @@ import { ScrollButton } from "../molecules/scroll-button";
 
 export default function HeroSection() {
 	return (
-		<section className="pt-55 pb-45">
+		<section className="pt-60 pb-45">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="max-w-4xl mx-auto text-center animate-fade-in">
-					<h1 className="text-4xl md:text-6xl font-bold text-color2 mb-6">3D Artist & Simulation Developer</h1>
-					<p className="text-xl text-color4 mb-8 max-w-2xl mx-auto">
-						Creating immersive 3D experiences and complex simulations that bridge the gap between imagination and
-						reality.
+					<h1 className="text-4xl md:text-6xl font-bold text-color2 mb-8">Hi, Welcome to my site!</h1>
+					<p className="text-xl text-color4 mb-2 max-w-2xl mx-auto text-left">
+						Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.
 					</p>
+					<p className="text-xl text-color4 mb-8 max-w-2xl mx-auto text-right">-Richard Feynman</p>
 					<div className="flex flex-col sm:flex-row gap-4 justify-center">
 						<ScrollButton
 							target="#posts"

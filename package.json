@@ -9,6 +9,10 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@babylonjs/core": "^8.21.0",
+		"@babylonjs/inspector": "^8.21.0",
+		"@babylonjs/loaders": "^8.21.0",
+		"@babylonjs/materials": "^8.21.0",
 		"@radix-ui/react-label": "^1.0.0",
 		"@radix-ui/react-select": "^2.2.5",
 		"@radix-ui/react-slot": "^1.2.3",

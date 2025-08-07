@@ -1,7 +1,14 @@
 import Image from "next/image";
 
 export default function AboutSection() {
-	const skills = ["Blender", "Unity 3D", "Maya", "Unreal Engine", "Python", "C#"];
+	const skills = [
+		"Software Engineering",
+		"3D Graphics",
+		"ML / AI",
+		"Embedded Systems",
+		"Computational Physics",
+		"Simulations",
+	];
 
 	return (
 		<section id="about" className="py-20">
