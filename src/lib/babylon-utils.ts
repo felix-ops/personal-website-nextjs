@@ -2,11 +2,12 @@ import { Scene } from "@babylonjs/core/scene";
 import { Animation } from "@babylonjs/core/Animations/animation";
 import { EasingFunction, CubicEase } from "@babylonjs/core/Animations/easing";
 import { AbstractMesh } from "@babylonjs/core/Meshes/abstractMesh";
-import { Vector3, Color3, Color4 } from "@babylonjs/core/Maths/math.vector";
+import { Vector3 } from "@babylonjs/core/Maths/math.vector";
 import { AnimationGroup } from "@babylonjs/core/Animations/animationGroup";
 import { FreeCamera } from "@babylonjs/core/Cameras/freeCamera";
 import { ArcRotateCamera } from "@babylonjs/core/Cameras/arcRotateCamera";
 import { Animatable } from "@babylonjs/core/Animations/animatable";
+import { Color3, Color4 } from "@babylonjs/core/Maths/math.color";
 
 export function animateVignetteWeight(scene: Scene, targetWeight: number, duration = 1) {
 	// Get the imageProcessingConfiguration from the scene
@@ -43,7 +44,7 @@ export function animateVignetteWeight(scene: Scene, targetWeight: number, durati
 	animation.setEasingFunction(easingFunction);
 
 	// Start the animation on the imageProcessingConfiguration
-	scene.beginDirectAnimation(ipc, [animation], 0, endFrame, false, 1, null);
+	scene.beginDirectAnimation(ipc, [animation], 0, endFrame, false, 1);
 }
 
 export function animateMeshVisibility(mesh: AbstractMesh, targetVisibility: number, duration = 1) {
@@ -81,7 +82,7 @@ export function animateMeshVisibility(mesh: AbstractMesh, targetVisibility: numb
 	animation.setEasingFunction(easingFunction);
 
 	// Start the animation on the mesh
-	let animatable = scene.beginDirectAnimation(mesh, [animation], 0, endFrame, false, 1, null);
+	let animatable = scene.beginDirectAnimation(mesh, [animation], 0, endFrame, false);
 
 	return animatable;
 }
