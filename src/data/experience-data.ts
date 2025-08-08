@@ -6,7 +6,7 @@ export const experiences = [
 		location: "Chennai, India",
 		description:
 			"As a Ground Station Engineer at Space Kidz India, I am responsible for developing a microcontroller and IoT-based satellite tracking and signal-capturing system that can be integrated with any YAGI or Dish antenna. The implemented system enables the antennas to autonomously track any LEO objects using its TLE data, while also capturing UHF satellite transmissions and relaying them to a host server while ensuring seamless satellite communication.",
-		backgroundImage: "/images/ski-group-photo.jpg",
+		backgroundImage: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/ski-group-photo.jpg",
 		logo: "/logos/ski-logo.svg",
 		tags: [
 			"Ground-Station",
@@ -37,7 +37,7 @@ export const experiences = [
 		period: "Mar 2023 - Apr 2023",
 		location: "Chennai, India",
 		description: `Developed a photorealistic 1:1 scale 3D visualization of the Azaadi Sat-2 satellite’s complete solar panel deployment sequence in space. Additionally, also built a real-time, WebGL-based 3D emulation of the ground station setup, including live telemetry visualization using actual data streams from the ground station.`,
-		backgroundImage: "/images/3d-vis-azaadi-sat-2.jpg",
+		backgroundImage: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/3d-vis-azaadi-sat-2.jpg",
 		logo: "/logos/ski-logo.svg",
 		tags: ["Blender", "CAD", "Webgl", "Unity-3D", "Three.js"],
 		links: {
@@ -56,8 +56,7 @@ export const experiences = [
 		location: "Bengaluru, India",
 		description:
 			"Developed over 100 interactive 3D simulations spanning Physics, Mathematics, Chemistry, and Biology for educational web content. Designed a GPU-accelerated modular graphing library (2D & 3D), inspired by Desmos, capable of rendering millions of data points efficiently within Babylon. Built a 3D Electrical Circuit Simulator that allows users to visualize and solve real-world circuit problems interactively. Also contributed to high-quality 3D visuals and assets for brand storytelling and outreach campaigns.",
-		backgroundImage:
-			"https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080",
+		backgroundImage: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/solenoid.png",
 		logo: "/logos/ms-logo.svg",
 		tags: [
 			"Babylon.js",
@@ -86,8 +85,7 @@ export const experiences = [
 		location: "Bengaluru, India",
 		description:
 			"Innovating the development of a scalable simulation framework and standardized asset pipelines to support rapid and consistent creation of STEM-based 3D web simulations. Led cross-functional collaboration with artists, developers, and platform teams to optimize 3D content for interactivity, performance, and user experience. Set the visual direction and interaction standards for the platform, ensuring both technical scalability and aesthetic coherence across all projects.",
-		backgroundImage:
-			"https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600",
+		backgroundImage: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/monki-cart.png",
 		logo: "/logos/ms-logo.svg",
 		tags: [
 			"Leadership",

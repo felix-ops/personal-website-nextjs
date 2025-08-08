@@ -8,28 +8,8 @@ const nextConfig: NextConfig = {
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "pixabay.com",
-				pathname: "/**", // Allow all paths under pixabay.com
-			},
-			{
-				protocol: "https",
-				hostname: "cdn.pixabay.com",
-				pathname: "/**",
-			},
-			{
-				protocol: "https",
-				hostname: "images.unsplash.com",
-				pathname: "/**",
-			},
-			{
-				protocol: "https",
-				hostname: "via.placeholder.com",
-				pathname: "/**",
-			},
-			{
-				protocol: "https",
-				hostname: "kastner.io",
-				pathname: "/**",
+				hostname: "cdn.jsdelivr.net",
+				pathname: "/gh/felix-ops/website-assets/**",
 			},
 		],
 	},

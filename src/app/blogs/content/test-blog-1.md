@@ -22,4 +22,4 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 Line one.<br><br>
 
-![](/images/ski-group-photo.jpg)
+![](https://cdn.jsdelivr.net/gh/felix-ops/website-assets/ski-group-photo.jpg)

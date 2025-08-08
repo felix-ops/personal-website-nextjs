@@ -48,7 +48,11 @@ export default function ShadersPage() {
 		<div className="w-screen h-screen overflow-hidden flex flex-col">
 			{/* ShaderImage with custom wave effect */}
 			<div className="w-full h-full">
-				<ShaderImage src="/images/skeleton.png" className="w-full h-full" customFragmentShader={waveShader} />
+				<ShaderImage
+					src="https://cdn.jsdelivr.net/gh/felix-ops/website-assets/skeleton.png"
+					className="w-full h-full"
+					customFragmentShader={waveShader}
+				/>
 			</div>
 		</div>
 	);

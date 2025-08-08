@@ -26,7 +26,7 @@ export default function AboutSection() {
 						<div className="lg:col-span-3 animate-slide-up">
 							<div className="relative max-w-md h-100 w-100 mx-auto">
 								<Image
-									src="/images/book-girl.png"
+									src="https://cdn.jsdelivr.net/gh/felix-ops/website-assets/book-girl-pixel.png"
 									alt="Professional headshot"
 									fill
 									className="rounded-2xl " //shadow-lg object-cover"

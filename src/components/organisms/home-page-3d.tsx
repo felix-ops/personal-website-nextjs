@@ -19,7 +19,7 @@ const setup = (scene: Scene, engine: Engine) => {
 	camera.radius = 6;
 	camera.useNaturalPinchZoom = true;
 	camera.wheelPrecision = 20;
-	camera.target.y = 0.6;
+	camera.target.y = -6;
 
 	const bgColor = Color3.FromHexString("#f5f5f5");
 	const gridColor = new Color3(0.85, 0.85, 0.85);
@@ -53,13 +53,13 @@ const setup = (scene: Scene, engine: Engine) => {
 
 	// Create tunnel with four grid walls
 	const tunnelLength = 10000;
-	const tunnelWidth = 30;
+	const tunnelWidth = 40;
 	const tunnelHeight = 20;
 
 	// Create grid material
 	const gridMaterial = new GridMaterial("gridMaterial", scene);
 	gridMaterial.alpha = 0.3; // Semi-transparent
-	gridMaterial.gridRatio = 1; // Grid size
+	gridMaterial.gridRatio = 0.5; // Grid size
 	gridMaterial.mainColor = bgColor; // Light gray color
 	gridMaterial.backFaceCulling = false;
 	gridMaterial.lineColor = bgColor;

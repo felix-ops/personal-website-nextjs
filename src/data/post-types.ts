@@ -1,4 +1,4 @@
-const TAGS = ["Blogs", "Projects", "Research", "3D", "Life", "Simulation", "Playground"] as const;
+const TAGS = ["Blogs", "Projects", "Research", "3D", "Life", "Simulation", "Playground", "Japanese"] as const;
 
 export type tag = (typeof TAGS)[number];
 
