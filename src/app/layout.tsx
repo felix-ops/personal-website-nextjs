@@ -5,15 +5,15 @@ import { Toaster } from "@/components/atoms/toaster";
 import { personalInfo } from "@/data/information";
 
 export const metadata: Metadata = {
-	metadataBase: new URL("http://localhost:3000"),
+	metadataBase: new URL("https://bhuvanesh-personal.netlify.app/"),
 	title: personalInfo.fullName,
 	description: "Portfolio and blog of Bhuvaneshwaran M, 3D visualization and simulation expert.",
 	keywords: ["3D", "Visualization", "Simulation", "Portfolio", "Blog", "Bhuvaneshwaran"],
-	authors: [{ name: "Bhuvaneshwaran M", url: "https://github.com/felix-ops/" }],
+	authors: [{ name: "Bhuvaneshwaran M", url: "https://bhuvanesh-personal.netlify.app/" }],
 	openGraph: {
 		title: "Bhuvanesh | Portfolio",
 		description: "Portfolio and blog of Bhuvaneshwaran M, 3D visualization and simulation expert.",
-		url: "http://localhost:3000",
+		url: "https://bhuvanesh-personal.netlify.app/",
 		siteName: "Bhuvanesh Portfolio",
 		images: [
 			{

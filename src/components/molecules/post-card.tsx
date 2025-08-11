@@ -11,6 +11,8 @@ export function PostCard({ post }: PostCardProps) {
 	return (
 		<Link
 			href={post.link}
+			target="_blank"
+			rel="noopener noreferrer"
 			className="group bg-color1 rounded-xl shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 h-98"
 		>
 			<div className="relative overflow-hidden">

@@ -5,7 +5,7 @@ export default function HeroSection() {
 		<section className="pt-60 pb-45">
 			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="max-w-4xl mx-auto text-center animate-fade-in">
-					<h1 className="text-4xl md:text-6xl font-bold text-color2 mb-8">Hi, Welcome to my site!</h1>
+					<h1 className="text-4xl md:text-6xl font-bold text-color2 mb-8">Welcome to my site!</h1>
 					<p className="text-xl text-color4 mb-2 max-w-2xl mx-auto">
 						&quot;Study hard what interests you the most in the most undisciplined, irreverent and original manner
 						possible.&quot;
