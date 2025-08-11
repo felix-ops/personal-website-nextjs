@@ -134,7 +134,7 @@ export default function ContactSection() {
 					<div className="text-center mb-16">
 						<h2 className="text-3xl md:text-4xl font-bold text-color2 mb-4">Get In Touch</h2>
 						<p className="text-lg text-color4 max-w-2xl mx-auto">
-							Ready to bring your ideas to life? Let&apos;s discuss your next 3D project or simulation.
+							Got an idea or question? I&lsquo;m just a message away
 						</p>
 						{/* Temporary test button - remove this after testing */}
 						{/* <button onClick={testToasts} className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
@@ -224,7 +224,7 @@ export default function ContactSection() {
 										required
 										value={formData.message}
 										onChange={(e) => handleInputChange("message", e.target.value)}
-										placeholder="Tell me about your project..."
+										placeholder="Enter your message..."
 										className="w-full h-20 resize-vertical bg-color1"
 									/>
 								</div>
