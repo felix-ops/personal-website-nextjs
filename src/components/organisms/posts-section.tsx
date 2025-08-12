@@ -5,7 +5,7 @@ import { PostCard } from "@/components/molecules/post-card";
 
 export default function PostsSection() {
 	// Limit to show only the first 6 posts
-	const limitedPosts = posts.slice(0, 9);
+	const limitedPosts = posts.slice(0, 6);
 
 	return (
 		<section id="posts" className="py-20">

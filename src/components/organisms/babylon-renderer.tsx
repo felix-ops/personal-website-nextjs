@@ -53,6 +53,20 @@ export default function BabylonScene({ className, onSceneReady, debug = false }:
 		};
 		window.addEventListener("resize", handleResize);
 
+		const fixResolution = () => {
+			const isPortrait = window.innerWidth < window.innerHeight;
+
+			if (isPortrait) {
+				engine.setHardwareScalingLevel(window.innerWidth / 1080);
+			} else {
+				engine.setHardwareScalingLevel(window.innerWidth / 1920);
+			}
+		};
+		fixResolution();
+
+		window.addEventListener("resize", fixResolution);
+		window.addEventListener("orientationchange", fixResolution);
+
 		// Cleanup function
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);

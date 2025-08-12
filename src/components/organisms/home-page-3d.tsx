@@ -24,22 +24,6 @@ const setup = (scene: Scene, engine: Engine) => {
 	const bgColor = Color3.FromHexString("#f5f5f5");
 	const gridColor = new Color3(0.85, 0.85, 0.85);
 
-	let isPortrait: boolean;
-
-	const fixResolution = () => {
-		isPortrait = window.innerWidth < window.innerHeight;
-
-		if (isPortrait) {
-			engine.setHardwareScalingLevel(window.innerWidth / 1080);
-		} else {
-			engine.setHardwareScalingLevel(window.innerWidth / 1920);
-		}
-	};
-	fixResolution();
-
-	window.addEventListener("resize", fixResolution);
-	window.addEventListener("orientationchange", fixResolution);
-
 	scene.clearColor = Color4.FromHexString("#f5f5f5ff");
 	scene.fogColor = bgColor;
 	scene.fogMode = Scene.FOGMODE_EXP;
