@@ -12,15 +12,15 @@ const rawPosts: Post[] = [
 		tags: ["Projects", "Japanese"],
 		date: "26-May-2024",
 	},
-	{
-		id: "0001-magnetic-field-vis",
-		title: "Magnetic Field Visualization",
-		description: `Interactive visualization of Electro Magnetic field lines created with GLSL shaders and Babylon js.`,
-		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/solenoid.png",
-		link: "/projects/004-magnetic-field-visualization",
-		tags: ["Projects", "3D"],
-		date: "12-Aug-2025",
-	},
+	// {
+	// 	id: "0001-magnetic-field-vis",
+	// 	title: "Magnetic Field Visualization",
+	// 	description: `Interactive visualization of Electro Magnetic field lines created with GLSL shaders and Babylon js.`,
+	// 	image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/solenoid.png",
+	// 	link: "/projects/004-magnetic-field-visualization",
+	// 	tags: ["Projects", "3D"],
+	// 	date: "12-Aug-2025",
+	// },
 	{
 		id: "azaadi-sat-2-vis-24scO",
 		title: "Azaadi Sat - 2 Visualization",
@@ -52,7 +52,7 @@ const rawPosts: Post[] = [
 		id: "test-blog-2-4tegy",
 		title: "Blog Testing Page",
 		description:
-			"Building 3d simulation of a monkey in Unity, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+			"Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/ski-group-photo.jpg",
 		link: "/blogs/test-blog-2-4tegy",
 		tags: ["Blogs", "Projects", "Life", "Simulation", "Research"],
