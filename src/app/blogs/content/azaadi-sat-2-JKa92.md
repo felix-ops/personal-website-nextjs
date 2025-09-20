@@ -70,7 +70,7 @@ It wasn’t just engineering anymore it was ownership. I wasn’t just building 
 
 ## Launch Day
 
-On **February 10, 2023**, the **SSLV-D2** lifted off from Sriharikota. Watching the rocket pierce the sky was surreal. Years of education, months of preparation, and weeks of non-stop effort condensed into those few minutes of flight.
+On **February 10, 2023 09:18 IST**, the **SSLV-D2** lifted off from Sriharikota. Watching the rocket pierce the sky was surreal. Years of education, months of preparation, and weeks of non-stop effort condensed into those few minutes of flight.
 
 When the first signals came back, confirming the satellite’s presence in orbit, it was beyond words. Relief, pride, and joy washed over us all.
 
@@ -82,7 +82,7 @@ When the first signals came back, confirming the satellite’s presence in orbit
 </figure>
 <figure style="text-align: center; margin: 20px 0;">
 <img src="https://cdn.jsdelivr.net/gh/felix-ops/website-assets/azaadi-sat/sslv-d3-launch.webp" alt="Ski Group Photo" style="width: 80%; max-width: 600px; height: auto; display: block; margin: 0 auto;" />
-<figcaption style="font-style: italic; color: #666; margin-top: 8px; font-size: 0.9em;">SSLV D3 at Sriharikota</figcaption>
+<figcaption style="font-style: italic; color: #666; margin-top: 8px; font-size: 0.9em;">SSLV D2 at Sriharikota</figcaption>
 </figure>
 
 ## References
