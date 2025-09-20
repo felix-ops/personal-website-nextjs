@@ -9,9 +9,12 @@ export function cn(...inputs: ClassValue[]) {
 export function scrollToSection(sectionId: string) {
 	const element = document.getElementById(sectionId.replace("#", ""));
 	if (element) {
-		element.scrollIntoView({
+		const navbarHeight = 68; // Height of the fixed navbar (h-16 = 64px)
+		const elementPosition = element.offsetTop - navbarHeight;
+
+		window.scrollTo({
+			top: elementPosition,
 			behavior: "smooth",
-			block: "start",
 		});
 	}
 }

@@ -22,6 +22,15 @@ const rawPosts: Post[] = [
 	// 	date: "12-Aug-2025",
 	// },
 	{
+		id: "azaadi-sat-2-JKa92",
+		title: "Azaadi Sat - 2",
+		description: "My Journey with Azaadi Sat - 2 Mission",
+		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/azaadi-sat/sslv-d3-launch.webp",
+		link: "/blogs/azaadi-sat-2-JKa92",
+		tags: ["Blogs", "Projects", "Life"],
+		date: "6-May-2023",
+	},
+	{
 		id: "azaadi-sat-2-vis-24scO",
 		title: "Azaadi Sat - 2 Visualization",
 		description: `This visualization presents the AzaadiSat-2 satellite with a 1:1 scale representation of its expandable solar panel deployment in orbit.`,
@@ -48,16 +57,16 @@ const rawPosts: Post[] = [
 		tags: ["Projects", "3D"],
 		date: "16-Dec-2023",
 	},
-	{
-		id: "test-blog-2-4tegy",
-		title: "Blog Testing Page",
-		description:
-			"Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/ski-group-photo.jpg",
-		link: "/blogs/test-blog-2-4tegy",
-		tags: ["Blogs", "Projects", "Life", "Simulation", "Research"],
-		date: "22-Apr-2025",
-	},
+	// {
+	// 	id: "test-blog-2-4tegy",
+	// 	title: "Blog Testing Page",
+	// 	description:
+	// 		"Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+	// 	image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/ski-group-photo.jpg",
+	// 	link: "/blogs/test-blog-2-4tegy",
+	// 	tags: ["Blogs", "Projects", "Life", "Simulation", "Research"],
+	// 	date: "22-Apr-2025",
+	// },
 	{
 		id: "0000-wave-shader-image",
 		title: "Wave Shader Image Demo",
