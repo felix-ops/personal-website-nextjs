@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 		siteName: "Bhuvanesh Portfolio",
 		images: [
 			{
-				url: "/logos/ski-logo.svg", // or a full URL
+				url: "/logos/bu-logo.svg", // or a full URL
 				width: 800,
 				height: 600,
 				alt: "Bhuvanesh Portfolio Logo",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 	},
 
 	icons: {
-		icon: "/logos/favicon.ico",
+		icon: "/logos/bu-logo.svg",
 	},
 };
 
