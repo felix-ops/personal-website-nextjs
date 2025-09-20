@@ -33,7 +33,7 @@ My role began when I became part of the **embedded systems engineering** effort.
 
 ### Role as Embedded Systems Engineer
 
-Being in charge of embedded systems meant solving problems at the intersection of hardware and software. Every signal, every data packet mattered. My primary responsibility was ensuring we could **reliably track communicate with the satellite** once it separated from the launch vehicle.
+Being in charge of embedded systems meant solving problems at the intersection of hardware and software. Every signal, every data packet mattered. My primary responsibility was ensuring we could **reliably track and communicate with the satellite** once it separated from the launch vehicle.
 
 This was not just about writing firmware or hooking up radios it was about resilience, redundancy, and clarity under pressure.
 

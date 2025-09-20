@@ -71,10 +71,10 @@ export default function AboutSection() {
 										>
 											Monkey Science{" "}
 										</Link>
-										and built useful 3D simulations for educational environment.
+										and built 300+ 3D simulations for educational content.
 									</p>
 									<p className="text-color4 leading-relaxed max-w-xl">
-										Other than my work I am also more into learning Japanese, In this site I share my personal{" "}
+										Other than my work I am also more passionate about Japanese, In this site I share my personal{" "}
 										<Link href="/posts/blogs" className="text-color4 font-semibold ">
 											Blogs{" "}
 										</Link>

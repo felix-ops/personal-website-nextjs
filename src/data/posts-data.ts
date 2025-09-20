@@ -27,7 +27,7 @@ const rawPosts: Post[] = [
 		description: "My Journey with Azaadi Sat - 2 Mission",
 		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/azaadi-sat/sslv-d3-launch.webp",
 		link: "/blogs/azaadi-sat-2-JKa92",
-		tags: ["Blogs", "Projects", "Life"],
+		tags: ["Blogs", "Life"],
 		date: "6-May-2023",
 	},
 	{
