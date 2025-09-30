@@ -31,7 +31,7 @@ export function Toggle({ pressed, onPressedChange, label, className }: TogglePro
 				<span
 					className={cn(
 						"pointer-events-none inline-block h-5 w-5 translate-x-1 rounded-full bg-color6 shadow transition-transform",
-						pressed ? "translate-x-6" : "translate-x-1",
+						pressed ? "translate-x-1" : "translate-x-6",
 					)}
 				/>
 			</button>
