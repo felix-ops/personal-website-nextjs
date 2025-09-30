@@ -12,4 +12,5 @@ export type Post = {
 	link: string;
 	tags: tag[];
 	date: string;
+	isHidden?: boolean;
 };

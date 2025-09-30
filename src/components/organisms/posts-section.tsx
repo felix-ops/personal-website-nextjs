@@ -4,8 +4,9 @@ import { posts } from "@/data/posts-data";
 import { PostCard } from "@/components/molecules/post-card";
 
 export default function PostsSection() {
+	const visiblePosts = posts.filter((post) => !post.isHidden);
 	// Limit to show only the first 6 posts
-	const limitedPosts = posts.slice(0, 6);
+	const limitedPosts = visiblePosts.slice(0, 6);
 
 	return (
 		<section id="posts" className="py-20">

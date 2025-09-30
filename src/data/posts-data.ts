@@ -6,21 +6,21 @@ const rawPosts: Post[] = [
 	{
 		id: "0002-grind-kanji-grind",
 		title: "Kanji Grind Quiz",
-		description: `A Web application built to help memorize and recognize kanji by quiz method.`,
+		description: `A Web application built to help memorize and recognize kanji by quizzing yourself.`,
 		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/thumbnails/gkg-screenshot2-desktop-ii34rv.png",
 		link: "https://kanjigrind.netlify.app",
 		tags: ["Projects", "Japanese"],
 		date: "26-May-2024",
 	},
-	// {
-	// 	id: "0001-magnetic-field-vis",
-	// 	title: "Magnetic Field Visualization",
-	// 	description: `Interactive visualization of Electro Magnetic field lines created with GLSL shaders and Babylon js.`,
-	// 	image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/solenoid.png",
-	// 	link: "/projects/004-magnetic-field-visualization",
-	// 	tags: ["Projects", "3D"],
-	// 	date: "12-Aug-2025",
-	// },
+	{
+		id: "0001-magnetic-field-vis",
+		title: "Magnetic Field Visualization",
+		description: `A real-time interactive visualization of the magnetic field distribution around a solenoid, rendered using custom GLSL shaders within Babylon.js.`,
+		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/solenoid.png",
+		link: "/projects/004-magnetic-field-visualization",
+		tags: ["Projects", "3D"],
+		date: "12-Aug-2025",
+	},
 	{
 		id: "azaadi-sat-2-JKa92",
 		title: "Azaadi Sat - 2",
@@ -57,16 +57,17 @@ const rawPosts: Post[] = [
 		tags: ["Projects", "3D"],
 		date: "16-Dec-2023",
 	},
-	// {
-	// 	id: "test-blog-2-4tegy",
-	// 	title: "Blog Testing Page",
-	// 	description:
-	// 		"Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-	// 	image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/ski-group-photo.jpg",
-	// 	link: "/blogs/test-blog-2-4tegy",
-	// 	tags: ["Blogs", "Projects", "Life", "Simulation", "Research"],
-	// 	date: "22-Apr-2025",
-	// },
+	{
+		id: "test-blog-2-4tegy",
+		title: "Blog Testing Page",
+		description:
+			"Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/ski-group-photo.jpg",
+		link: "/blogs/test-blog-2-4tegy",
+		tags: ["Blogs", "Projects", "Life", "Simulation", "Research"],
+		date: "22-Apr-2025",
+		isHidden: true,
+	},
 	{
 		id: "0000-wave-shader-image",
 		title: "Wave Shader Image Demo",
@@ -75,6 +76,7 @@ const rawPosts: Post[] = [
 		link: "/projects/002-shaders-image-demo",
 		tags: ["Playground"],
 		date: "30-Jul-2025",
+		isHidden: true,
 	},
 ];
 

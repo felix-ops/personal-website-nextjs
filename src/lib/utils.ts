@@ -104,3 +104,15 @@ export function mapRange(
 
 	return mapped_output;
 }
+
+/**
+ * takes two inputs a and b and returns a boolean of weather they are almost equal or not
+ *
+ * @param a value 1 for comparision
+ * @param b value 2 for comparision
+ * @param epsilon a small value which defines the precision of the comparision
+ * @returns The boolean of whether they are almost equal or not
+ */
+export function almostEqual(a: number, b: number, epsilon: number = Number.EPSILON): boolean {
+	return Math.abs(a - b) < epsilon;
+}

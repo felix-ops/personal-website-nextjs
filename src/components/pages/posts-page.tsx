@@ -37,7 +37,8 @@ export default function PostsPage({ tag = "All" }: { tag?: tag | "All" }) {
 			post.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase())) ||
 			post.date.toLowerCase().includes(searchTerm.toLowerCase());
 		const matchesTag = selectedTag === "All" || post.tags.includes(selectedTag as tag);
-		return matchesSearch && matchesTag;
+		const isMatchesVisible = !post.isHidden;
+		return matchesSearch && matchesTag && isMatchesVisible;
 	});
 
 	// Find the original case tag for display
