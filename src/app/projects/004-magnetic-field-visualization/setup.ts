@@ -28,9 +28,9 @@ export const setup = async (scene: Scene, engine: Engine) => {
 	// init simple global state bridge for UI controls
 	const state: Record<string, unknown> = window.state ?? {
 		current: 0,
-		coilTurns: 6,
-		solenoidRadius: 0.01,
-		interCoilDistance: (4 / 3) * 0.01,
+		coilTurns: 5,
+		solenoidRadius: 0.0125,
+		interCoilDistance: 0.0109,
 		currentDirection: 1,
 		isCurrentUpdated: false,
 		isCoilTurnsUpdated: false,
