@@ -56,10 +56,22 @@ export default function BabylonScene({ className, onSceneReady, debug = false }:
 		const fixResolution = () => {
 			const isPortrait = window.innerWidth < window.innerHeight;
 
+			const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+			let maxWidth = 1920;
+			let maxHeight = 1080;
+
+			const mobileScaleFactor = 0.5;
+
+			if (isMobile) {
+				maxHeight *= mobileScaleFactor;
+				maxWidth *= mobileScaleFactor;
+			}
+
 			if (isPortrait) {
-				engine.setHardwareScalingLevel(window.innerWidth / 1080);
+				engine.setHardwareScalingLevel(window.innerWidth / maxHeight);
 			} else {
-				engine.setHardwareScalingLevel(window.innerWidth / 1920);
+				engine.setHardwareScalingLevel(window.innerWidth / maxWidth);
 			}
 		};
 		fixResolution();

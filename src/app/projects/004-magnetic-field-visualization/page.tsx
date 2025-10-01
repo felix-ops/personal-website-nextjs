@@ -40,7 +40,7 @@ export default function BabylonDemo() {
 			<BabylonScene className="w-full h-screen" onSceneReady={setup} debug={true} />
 			<div className="pointer-events-none absolute left-0 top-0 z-10 flex w-full justify-start p-4">
 				{controlsOpen ? (
-					<div className="pointer-events-auto relative w-full max-w-75 rounded-xl border border-color6/60 bg-color8/70 p-4 shadow-xl backdrop-blur-md">
+					<div className="pointer-events-auto relative w-full max-w-75 rounded-xl border border-color6/60 bg-color8/80 p-4 shadow-xl backdrop-blur-sm">
 						<button
 							type="button"
 							aria-label="Hide controls"

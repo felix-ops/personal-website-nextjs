@@ -4,13 +4,17 @@ import { tag, tagValues } from "@/data/post-types";
 export default async function TagPostsPage({ params }: { params: Promise<{ tag: string }> }) {
 	const { tag: tagParam } = await params;
 
-	// Convert the URL parameter to the correct case and validate it's a valid tag
-	const normalizedTag = tagParam.charAt(0).toUpperCase() + tagParam.slice(1).toLowerCase();
-	const tagValue = tagValues.includes(normalizedTag as tag) ? (normalizedTag as tag) : "All";
+	// Match against known tags in a case-insensitive way (handles values like "3d" vs "3D")
+	const matchedTag = tagValues.find((t) => t.toLowerCase() === tagParam.toLowerCase());
+	const tagValue = (matchedTag as tag | undefined) ?? "All";
 
 	return (
 		<main>
 			<PostsPage tag={tagValue} />
 		</main>
 	);
+}
+
+export function generateStaticParams() {
+	return tagValues.map((t) => ({ tag: t }));
 }

@@ -30,16 +30,21 @@ export default function PostsPage({ tag = "All" }: { tag?: tag | "All" }) {
 		}
 	};
 
-	const filteredProjects = posts.filter((post) => {
-		const matchesSearch =
-			post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			post.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-			post.tags.some((tag) => tag.toLowerCase().includes(searchTerm.toLowerCase())) ||
-			post.date.toLowerCase().includes(searchTerm.toLowerCase());
-		const matchesTag = selectedTag === "All" || post.tags.includes(selectedTag as tag);
-		const isMatchesVisible = !post.isHidden;
-		return matchesSearch && matchesTag && isMatchesVisible;
-	});
+	// Step-by-step filtering for clarity
+	const searchValue = searchTerm.toLowerCase();
+	const visiblePosts = posts.filter((post) => !post.isHidden);
+	const tagFilteredPosts =
+		selectedTag === "All" ? visiblePosts : visiblePosts.filter((post) => post.tags.includes(selectedTag as tag));
+
+	const searchFilteredPosts = tagFilteredPosts.filter(
+		(post) =>
+			post.title.toLowerCase().includes(searchValue) ||
+			post.description.toLowerCase().includes(searchValue) ||
+			post.tags.some((t) => t.toLowerCase().includes(searchValue)) ||
+			post.date.toLowerCase().includes(searchValue),
+	);
+
+	const filteredProjects = searchFilteredPosts;
 
 	// Find the original case tag for display
 	const displayTag = selectedTag === "All" ? "All Posts" : selectedTag;
@@ -108,7 +113,7 @@ export default function PostsPage({ tag = "All" }: { tag?: tag | "All" }) {
 							<>
 								<div className="mb-8">
 									<p className="text-color4">
-										Showing {filteredProjects.length} of {posts.length} {getTagLabel(selectedTag)}
+										Showing {searchFilteredPosts.length} of {tagFilteredPosts.length} cards
 									</p>
 								</div>
 								<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

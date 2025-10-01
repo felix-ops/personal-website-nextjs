@@ -25,6 +25,8 @@ declare global {
 }
 
 export const setup = async (scene: Scene, engine: Engine) => {
+	const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
 	// init simple global state bridge for UI controls
 	const state: Record<string, unknown> = window.state ?? {
 		current: 0,
@@ -70,6 +72,7 @@ export const setup = async (scene: Scene, engine: Engine) => {
 	camera.radius = 0.1;
 	camera.alpha = -Math.PI / 2;
 	camera.fov = 0.8;
+	camera.useNaturalPinchZoom = true;
 
 	scene.clearColor = new Color4(0, 0, 0, 1);
 
