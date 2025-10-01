@@ -40,7 +40,7 @@ export default function BabylonDemo() {
 			<BabylonScene className="w-full h-screen" onSceneReady={setup} debug={true} />
 			<div className="pointer-events-none absolute left-0 top-0 z-10 flex w-full justify-start p-4">
 				{controlsOpen ? (
-					<div className="pointer-events-auto relative w-full max-w-sm rounded-xl border border-color6/60 bg-color8/70 p-4 shadow-xl backdrop-blur-md">
+					<div className="pointer-events-auto relative w-full max-w-75 rounded-xl border border-color6/60 bg-color8/70 p-4 shadow-xl backdrop-blur-md">
 						<button
 							type="button"
 							aria-label="Hide controls"
@@ -61,16 +61,16 @@ export default function BabylonDemo() {
 								formatValue={(v) => `${v.toFixed(3)} A`}
 							/>
 							<Slider
-								label="Coil Turns"
+								label="Coil Winding Count"
 								min={1}
 								max={10}
 								step={1}
 								value={[coilTurns]}
 								onValueChange={(v: number[]) => setCoilTurns(Math.round(v[0] ?? 1))}
-								formatValue={(v) => `${Math.round(v)}`}
+								formatValue={(v) => `${Math.round(v)} turns`}
 							/>
 							<Slider
-								label="Solenoid Radius"
+								label="Coil Radius"
 								min={0.005}
 								max={0.05}
 								step={0.0001}
