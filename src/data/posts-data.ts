@@ -1,10 +1,34 @@
 import { formatPosts } from "@/lib/utils";
 import { Post } from "./post-types";
 
+// Featured posts configuration - specify the order of posts to display
+export const featuredPostIds = [
+	"magnetic-field-visualization",
+	"azaadi-sat-2-vis-24scO",
+	"azaadi-sat-2-JKa92",
+	"quiet-girl-a3rt4",
+	"librarian-3d-model-DfKjk",
+	"grind-kanji-grind",
+];
+//This extension designed for JPDB users who want to enhance their learning experience
+//  by integrating custom images, audio, and sentences into the JPDB platform. This extension
+// enables users to fetch media from existing Anki decks and displays them during reviews.
 //If it is a blog the ID and the link ending should be identical
 const rawPosts: Post[] = [
 	{
-		id: "0002-grind-kanji-grind",
+		id: "jpdb-media-support-extension",
+		title: "JPDB Media Support Extension",
+		description: `A Web Extension which helps you add media to the JPDB to enable contextual learning and enabling sentence mining workflows.`,
+
+		image:
+			"https://opengraph.githubassets.com/58f4d9da8b05b283c22026eedfa18af55a83bf1564da55ca4f7e99aea6de2f1f/felix-ops/JPDB-Media-Support",
+		link: "https://github.com/felix-ops/JPDB-Media-Support/",
+		tags: ["Projects", "Japanese"],
+		date: "22-July-2025",
+	},
+
+	{
+		id: "grind-kanji-grind",
 		title: "Kanji Grind Quiz",
 		description: `A Web application built to help memorize and recognize kanji by quizzing yourself.`,
 		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/thumbnails/gkg-screenshot2-desktop-ii34rv.png",
@@ -13,11 +37,11 @@ const rawPosts: Post[] = [
 		date: "26-May-2024",
 	},
 	{
-		id: "0001-magnetic-field-vis",
+		id: "magnetic-field-visualization",
 		title: "Magnetic Field Visualization",
 		description: `A real-time interactive visualization of the magnetic field distribution around a solenoid, rendered using custom GLSL shaders within Babylon.js.`,
 		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/solenoid.png",
-		link: "/projects/004-magnetic-field-visualization",
+		link: "/projects/magnetic-field-visualization",
 		tags: ["Projects", "3D", "Simulation"],
 		date: "12-Aug-2025",
 	},
@@ -69,11 +93,11 @@ const rawPosts: Post[] = [
 		isHidden: true,
 	},
 	{
-		id: "0000-wave-shader-image",
+		id: "wave-shader-image",
 		title: "Wave Shader Image Demo",
 		description: "Demo of a webgl shader that creates a wave effect on an image.",
 		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/skeleton.png",
-		link: "/projects/002-shaders-image-demo",
+		link: "/projects/wave-shader-image",
 		tags: ["Projects"],
 		date: "30-Jul-2025",
 		isHidden: true,

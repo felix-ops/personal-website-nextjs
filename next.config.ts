@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
 				hostname: "cdn.jsdelivr.net",
 				pathname: "/gh/felix-ops/website-assets/**",
 			},
+			{
+				protocol: "https",
+				hostname: "opengraph.githubassets.com",
+				pathname: "/**",
+			},
 		],
 	},
 };
