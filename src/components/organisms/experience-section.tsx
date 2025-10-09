@@ -73,28 +73,6 @@ const ExperienceSection = () => {
 		};
 	}, []); // Empty dependency array ensures this runs only once
 
-	// --- Image preloading logic ---
-	useEffect(() => {
-		const preloadImages = () => {
-			// Preload all background images and logos except the first one
-			experiences.slice(1).forEach((experience) => {
-				// Preload background image
-				const bgImg = new window.Image();
-				bgImg.src = experience.backgroundImage;
-
-				// Preload logo
-				const logoImg = new window.Image();
-				logoImg.src = experience.logo;
-			});
-		};
-
-		// Start preloading after the first image loads and a short delay
-		if (firstImageLoaded) {
-			const timer = setTimeout(preloadImages, 100); // Small delay to ensure first image is fully rendered
-			return () => clearTimeout(timer);
-		}
-	}, [firstImageLoaded]);
-
 	// --- Logic to handle changing the experience card ---
 	const changeCard = (newIndex: number) => {
 		if (newIndex > currentIndex) {
@@ -169,37 +147,41 @@ const ExperienceSection = () => {
 				className="pointer-events-none fixed inset-0 z-0"
 				style={{ clipPath: "inset(50% 50% 50% 50%)" }}
 			>
-				<AnimatePresence initial={false}>
+				{experiences.map((experience, index) => (
 					<motion.div
-						key={currentExperience.backgroundImage}
+						key={index}
 						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						exit={{ opacity: 0 }}
+						animate={{
+							opacity: index === currentIndex ? 1 : 0,
+						}}
 						transition={{ duration: 0.7, ease: "easeInOut" }}
-						className="h-full w-full"
+						className="absolute inset-0 h-full w-full"
 					>
 						<Image
-							src={currentExperience.backgroundImage}
+							src={experience.backgroundImage}
 							alt=""
 							fill
 							sizes="100vw"
 							className="object-cover object-center"
-							priority={currentIndex === 0}
-							onLoad={currentIndex === 0 ? () => setFirstImageLoaded(true) : undefined}
+							priority={index === 0}
+							onLoad={index === 0 ? () => setFirstImageLoaded(true) : undefined}
 						/>
 					</motion.div>
-				</AnimatePresence>
+				))}
 			</div>
 
 			{/*
 				This section is the main scrollable component. It now contains
 				the gradient overlay, making the gradient relative to this section.
 			*/}
-			<section id="experience" className="relative z-10 bg-transparent overflow-hidden">
+			<section
+				id="experience"
+				className={`relative z-10 bg-transparent overflow-hidden transition-opacity duration-500 ${firstImageLoaded ? "opacity-100" : "opacity-0"}`}
+			>
 				{/* Gradient Overlay now relative to this section */}
 				<div className="absolute inset-0 bg-gradient-to-t from-[#000000ff] via-[#000813dd] to-[#00060faa] -z-10"></div>
 
-				{/*
+				{/*	
 					This is the CONTENT WRAPPER that is being tracked.
 					The Intersection Observer watches this div, and its dimensions are used
 					to calculate the clip-path for the fixed background.
@@ -325,6 +307,7 @@ const ExperienceSection = () => {
 													width={80}
 													height={80}
 													className="w-50 h-30 object-contain"
+													priority={currentIndex === 0}
 												/>
 											</a>
 										</div>
