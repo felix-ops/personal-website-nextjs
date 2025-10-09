@@ -17,6 +17,7 @@ type Direction = "next" | "previous";
 const ExperienceSection = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [direction, setDirection] = useState<Direction>("next");
+	const [firstImageLoaded, setFirstImageLoaded] = useState(false);
 
 	// The height can be a number (pixels) or the string "auto"
 	const [height, setHeight] = useState<number | "auto">("auto");
@@ -71,6 +72,28 @@ const ExperienceSection = () => {
 			}
 		};
 	}, []); // Empty dependency array ensures this runs only once
+
+	// --- Image preloading logic ---
+	useEffect(() => {
+		const preloadImages = () => {
+			// Preload all background images and logos except the first one
+			experiences.slice(1).forEach((experience) => {
+				// Preload background image
+				const bgImg = new window.Image();
+				bgImg.src = experience.backgroundImage;
+
+				// Preload logo
+				const logoImg = new window.Image();
+				logoImg.src = experience.logo;
+			});
+		};
+
+		// Start preloading after the first image loads and a short delay
+		if (firstImageLoaded) {
+			const timer = setTimeout(preloadImages, 100); // Small delay to ensure first image is fully rendered
+			return () => clearTimeout(timer);
+		}
+	}, [firstImageLoaded]);
 
 	// --- Logic to handle changing the experience card ---
 	const changeCard = (newIndex: number) => {
@@ -161,7 +184,8 @@ const ExperienceSection = () => {
 							fill
 							sizes="100vw"
 							className="object-cover object-center"
-							priority
+							priority={currentIndex === 0}
+							onLoad={currentIndex === 0 ? () => setFirstImageLoaded(true) : undefined}
 						/>
 					</motion.div>
 				</AnimatePresence>

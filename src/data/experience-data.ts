@@ -1,6 +1,6 @@
 export const experiences = [
 	{
-		title: "Lead Ground Station Engineer",
+		title: "Ground-Station Engineer (Embedded Systems)",
 		company: "Space Kidz India",
 		period: "Dec 2022 - Mar 2023",
 		location: "Chennai, India",
