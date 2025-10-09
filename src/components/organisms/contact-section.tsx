@@ -25,7 +25,7 @@ export default function ContactSection() {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
-					access_key: "9185149c-c3af-411e-b77f-4368a933d06d",
+					access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
 					name: data.name,
 					email: data.email,
 					subject: data.projectType || "Portfolio Inquiry",
