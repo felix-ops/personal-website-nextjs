@@ -21,7 +21,12 @@ export default function BabylonScene({ className, onSceneReady, debug = false }:
 		const canvas = canvasRef.current;
 
 		// initialize babylon scene and engine
-		const engine = new Engine(canvas, true);
+		const engine = new Engine(canvas, true, {
+			alpha: true,
+			antialias: true,
+			preserveDrawingBuffer: false,
+			premultipliedAlpha: false,
+		});
 		const scene = new Scene(engine);
 
 		// Execute the custom 3D code
@@ -88,13 +93,15 @@ export default function BabylonScene({ className, onSceneReady, debug = false }:
 	}, [onSceneReady, debug]);
 
 	return (
-		<div className={className}>
+		<div className={className} style={{ background: "transparent" }}>
 			<canvas
 				ref={canvasRef}
 				style={{
 					width: "100%",
 					height: "100%",
 					outline: "none",
+					background: "transparent",
+					display: "block",
 				}}
 				id="gameCanvas"
 			/>

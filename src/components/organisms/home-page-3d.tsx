@@ -122,7 +122,7 @@ const setup = (scene: Scene, engine: Engine) => {
 		value: bgColor,
 	});
 	keyFrames.push({
-		frame: 150, // 5 seconds at 30 fps
+		frame: 30 * 1, // 5 seconds at 30 fps
 		value: gridColor,
 	});
 

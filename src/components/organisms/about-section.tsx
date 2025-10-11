@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Mascot3D from "./mascot-3d";
 
 export default function AboutSection() {
 	const skills = [
@@ -23,14 +23,7 @@ export default function AboutSection() {
 					<div className="grid lg:grid-cols-7 gap-8 items-center">
 						<div className="lg:col-span-3 animate-slide-up">
 							<div className="relative max-w-md h-100 w-100 mx-auto">
-								<Image
-									src="https://cdn.jsdelivr.net/gh/felix-ops/website-assets/book-girl-pixel.png"
-									alt="Professional headshot"
-									fill
-									className="rounded-2xl " //shadow-lg object-cover"
-									sizes="(max-width: 768px) 100vw, 33vw"
-									priority={true}
-								/>
+								<Mascot3D />
 							</div>
 						</div>
 
