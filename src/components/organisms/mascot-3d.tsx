@@ -50,15 +50,6 @@ export default function Mascot3D() {
 		});
 	}, []);
 
-	// Show loading state initially (for device/WebGL check)
-	if (isLoading) {
-		return (
-			<div className="w-full h-full rounded-2xl overflow-hidden bg-gray-100 animate-pulse flex items-center justify-center">
-				<div className="text-gray-400">Pixeling...</div>
-			</div>
-		);
-	}
-
 	// Show permanent fallback image for mobile/touch devices or when WebGL is not supported
 	if (shouldShowFallback) {
 		return (
