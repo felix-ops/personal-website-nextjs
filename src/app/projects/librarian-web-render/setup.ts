@@ -84,7 +84,7 @@ export const setup = async (scene: Scene, engine: Engine) => {
 	greenDressMat.directIntensity = 0;
 	collarMat.directIntensity = 0;
 
-	hairMat.albedoColor = Color3.FromHexString("#130500");
+	hairMat.albedoColor = Color3.FromHexString("#040302");
 	hairMat.roughness = 0.8;
 
 	skinMat.emissiveColor = Color3.FromHexString("#ffffff");

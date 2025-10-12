@@ -20,6 +20,8 @@ const setup = (scene: Scene, engine: Engine) => {
 	camera.useNaturalPinchZoom = true;
 	camera.wheelPrecision = 20;
 	camera.target.y = -6;
+	camera.alpha = Tools.ToRadians(180);
+	camera.beta = Tools.ToRadians(90);
 
 	const bgColor = Color3.FromHexString("#f5f5f5");
 	const gridColor = new Color3(0.85, 0.85, 0.85);
@@ -122,7 +124,7 @@ const setup = (scene: Scene, engine: Engine) => {
 		value: bgColor,
 	});
 	keyFrames.push({
-		frame: 30 * 1, // 5 seconds at 30 fps
+		frame: 90, // 3 seconds at 30 fps
 		value: gridColor,
 	});
 
