@@ -157,7 +157,7 @@ export const setup = async (scene: Scene, engine: Engine) => {
 
 	postProcess.onApply = function (effect) {
 		effect.setFloat2("screenSize", postProcess.width, postProcess.height);
-		effect.setFloat("pixelSize", 3.0);
+		effect.setFloat("pixelSize", 2.4 / engine.getHardwareScalingLevel());
 	};
 
 	// Face the cursor
@@ -189,7 +189,13 @@ export const setup = async (scene: Scene, engine: Engine) => {
 	let smoothing = 0.05; // smaller = slower, smoother
 	scene.onBeforeRenderObservable.add(() => {
 		// Exponential smoothing (lerp)
-		character_parent.rotation.x += (targetXRot - character_parent.rotation.x) * smoothing;
-		character_parent.rotation.y += (targetYRot - character_parent.rotation.y) * smoothing;
+		const epsilon = 0.001;
+		const dx = targetXRot - character_parent.rotation.x;
+		const dy = targetYRot - character_parent.rotation.y;
+		if (Math.abs(dx) < epsilon && Math.abs(dy) < epsilon) {
+			return;
+		}
+		character_parent.rotation.x += dx * smoothing;
+		character_parent.rotation.y += dy * smoothing;
 	});
 };
