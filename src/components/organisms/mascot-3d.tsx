@@ -46,7 +46,10 @@ export default function Mascot3D() {
 		// before we remove the fallback image, eliminating the flicker.
 		scene.onAfterRenderObservable.addOnce(() => {
 			// 3. Model loading is complete and rendered, so hide the placeholder image.
-			setIsModelLoading(false);
+			setTimeout(() => {
+				// 3. Model loading is complete and rendered, so hide the placeholder image.
+				setIsModelLoading(false);
+			}, 500); // 500ms is usually sufficient to avoid flicker.
 		});
 	}, []);
 
