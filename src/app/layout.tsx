@@ -2,35 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import QueryProvider from "@/components/query-provider";
 import { Toaster } from "@/components/atoms/toaster";
-import { personalInfo } from "@/data/information";
-
-export const metadata: Metadata = {
-	metadataBase: new URL("https://bhuvanesh-personal.netlify.app/"),
-	title: personalInfo.fullName,
-	description: "Portfolio and blog of Bhuvaneshwaran M, 3D visualization and simulation expert.",
-	keywords: ["3D", "Visualization", "Simulation", "Portfolio", "Blog", "Bhuvaneshwaran"],
-	authors: [{ name: "Bhuvaneshwaran M", url: "https://bhuvanesh-personal.netlify.app/" }],
-	openGraph: {
-		title: "Bhuvanesh | Portfolio",
-		description: "Portfolio and blog of Bhuvaneshwaran M, 3D visualization and simulation expert.",
-		url: "https://bhuvanesh-personal.netlify.app/",
-		siteName: "Bhuvanesh Portfolio",
-		images: [
-			{
-				url: "/logos/bu-logo.svg", // or a full URL
-				width: 800,
-				height: 600,
-				alt: "Bhuvanesh Portfolio Logo",
-			},
-		],
-		locale: "en_US",
-		type: "website",
-	},
-
-	icons: {
-		icon: "/logos/bu-logo.svg",
-	},
-};
 
 export default function RootLayout({
 	children,
@@ -54,3 +25,62 @@ export default function RootLayout({
 		</html>
 	);
 }
+
+// SEO
+export const metadata: Metadata = {
+	title: "buva.io | Bhuvaneshwaran M",
+	metadataBase: new URL("https://buva.io"),
+	description: "A creative space where I'll share my insights and experiences from my journey.",
+	authors: [{ name: "Bhuvaneshwaran M", url: "https://buva.io" }],
+	openGraph: {
+		title: "Buva's Journal",
+		description: "A creative space where I'll share my insights and experiences from my journey.",
+		url: "https://buva.io",
+		siteName: "Buva's Journal",
+		images: [
+			{
+				url: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/logos/bu-logo.svg",
+				width: 420,
+				height: 420,
+				alt: "buva's logo",
+			},
+		],
+		locale: "en_US",
+		type: "website",
+	},
+
+	icons: {
+		icon: "/logos/bu-logo.svg",
+	},
+
+	robots: {
+		index: true,
+		follow: true,
+	},
+
+	keywords: [
+		"3D",
+		"Visualization",
+		"3D Visualization",
+		"Simulation",
+		"Portfolio",
+		"Blog",
+		"Bhuvaneshwaran",
+		"Blender",
+		"WebGL",
+		"Babylon.js",
+		"Three.js",
+		"Embedded Systems",
+		"IoT",
+		"Ground Station",
+		"Satellite",
+		"Nano Satellite",
+		"AzaadiSAT-2",
+		"Space Kidz India",
+		"Monkey Science",
+		"3D Simulations",
+		"EdTech",
+		"3D Experiences",
+		"Immersive Technology",
+	],
+};
