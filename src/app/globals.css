@@ -188,6 +188,11 @@ html {
 	margin-bottom: 2rem;
 }
 
+/* Thin scrollbar with light theme */
+* {
+	scrollbar-width: thin;
+}
+
 /* Additional offset for all anchor links due to navbar */
 :target {
 	scroll-margin-top: 6rem;

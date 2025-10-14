@@ -196,4 +196,32 @@ export const setup = async (scene: Scene, engine: Engine) => {
 		character_parent.rotation.x += dx * smoothing;
 		character_parent.rotation.y += dy * smoothing;
 	});
+
+	// //capture screenshot (disable on production)
+	// window.addEventListener("keydown", (evt) => {
+	// 	if (evt.key.toLowerCase() === "t") {
+	// 		if (!canvas) return;
+
+	// 		// Force render once to make sure the latest frame is captured
+	// 		scene.render();
+
+	// 		// Convert canvas to blob
+	// 		canvas.toBlob(
+	// 			(blob) => {
+	// 				if (!blob) return;
+
+	// 				// Create a temporary link to download
+	// 				const link = document.createElement("a");
+	// 				link.href = URL.createObjectURL(blob);
+	// 				link.download = "capture.png";
+	// 				link.click();
+
+	// 				// Clean up
+	// 				URL.revokeObjectURL(link.href);
+	// 			},
+	// 			"image/png",
+	// 			1.0, // quality (ignored for PNG)
+	// 		);
+	// 	}
+	// });
 };
