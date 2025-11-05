@@ -51,7 +51,7 @@ const rawPosts: Post[] = [
 		description: "My Journey with Azaadi Sat - 2 Mission",
 		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/azaadi-sat/sslv-d3-launch.webp",
 		link: "/blogs/azaadi-sat-2-JKa92",
-		tags: ["Blogs"],
+		tags: ["Blog"],
 		date: "6-May-2023",
 	},
 	{
@@ -88,7 +88,7 @@ const rawPosts: Post[] = [
 			"Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
 		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/ski-group-photo.jpg",
 		link: "/blogs/test-blog-2-4tegy",
-		tags: ["Blogs", "Projects", "Simulation"],
+		tags: ["Blog", "Projects", "Simulation"],
 		date: "22-Apr-2025",
 		isHidden: true,
 	},
