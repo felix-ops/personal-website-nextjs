@@ -28,15 +28,18 @@ export default function RootLayout({
 
 // SEO
 export const metadata: Metadata = {
-	title: "buva.io | Bhuvaneshwaran M",
+	title: {
+		default: "Bhuvaneshwaran M | Buva.io",
+		template: "%s | Buva.io",
+	},
 	metadataBase: new URL("https://buva.io"),
-	description: "A creative space where I'll share my insights and experiences from my journey.",
+	description: "Buva.io is a creative and technical space dedicated to exploring the intersection of art and technology. I'm Bhuvaneshwaran, Science, Technology and Art enthusiast,  this is where I share my work, progress and my passion projects. You'll find a diverse collection of content, including breakdowns 3D art, interactive 3D simulations, and wide rage of web projects. Beyond the technical, I also share personal stories and insights from my ongoing journey as a developer and creator. Whether you're here for the code, the art, or the story, I hope you find something that inspires you.",
 	authors: [{ name: "Bhuvaneshwaran M", url: "https://buva.io" }],
 	openGraph: {
-		title: "Buva's Journal",
-		description: "A creative space where I'll share my insights and experiences from my journey.",
+		title: "Bhuvaneshwaran M | Buva.io",
+		description: "Buva.io is a creative and technical space dedicated to exploring the intersection of art and technology. I'm Bhuvaneshwaran, Science, Technology and Art enthusiast,  this is where I share my work, progress and my passion projects. You'll find a diverse collection of content, including breakdowns 3D art, interactive 3D simulations, and wide rage of web projects. Beyond the technical, I also share personal stories and insights from my ongoing journey as a developer and creator. Whether you're here for the code, the art, or the story, I hope you find something that inspires you.",
 		url: "https://buva.io",
-		siteName: "Buva's Journal",
+		siteName: "Bhuvaneshwaran M | Buva.io",
 		images: [
 			{
 				url: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/logos/bu-logo.svg",

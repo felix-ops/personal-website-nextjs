@@ -3,7 +3,7 @@
 import { Scene } from "@babylonjs/core/scene";
 import BabylonScene from "./babylon-renderer";
 import { Engine } from "@babylonjs/core/Engines/engine";
-import { setup } from "@/app/projects/librarian-web-render/setup";
+import { setup } from "@/app/projects/librarian-3d-model-DfKjk/setup";
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 
