@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
 		"3d": "3D Visualizations",
 		simulation: "Simulations",
 		blog: "Blogs",
-		japanese: "Japanese Studies",
+		japanese: "Japanese",
 	};
 
 	const descriptions: Record<string, string> = {
