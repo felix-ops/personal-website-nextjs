@@ -30,14 +30,14 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
 		projects: "Projects",
 		"3d": "3D Visualizations",
 		simulation: "Simulations",
-		blog: "Blogs",
+		blogs: "Blogs",
 		japanese: "Japanese",
 	};
 
 	const descriptions: Record<string, string> = {
 		all: "Explore all posts and updates from me — projects, simulations, blogs, and more.",
 		projects: "Here I'll share interesting projects and cool experiments I do.",
-		blog: "Read tech insights and personal updates from here!",
+		blogs: "Read tech insights and personal updates from here!",
 		"3d": "Experience my 3D experiments and interactive visualizations.",
 		simulation: "Explore physics and simulation-based projects I worked with.",
 		japanese: "Dive into my Japanese learning and cultural projects.",

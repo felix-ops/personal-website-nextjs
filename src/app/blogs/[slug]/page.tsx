@@ -9,12 +9,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	const id = slug.toLowerCase();
 
 	const blog = posts.find((p) => {
-		const isBlogTag = Array.isArray(p.tags) && p.tags.includes("Blog");
+		const isBlogTag = Array.isArray(p.tags) && p.tags.includes("Blogs");
 		const postId = typeof p.id === "string" ? p.id.toLowerCase() : "";
 		return isBlogTag && postId === id;
 	});
 
-	const title = blog?.title ?? "Blog";
+	const title = blog?.title ?? "Blogs";
 	const description = blog?.description ?? "Read a blog post on Buva.io.";
 
 	const canonicalPath = (typeof blog?.link === "string" && blog.link) || (slug ? `/blogs/${slug}` : "/blogs");
