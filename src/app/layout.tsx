@@ -33,11 +33,11 @@ export const metadata: Metadata = {
 		template: "%s | Buva.io",
 	},
 	metadataBase: new URL("https://buva.io"),
-	description: "Buva.io is a creative and technical space dedicated to exploring the intersection of art and technology. I'm Bhuvaneshwaran, Science, Technology and Art enthusiast,  this is where I share my work, progress and my passion projects. You'll find a diverse collection of content, including breakdowns 3D art, interactive 3D simulations, and wide rage of web projects. Beyond the technical, I also share personal stories and insights from my ongoing journey as a developer and creator. Whether you're here for the code, the art, or the story, I hope you find something that inspires you.",
+	description: "I'm Bhuvaneshwaran, Science, Technology and Art enthusiast,  this is where I share my work, progress and my passion projects. You'll find a diverse collection of content, including breakdowns 3D art, interactive 3D simulations, and wide rage of web projects. Beyond the technical, I also share personal stories and insights from my ongoing journey as a developer and creator. Whether you're here for the code, the art, or the story, I hope you find something that inspires you.",
 	authors: [{ name: "Bhuvaneshwaran M", url: "https://buva.io" }],
 	openGraph: {
 		title: "Bhuvaneshwaran M | Buva.io",
-		description: "Buva.io is a creative and technical space dedicated to exploring the intersection of art and technology. I'm Bhuvaneshwaran, Science, Technology and Art enthusiast,  this is where I share my work, progress and my passion projects. You'll find a diverse collection of content, including breakdowns 3D art, interactive 3D simulations, and wide rage of web projects. Beyond the technical, I also share personal stories and insights from my ongoing journey as a developer and creator. Whether you're here for the code, the art, or the story, I hope you find something that inspires you.",
+		description: "I'm Bhuvaneshwaran, Science, Technology and Art enthusiast,  this is where I share my work, progress and my passion projects. You'll find a diverse collection of content, including breakdowns 3D art, interactive 3D simulations, and wide rage of web projects. Beyond the technical, I also share personal stories and insights from my ongoing journey as a developer and creator. Whether you're here for the code, the art, or the story, I hope you find something that inspires you.",
 		url: "https://buva.io",
 		siteName: "Bhuvaneshwaran M | Buva.io",
 		images: [
