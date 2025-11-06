@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import BlogPage from "@/components/pages/blog-page";
 import { posts } from "@/data/posts-data";
+import { baseURL } from "@/data/information";
 
 export default BlogPage;
 
@@ -17,19 +18,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	const title = blog?.title ?? "Blogs";
 	const description = blog?.description ?? "Read a blog post on Buva.io.";
 
-	const canonicalPath = (typeof blog?.link === "string" && blog.link) || (slug ? `/blogs/${slug}` : "/blogs");
+	const canonicalPath = (typeof blog?.link === "string" && blog.link) || (slug ? `/blogs/${slug}` : "/posts/blogs");
 
 	return {
 		title,
 		description,
 		alternates: {
-			canonical: `https://buva.io${canonicalPath}`,
+			canonical: `${baseURL}${canonicalPath}`,
 		},
 		openGraph: {
 			title,
 			description,
-			url: `https://buva.io${canonicalPath}`,
-			siteName: "Buva.io",
+			url: `${baseURL}${canonicalPath}`,
+			siteName: "Bhuvaneshwaran M - Buva.io",
 			type: "website",
 		},
 	};

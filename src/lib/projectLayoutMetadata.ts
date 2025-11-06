@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { posts } from "@/data/posts-data";
+import { baseURL } from "@/data/information";
 
 function deriveSlugFromModuleUrl(moduleUrl: string): string {
 	try {
@@ -48,13 +49,13 @@ export async function generateProjectMetadata(moduleUrl: string): Promise<Metada
 		title,
 		description,
 		alternates: {
-			canonical: `https://buva.io${canonicalPath}`,
+			canonical: `${baseURL}${canonicalPath}`,
 		},
 		openGraph: {
 			title,
 			description,
-			url: `https://buva.io${canonicalPath}`,
-			siteName: "Buva.io",
+			url: `${baseURL}${canonicalPath}`,
+			siteName: "Bhuvaneshwaran M - Buva.io",
 			type: "website",
 		},
 	};

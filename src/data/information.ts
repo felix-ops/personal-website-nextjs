@@ -9,4 +9,5 @@ export const personalInfo = {
 	age: (new Date().getFullYear() - 2001).toString(),
 };
 
+//make sure the url does not end with a slash
 export const baseURL = `https://buva.io`;
