@@ -35,12 +35,12 @@ export const metadata: Metadata = {
 	},
 	metadataBase: new URL(baseURL),
 	description:
-		"I'm Bhuvanesh, a Science, Technology, and Art enthusiast sharing my projects and creative journey. Here you'll find 3D art breakdowns, interactive simulations, web experiments, and personal insights from my path as a developer, Engineer and creator.",
+		"I'm Bhuvanesh, a Science, Technology, and Art enthusiast sharing my projects and creative journey. Here you'll find 3D graphic projects, interactive sims, web experiments, and personal insights.",
 	authors: [{ name: "Bhuvaneshwaran M", url: baseURL }],
 	openGraph: {
 		title: "Bhuvaneshwaran M - Buva.io",
 		description:
-			"I'm Bhuvanesh, a Science, Technology, and Art enthusiast sharing my projects and creative journey. Here you'll find 3D art breakdowns, interactive simulations, web experiments, and personal insights from my path as a developer, Engineer and creator.",
+			"I'm Bhuvanesh, a Science, Technology, and Art enthusiast sharing my projects and creative journey. Here you'll find 3D graphic projects, interactive sims, web experiments, and personal insights.",
 		url: baseURL,
 		siteName: "Bhuvaneshwaran M - Buva.io",
 		locale: "en_US",
