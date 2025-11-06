@@ -8,3 +8,5 @@ export const personalInfo = {
 	github: "https://github.com/felix-ops",
 	age: (new Date().getFullYear() - 2001).toString(),
 };
+
+export const baseURL = `https://buva.io`;

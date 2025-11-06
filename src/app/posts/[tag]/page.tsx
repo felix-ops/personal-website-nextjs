@@ -1,6 +1,7 @@
 import PostsPage from "@/components/pages/posts-page";
 import { tag, tagValues } from "@/data/post-types";
 import { Metadata } from "next";
+import { baseURL } from "@/data/information";
 
 export default async function TagPostsPage({ params }: { params: Promise<{ tag: string }> }) {
 	const { tag: tagParam } = await params;
@@ -48,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
 	}
 	const readableTag = formatTag(tagValue);
 
-	const title = titles[tagValue.toLowerCase()] ?? `${readableTag} | Buva.io`;
+	const title = titles[tagValue.toLowerCase()] ?? `${readableTag}`;
 	const description =
 		descriptions[tagValue.toLowerCase()] ?? `Explore ${readableTag}-related posts and resources on Buva.io.`;
 
@@ -56,13 +57,13 @@ export async function generateMetadata({ params }: { params: Promise<{ tag: stri
 		title,
 		description,
 		alternates: {
-			canonical: `https://buva.io/posts/${tagValue.toLowerCase()}`,
+			canonical: `${baseURL}/posts/${tagValue.toLowerCase()}`,
 		},
 		openGraph: {
 			title,
 			description,
-			url: `https://buva.io/posts/${tagValue.toLowerCase()}`,
-			siteName: "Buva.io",
+			siteName: "Bhuvaneshwaran M - Buva.io",
+			url: `${baseURL}/posts/${tagValue.toLowerCase()}`,
 			type: "website",
 		},
 	};
