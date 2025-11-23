@@ -16,7 +16,7 @@ const rawPosts: Post[] = [
 	{
 		id: "bio-lens",
 		title: "BioLens",
-		description: `BioLens is an web based 3D medical image visualizer. It enables real-time rendering and analysis of NIfTI and DICOM scans with powerful transfer function editor, and precise clipping tools.`,
+		description: `BioLens is an web based 3D medical image visualizer. Supports volumetric rendering and analysis of NIfTI and DICOM scans with powerful transfer function editor, and precise clipping tools.`,
 		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets@main/projects/biolens/snapshot-16.png",
 		link: "https://biolens.buva.io",
 		tags: ["Projects", "3D"],
