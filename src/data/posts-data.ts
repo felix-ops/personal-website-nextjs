@@ -3,10 +3,10 @@ import { Post } from "./post-types";
 
 // Featured posts configuration - specify the order of posts to display
 export const featuredPostIds = [
+	"bio-lens",
 	"magnetic-field-visualization",
 	"azaadi-sat-2-vis-24scO",
 	"azaadi-sat-2-JKa92",
-	"quiet-girl-a3rt4",
 	"librarian-3d-model-DfKjk",
 	"grind-kanji-grind",
 ];
