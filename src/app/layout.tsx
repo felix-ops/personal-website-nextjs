@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import QueryProvider from "@/components/query-provider";
 import { Toaster } from "@/components/atoms/toaster";
@@ -23,6 +24,7 @@ export default function RootLayout({
 					<Toaster />
 				</QueryProvider>
 			</body>
+			<GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || ""} />
 		</html>
 	);
 }
