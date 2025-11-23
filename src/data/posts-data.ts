@@ -10,11 +10,18 @@ export const featuredPostIds = [
 	"librarian-3d-model-DfKjk",
 	"grind-kanji-grind",
 ];
-//This extension designed for JPDB users who want to enhance their learning experience
-//  by integrating custom images, audio, and sentences into the JPDB platform. This extension
-// enables users to fetch media from existing Anki decks and displays them during reviews.
+
 //If it is a blog the ID and the link ending should be identical
 const rawPosts: Post[] = [
+	{
+		id: "bio-lens",
+		title: "BioLens",
+		description: `BioLens is an web based 3D medical image visualizer. It enables real-time rendering and analysis of NIfTI and DICOM scans with powerful transfer function editor, and precise clipping tools.`,
+		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets@main/projects/biolens/snapshot-16.png",
+		link: "https://github.com/felix-ops/JPDB-Media-Support/",
+		tags: ["Projects", "3D"],
+		date: "23-November-2025",
+	},
 	{
 		id: "jpdb-media-support-extension",
 		title: "JPDB Media Support Extension",
