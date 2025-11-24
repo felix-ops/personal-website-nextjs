@@ -47,6 +47,22 @@ export const metadata: Metadata = {
 		siteName: "Bhuvaneshwaran M - Buva.io",
 		locale: "en_US",
 		type: "website",
+		images: [
+			{
+				url: "/opengraph-image.png",
+				width: 1200,
+				height: 630,
+				alt: "Bhuvaneshwaran M - Buva.io",
+			},
+		],
+	},
+
+	twitter: {
+		card: "summary_large_image",
+		title: "Bhuvaneshwaran M - Buva.io",
+		description:
+			"I'm Bhuvanesh, a Science, Technology, and Art enthusiast sharing my projects and creative journey. Here you'll find 3D graphic projects, interactive sims, web experiments, and personal insights.",
+		images: ["/opengraph-image.png"],
 	},
 
 	icons: {
