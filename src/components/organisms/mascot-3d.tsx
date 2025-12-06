@@ -5,16 +5,38 @@ import BabylonScene from "./babylon-renderer";
 import { Engine } from "@babylonjs/core/Engines/engine";
 import { setup } from "@/app/projects/librarian-3d-model-DfKjk/setup";
 import Image from "next/image";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef, forwardRef, useImperativeHandle } from "react";
 
-export default function Mascot3D() {
+import { Tools } from "@babylonjs/core/Misc/tools";
+import { mapRange } from "@/lib/utils";
+
+export type MascotRef = {
+	setInteraction: (x: number, y: number) => void;
+	reset: () => void;
+};
+
+const Mascot3D = forwardRef<MascotRef>((_, ref) => {
 	const [shouldShowFallback, setShouldShowFallback] = useState(false);
 	const [isLoading, setIsLoading] = useState(true);
 	const [isModelLoading, setIsModelLoading] = useState(true);
+	const sceneRef = useRef<Scene | null>(null);
 
 	// ✅ Single placeholder image for both cases
 	const PLACEHOLDER_IMAGE =
 		"https://cdn.jsdelivr.net/gh/felix-ops/website-assets/projects/librarian-web-render/mascot-capture-2.png";
+
+	useImperativeHandle(ref, () => ({
+		setInteraction: (normX: number, normY: number) => {
+			if (!sceneRef.current || !sceneRef.current.metadata) return;
+			sceneRef.current.metadata.targetXRot = mapRange(normY, [0, 1], [Tools.ToRadians(-30), Tools.ToRadians(30)]);
+			sceneRef.current.metadata.targetYRot = mapRange(normX, [0, 1], [Tools.ToRadians(-30), Tools.ToRadians(30)]);
+		},
+		reset: () => {
+			if (!sceneRef.current || !sceneRef.current.metadata) return;
+			sceneRef.current.metadata.targetXRot = 0;
+			sceneRef.current.metadata.targetYRot = 0;
+		},
+	}));
 
 	useEffect(() => {
 		const checkDeviceAndWebGL = () => {
@@ -34,6 +56,7 @@ export default function Mascot3D() {
 	}, []);
 
 	const setupWithLoadingState = useCallback(async (scene: Scene, engine: Engine) => {
+		sceneRef.current = scene;
 		await setup(scene, engine);
 
 		scene.onAfterRenderObservable.addOnce(() => {
@@ -78,4 +101,8 @@ export default function Mascot3D() {
 			/>
 		</div>
 	);
-}
+});
+
+Mascot3D.displayName = "Mascot3D";
+
+export default Mascot3D;

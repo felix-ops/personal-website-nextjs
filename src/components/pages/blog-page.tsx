@@ -10,7 +10,7 @@ import "github-markdown-css/github-markdown-light.css";
 import { posts } from "@/data/posts-data";
 import Link from "next/link";
 
-const postsDirectory = path.join(process.cwd(), "src/app/blogs/content");
+const postsDirectory = path.join(process.cwd(), "src/data/blog-content");
 
 export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
@@ -30,7 +30,7 @@ export default async function BlogPage({ params }: { params: Promise<{ slug: str
 		<div className="min-h-screen bg-color1 flex flex-col">
 			<Navigation />
 			<div className="flex-1 flex items-center justify-center py-10 md:py-20">
-				<article className="markdown-body !bg-color7 rounded-2xl w-full max-w-4xl border border-white/0 md:border-slate-200 md:shadow-md p-6 md:p-16 md:pt-7">
+				<article className="markdown-body !bg-color1 rounded-2xl w-full max-w-5xl p-6 md:p-16 md:pt-7">
 					<div className="mb-4 text-left">
 						<h1 className="text-5xl leading-tight">{post.title}</h1>
 						<p className="text-base text-color4 mb-6 whitespace-pre-line">{post.description}</p>

@@ -158,9 +158,12 @@ export const setup = async (scene: Scene, engine: Engine) => {
 		effect.setFloat("pixelSize", 2.4 / engine.getHardwareScalingLevel());
 	};
 
-	// Face the cursor
-	let targetXRot = 0;
-	let targetYRot = 0;
+	// Initialize metadata for rotation targets
+	scene.metadata = {
+		...scene.metadata,
+		targetXRot: 0,
+		targetYRot: 0,
+	};
 
 	scene.onPointerMove = function (evt) {
 		const canvas = engine.getRenderingCanvas();
@@ -173,14 +176,16 @@ export const setup = async (scene: Scene, engine: Engine) => {
 		const normX = mouseX / rect.width;
 		const normY = mouseY / rect.height;
 
-		targetXRot = mapRange(normY, [0, 1], [Tools.ToRadians(-30), Tools.ToRadians(30)]);
-		targetYRot = mapRange(normX, [0, 1], [Tools.ToRadians(-30), Tools.ToRadians(30)]);
+		scene.metadata.targetXRot = mapRange(normY, [0, 1], [Tools.ToRadians(-30), Tools.ToRadians(30)]);
+		scene.metadata.targetYRot = mapRange(normX, [0, 1], [Tools.ToRadians(-30), Tools.ToRadians(30)]);
 	};
 
 	// When mouse leaves the canvas — reset smoothly
 	canvas?.addEventListener("mouseleave", () => {
-		targetXRot = 0;
-		targetYRot = 0;
+		// Only reset if we are not being controlled externally (optional, but for now simple reset is fine,
+		// external controller can override if it's active)
+		scene.metadata.targetXRot = 0;
+		scene.metadata.targetYRot = 0;
 	});
 
 	// smoothing variables
@@ -188,8 +193,12 @@ export const setup = async (scene: Scene, engine: Engine) => {
 	scene.onBeforeRenderObservable.add(() => {
 		// Exponential smoothing (lerp)
 		const epsilon = 0.001;
-		const dx = targetXRot - character_parent.rotation.x;
-		const dy = targetYRot - character_parent.rotation.y;
+		const targetX = scene.metadata?.targetXRot || 0;
+		const targetY = scene.metadata?.targetYRot || 0;
+
+		const dx = targetX - character_parent.rotation.x;
+		const dy = targetY - character_parent.rotation.y;
+
 		if (Math.abs(dx) < epsilon && Math.abs(dy) < epsilon) {
 			return;
 		}

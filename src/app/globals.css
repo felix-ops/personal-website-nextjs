@@ -143,7 +143,7 @@ html {
 .markdown-body h6 {
 	font-family: var(--primary-font) !important;
 	color: var(--color2) !important;
-	font-weight: 700 !important;
+	font-weight: 600 !important;
 }
 .markdown-body {
 	font-size: 1rem !important;

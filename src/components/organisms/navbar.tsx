@@ -12,6 +12,19 @@ export default function Navigation() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const router = useRouter();
 	const pathname = usePathname();
+	const [scrollProgress, setScrollProgress] = useState(0);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollTotal = 50;
+			const scrollY = window.scrollY;
+			const progress = Math.min(scrollY / scrollTotal, 1);
+			setScrollProgress(progress);
+		};
+		window.addEventListener("scroll", handleScroll);
+		handleScroll(); // Initialize on mount
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
 
 	// Handle scrolling after navigation
 	useEffect(() => {
@@ -41,9 +54,14 @@ export default function Navigation() {
 	];
 
 	return (
-		<nav className="fixed top-0 left-0 right-0 lg:left-30 lg:right-30 bg-color1 md:bg-color1/85 backdrop-blur-sm border-slate-200 z-50 rounded-b-2xl md:rounded-full shadow-md md:shadow-lg">
-			<div className="container mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex justify-between items-center h-16 ">
+		<nav className="fixed top-2 left-0 right-0 lg:left-30 lg:right-30 bg-color1 md:bg-color1/85 backdrop-blur-sm border-slate-200 z-50 rounded-b-2xl md:rounded-full">
+			{/* Shadow element with interpolated opacity */}
+			<div
+				className="absolute inset-0 rounded-b-2xl md:rounded-full pointer-events-none shadow-md md:shadow-lg transition-none"
+				style={{ opacity: scrollProgress }}
+			/>
+			<div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+				<div className="flex justify-between items-center h-14 ">
 					<div className="flex-shrink-0">
 						<Link href="/">
 							<h1 className="font-[700] text-2xl text-color4 cursor-pointer px-2">{personalInfo.name}</h1>
@@ -57,7 +75,7 @@ export default function Navigation() {
 									<button
 										key={item.href}
 										onClick={() => handleNavClick(item.href)}
-										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-full hover:bg-color2 hover:text-white px-4 py-2 hover:shadow-md"
+										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-full hover:bg-color2 hover:text-white px-4 py-1 hover:shadow-md"
 									>
 										{item.label}
 									</button>
@@ -65,7 +83,7 @@ export default function Navigation() {
 									<Link
 										key={item.href}
 										href={item.href}
-										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-full hover:bg-color2 hover:text-white px-4 py-2 hover:shadow-md"
+										className="font-[600] text-lg text-color2 transition-colors duration-200 cursor-pointer rounded-full hover:bg-color2 hover:text-white px-4 py-1 hover:shadow-md"
 										onClick={() => setMobileMenuOpen(false)}
 									>
 										{item.label}

@@ -1,21 +1,3 @@
-# My Journey with AzaadiSAT-2
-
-- [Overview](#overview)
-  - [Background](#background)
-  - [Joining the Team](#joining-the-team)
-- [Mission Work](#mission-work)
-  - [Role as Embedded Systems Engineer](#role-as-embedded-systems-engineer)
-  - [Building the Ground Station](#building-the-ground-station)
-  - [Final Weeks before Launch](#final-weeks-before-launch)
-- [Launch Day](#launch-day)
-- [References](#references)
-
----
-
-## Overview
-
-### Background
-
 The **AzaadiSAT-2** mission was not just a satellite launch, it was a story of passion, collaboration, and engineering under pressure. This nanosatellite carried the dreams of **750 schoolgirls across India**, who contributed to payload modules under the mentorship of ISRO and Space Kidz India.
 
 For me, it was a deeply personal milestone. As a Physics graduate stepping into the space engineering world, the mission became a defining experience.

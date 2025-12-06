@@ -1,7 +1,15 @@
+"use client";
+
 import Link from "next/link";
-import Mascot3D from "./mascot-3d";
+import Mascot3D, { MascotRef } from "./mascot-3d";
+import { useRef, useEffect } from "react";
+import { mapRange } from "@/lib/utils";
 
 export default function AboutSection() {
+	const mascotRef = useRef<MascotRef>(null);
+	const containerRef = useRef<HTMLDivElement>(null);
+	const mousePosRef = useRef<{ x: number; y: number } | null>(null);
+
 	const skills = [
 		"Software Engineering",
 		"3D Graphics",
@@ -10,6 +18,60 @@ export default function AboutSection() {
 		"Computational Physics",
 		"Simulations",
 	];
+
+	const updateMascot = () => {
+		if (typeof window === "undefined" || window.innerWidth < 1024 || !containerRef.current || !mousePosRef.current) {
+			// If unwanted state, reset (optional, or just do nothing)
+			return;
+		}
+
+		const rect = containerRef.current.getBoundingClientRect();
+		const { x: clientX, y: clientY } = mousePosRef.current;
+
+		// Check if mouse is roughly inside the container (with some buffer? or strict?)
+		// Since we use this on scroll, strictly checking bounds is good to auto-reset if scrolled away
+		// However, handleMouseMove logic didn't strict check bounds, but it's implicit in mousemove on element.
+
+		let x = (clientX - rect.left) / rect.width;
+		let y = (clientY - rect.top) / rect.height;
+
+		// If out of bounds, reset and return
+		if (x < 0 || x > 1 || y < 0 || y > 1) {
+			mascotRef.current?.reset();
+			return;
+		}
+
+		x = mapRange(x, [0, 1], [0.75, 1.0]);
+		y = mapRange(y, [0, 1], [0.3, 0.8]);
+
+		mascotRef.current?.setInteraction(x, y);
+	};
+
+	useEffect(() => {
+		const handleScrollOrResize = () => {
+			if (mousePosRef.current) {
+				updateMascot();
+			}
+		};
+
+		window.addEventListener("scroll", handleScrollOrResize, { passive: true });
+		window.addEventListener("resize", handleScrollOrResize, { passive: true });
+
+		return () => {
+			window.removeEventListener("scroll", handleScrollOrResize);
+			window.removeEventListener("resize", handleScrollOrResize);
+		};
+	}, []);
+
+	const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+		mousePosRef.current = { x: e.clientX, y: e.clientY };
+		updateMascot();
+	};
+
+	const handleMouseLeave = () => {
+		mousePosRef.current = null;
+		mascotRef.current?.reset();
+	};
 
 	return (
 		<section id="about" className="py-20">
@@ -23,11 +85,16 @@ export default function AboutSection() {
 					<div className="grid lg:grid-cols-7 gap-8 items-center">
 						<div className="lg:col-span-3 animate-slide-up">
 							<div className="relative max-w-md h-100 w-100 mx-auto">
-								<Mascot3D />
+								<Mascot3D ref={mascotRef} />
 							</div>
 						</div>
 
-						<div className="lg:col-span-4 max-w-2xl animate-slide-up bg:color1/0 md:bg-color6 px-4 md:px-12 py-8 rounded-4xl">
+						<div
+							ref={containerRef}
+							onMouseMove={handleMouseMove}
+							onMouseLeave={handleMouseLeave}
+							className="lg:col-span-4 max-w-2xl animate-slide-up bg:color1/0 md:bg-color6 px-4 md:px-12 py-8 rounded-4xl"
+						>
 							<div className="space-y-6">
 								<div>
 									<h3 className="text-2xl font-semibold text-color2 mb-4">My Journey</h3>
