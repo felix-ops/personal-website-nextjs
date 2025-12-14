@@ -54,7 +54,7 @@ export default function Navigation() {
 	];
 
 	return (
-		<nav className="fixed top-2 left-0 right-0 lg:left-30 lg:right-30 bg-color1 md:bg-color1/85 backdrop-blur-sm border-slate-200 z-50 rounded-b-2xl md:rounded-full">
+		<nav className="fixed top-0 md:top-2 left-0 right-0 lg:left-30 lg:right-30 bg-color1 md:bg-color1/85 backdrop-blur-sm border-slate-200 z-50 rounded-b-2xl md:rounded-full">
 			{/* Shadow element with interpolated opacity */}
 			<div
 				className="absolute inset-0 rounded-b-2xl md:rounded-full pointer-events-none shadow-md md:shadow-lg transition-none"
