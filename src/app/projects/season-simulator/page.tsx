@@ -11,7 +11,7 @@ export default function BabylonDemo() {
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [showPath, setShowPath] = useState(true);
 	const [cameraSynced, setCameraSynced] = useState(true);
-	const [isSpinPlaying, setIsSpinPlaying] = useState(false);
+	const [isSpinPlaying, setIsSpinPlaying] = useState(true);
 	const [timeProgress, setTimeProgress] = useState(() => {
 		const now = new Date();
 		const gmtHours = now.getUTCHours() + now.getUTCMinutes() / 60 + now.getUTCSeconds() / 3600;

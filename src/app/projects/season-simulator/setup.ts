@@ -25,7 +25,7 @@ export const setup = async (scene: Scene, engine: Engine) => {
 	const gmtHours = now.getUTCHours() + now.getUTCMinutes() / 60 + now.getUTCSeconds() / 3600;
 	let timeProgress = gmtHours / 24;
 	let earthSpin = 0;
-	let isSpinPlaying = false;
+	let isSpinPlaying = true;
 
 	// --- Visual Setup ---
 
