@@ -53,6 +53,15 @@ const rawPosts: Post[] = [
 		date: "12-Aug-2025",
 	},
 	{
+		id: "magnetic-field-visualization-zustand",
+		title: "Magnetic Field Visualization (Zustand)",
+		description: `A real-time interactive visualization of the magnetic field distribution around a solenoid, built with Babylon.js and clean Zustand reactive state management.`,
+		image: "https://cdn.jsdelivr.net/gh/felix-ops/website-assets/solenoid.png",
+		link: "/projects/magnetic-field-visualization-zustand",
+		tags: ["Projects", "3D", "Simulation"],
+		date: "12-Aug-2025",
+	},
+	{
 		id: "azaadi-sat-2-JKa92",
 		title: "Azaadi Sat - 2",
 		description: "My Journey with Azaadi Sat - 2 Mission",

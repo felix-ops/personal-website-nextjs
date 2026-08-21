@@ -1,0 +1,104 @@
+"use client";
+
+import BabylonScene from "@/components/organisms/babylon-renderer";
+import { setup } from "./setup";
+import { Slider } from "./components/slider";
+import { Toggle } from "./components/toggle";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useSolenoidStore } from "./store";
+
+export default function BabylonZustandDemo() {
+	const current = useSolenoidStore((s) => s.current);
+	const setCurrent = useSolenoidStore((s) => s.setCurrent);
+
+	const coilTurns = useSolenoidStore((s) => s.coilTurns);
+	const setCoilTurns = useSolenoidStore((s) => s.setCoilTurns);
+
+	const solenoidRadius = useSolenoidStore((s) => s.solenoidRadius);
+	const setSolenoidRadius = useSolenoidStore((s) => s.setSolenoidRadius);
+
+	const interCoilDistance = useSolenoidStore((s) => s.interCoilDistance);
+	const setInterCoilDistance = useSolenoidStore((s) => s.setInterCoilDistance);
+
+	const currentDirection = useSolenoidStore((s) => s.currentDirection);
+	const setCurrentDirection = useSolenoidStore((s) => s.setCurrentDirection);
+
+	const [controlsOpen, setControlsOpen] = useState(true);
+
+	return (
+		<div className="relative">
+			<BabylonScene className="w-full h-screen" onSceneReady={setup} debug={false} />
+			<div className="pointer-events-none absolute left-0 top-0 z-10 flex w-full justify-start p-4">
+				{controlsOpen ? (
+					<div className="pointer-events-auto relative w-full max-w-75 rounded-xl border border-color6/60 bg-color8/80 p-4 shadow-xl backdrop-blur-sm">
+						<button
+							type="button"
+							aria-label="Hide controls"
+							onClick={() => setControlsOpen(false)}
+							className="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-color8 text-color4 shadow hover:bg-color6/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+						>
+							<ChevronLeft className="h-4 w-4" />
+						</button>
+						<div className="mb-2 pr-8 text-sm font-bold uppercase tracking-wide text-color2">Solenoid Properties (Zustand)</div>
+						<div className="grid grid-cols-1 gap-4">
+							<Slider
+								label="Current"
+								min={0}
+								max={2}
+								step={0.01}
+								value={[current]}
+								onValueChange={(v: number[]) => setCurrent(v[0] ?? 0)}
+								formatValue={(v) => `${v.toFixed(3)} A`}
+							/>
+							<Slider
+								label="Coil Winding Count"
+								min={1}
+								max={10}
+								step={1}
+								value={[coilTurns]}
+								onValueChange={(v: number[]) => setCoilTurns(Math.round(v[0] ?? 1))}
+								formatValue={(v) => `${Math.round(v)} turns`}
+							/>
+							<Slider
+								label="Coil Radius"
+								min={0.005}
+								max={0.05}
+								step={0.0001}
+								value={[solenoidRadius]}
+								onValueChange={(v: number[]) => setSolenoidRadius(v[0] ?? 0.01)}
+								formatValue={(v) => `${(v * 100).toFixed(3)} cm`}
+							/>
+							<Slider
+								label="Inter-coil Distance"
+								min={0.0035}
+								max={0.03}
+								step={0.0001}
+								value={[interCoilDistance]}
+								onValueChange={(v: number[]) => setInterCoilDistance(v[0] ?? (4 / 3) * 0.01)}
+								formatValue={(v) => `${(v * 100).toFixed(3)} cm`}
+							/>
+							<Toggle
+								label="Current Direction"
+								pressed={currentDirection === -1}
+								onPressedChange={(pressed: boolean) => setCurrentDirection(pressed ? -1 : 1)}
+							/>
+						</div>
+					</div>
+				) : (
+					<div className="pointer-events-auto">
+						<button
+							type="button"
+							aria-label="Show controls"
+							onClick={() => setControlsOpen(true)}
+							className="inline-flex items-center gap-2 rounded-full border border-color6/60 bg-color8/70 px-3 py-1.5 text-xs font-semibold text-color5 shadow backdrop-blur-md hover:bg-color6/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+						>
+							<ChevronRight className="h-4 w-4" />
+							Controls
+						</button>
+					</div>
+				)}
+			</div>
+		</div>
+	);
+}
